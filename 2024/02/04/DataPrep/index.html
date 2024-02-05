@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Data Gathering, Cleaning, and Preparation, Maiqi&#39;s Blogs">
-    <meta name="description" content="Data Preparation for the La Liga ML Project">
+    <meta name="description" content="Gathering DataFinding an APIs calls api-football from the rapidapi&amp;#39;‘s website and using it to get all the data we ne">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -69,6 +69,15 @@
 
 <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
 <ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>Home</span>
+    </a>
+    
+  </li>
   
   <li class="hide-on-med-and-down nav-item">
     
@@ -432,6 +441,17 @@
     </div>
 
     <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			Home
+		</a>
+          
+        </li>
         
         <li class="m-nav-item">
 	  
@@ -966,7 +986,7 @@
 <p> Run code, it shows the players’ data of FC Barcelona(click picture for <strong>zoom in</strong>)<br> <img src="/dataPrep/1.jpg" alt="Players Data From FC Barcelona (JSON)"></p>
 </li>
 <li><p>The example code below shows the API get various data of Barcelona (include wins, loses, draws, goal for, goal against, etc for each season) for La Liga from 2020-2023.</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://api-football-v1.p.rapidapi.com/v3/teams/statistics&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Getting the data of FC Barcelona in 2020</span></span><br><span class="line"><span class="comment"># 529 means Barcelona</span></span><br><span class="line"><span class="comment"># 140 means Laliga</span></span><br><span class="line"><span class="comment"># season means 2020 year</span></span><br><span class="line">query = &#123;<span class="string">&quot;league&quot;</span>:<span class="string">&quot;140&quot;</span>,<span class="string">&quot;season&quot;</span>:<span class="string">&quot;2020&quot;</span>,<span class="string">&quot;team&quot;</span>:<span class="string">&quot;529&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;X-RapidAPI-Key&quot;</span>: <span class="string">&quot;41cd2e76d5msh33f2a9a0026698bp1d5129jsnc602132a1e0b&quot;</span>,</span><br><span class="line">    <span class="string">&quot;X-RapidAPI-Host&quot;</span>: <span class="string">&quot;api-football-v1.p.rapidapi.com&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">response = requests.get(url, headers=headers, params=query)</span><br><span class="line">response.text</span><br></pre></td></tr></table></figure>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://api-football-v1.p.rapidapi.com/v3/teams/statistics&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Getting the data of FC Barcelona in 2020</span></span><br><span class="line"><span class="comment"># 529 means Barcelona</span></span><br><span class="line"><span class="comment"># 140 means Laliga</span></span><br><span class="line"><span class="comment"># season means 2020 year</span></span><br><span class="line">query = &#123;<span class="string">&quot;league&quot;</span>:<span class="string">&quot;140&quot;</span>,<span class="string">&quot;season&quot;</span>:<span class="string">&quot;2020&quot;</span>,<span class="string">&quot;team&quot;</span>:<span class="string">&quot;529&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;X-RapidAPI-Key&quot;</span>: Your_key,</span><br><span class="line">    <span class="string">&quot;X-RapidAPI-Host&quot;</span>: <span class="string">&quot;api-football-v1.p.rapidapi.com&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">response = requests.get(url, headers=headers, params=query)</span><br><span class="line">response.text</span><br></pre></td></tr></table></figure>
 <p> Run this sample code, it show the Barcelona’s Data in 2020 (click picture for <strong>zoom in</strong>)<br> <img src="/dataPrep/2.jpg" alt=" Data of FC Barcelona in 2020 (JSON)"></p>
 </li>
 </ol>
@@ -1059,7 +1079,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Data Preparation for the La Liga ML Project
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1104,7 +1124,7 @@
                 <a href="/2024/01/17/Introduction/">
                     <div class="card-image">
                         
-                        <img src="/article/laliga.jpeg" class="responsive-img" alt="Introduction - ML for the Data of La Liga">
+                        <img src="/article/laliga.jpg" class="responsive-img" alt="Introduction - ML for the Data of La Liga">
                         
                         <span class="card-title">Introduction - ML for the Data of La Liga</span>
                     </div>
