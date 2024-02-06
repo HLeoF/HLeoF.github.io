@@ -987,7 +987,7 @@
 </ol>
 <h2 id="Getting-Raw-Data"><a href="#Getting-Raw-Data" class="headerlink" title="Getting Raw Data"></a>Getting Raw Data</h2><p>Getting the raw data from these two APIs.<br><img src="/dataPrep/3.jpg" alt="Raw Dataset of Players"></p>
 <p>The players’ raw data have the amount of missing values, Nan, and incorrect values. Therefore, for the next step, pick a suitable way to clean&#x2F;replace these values and get a clean player’s dataset.</p>
-<p><img src="/dataPrep/4.jpg" alt="Raw Dataset of Clubs"></p>
+<p><img src="/dataPrep/6.jpg" alt="Raw Dataset of Clubs"></p>
 <p>Also, for the next step, check these two data frames data types, changing them as well to get a better analysis process and results.</p>
 <p><em><strong>Here is Full Version Code for gathering data:<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/api_garthering_data.py">API Code</a></strong></em><br><em><strong>Full Raw Dataset of Players: <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/raw_laliga_playerDF.csv">Raw Dataset of Plyasers</a></strong></em><br><em><strong>Full Raw Dataset of Clubs: <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/raw_laliga_teamDF.csv">Raw Dataset of Clubs</a></strong></em></p>
 <hr>
@@ -995,8 +995,8 @@
 <p><img src="/dataPrep/visual/1.png" alt="Check Arrtibute"></p>
 <p>After that, searching and replacing the NaN in datasets. First, the player’s height and weight contain some NaN, and the quantity of them is small, so replacing these NaN values with height means and weight means. Other variables contain a lot of NaN data, such <code>game_assist</code>, <code>goal_saved</code>, <code>game_appearc</code>, etc. Because NaN is these columns mean 0, they also mean that players are not performing in these skills. Therefore, using 0 to replace NaN for these attributes is a good choice.</p>
 <p>Last, changing some data types for the dataset, such as switching height and weight data types from string to integer. Also changing position data type from string to category.</p>
-<p><img src="/dataPrep/4.jpg" alt="Clean Dataset of Players"></p>
-<p><img src="/dataPrep/5.jpg" alt="Clean Dataset of Clubs"></p>
+<p><img src="/dataPrep/5.jpg" alt="Clean Dataset of Players"></p>
+<p><img src="/dataPrep/4.jpg" alt="Clean Dataset of Clubs"></p>
 <p><em><strong>Here is Full Version Code for Cleaning Data<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/data_cleaning.py">Cleaning Data Code</a></strong></em><br><em><strong>Full Clean Dataset of Players<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/clean_laliga_playerDF.csv">Clean Dataset of Players</a></strong></em><br><em><strong>Full Clean Dataset of Clubs<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/clean_laliga_teamDF.csv">Clean Dataset of Clubs</a></strong></em></p>
 <hr>
 <h2 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h2><p><img src="/dataPrep/visual/2.png" alt="Number of Nationality in La Liga"><br>The plot shows in addition to Spanish players, Argentine, Brazilian, French, and Portuguese players play more in La Liga.</p>
