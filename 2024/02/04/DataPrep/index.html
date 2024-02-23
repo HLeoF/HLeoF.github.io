@@ -1085,7 +1085,7 @@
                 <h1 id="Gathering-Data"><a href="#Gathering-Data" class="headerlink" title="Gathering Data"></a>Gathering Data</h1><p>Some datasets available on the website are suitable for meeting needs (either a single season or only up to 2020). Therefore, in order to get the latest seasons from 2020-2023, just using APIs to gather data and create datasets is a good option. Finding an API calls <code>api-football</code> from the <code>rapidapi&#39;</code>‘s website and using it to get all the data. This API provides rich data of La Liga players and clubs. Obtaining data has wonderful acquisition and accuracy. After gathering data from this API, create two unique datasets: one for players’s data, and another one for clubs’ data.</p>
 <h2 id="API-Sample-Code"><a href="#API-Sample-Code" class="headerlink" title="API Sample Code"></a>API Sample Code</h2><ol>
 <li><p>The example code below shows the API to get the various data of FC Barcelona’s players in La Liga from 2022-2023. Using this API to get all player’s data for La Liga from 2020-2023. </p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 <span class="token comment">#endpoint</span>
 url <span class="token operator">=</span> <span class="token string">"https://api-football-v1.p.rapidapi.com/v3/players"</span>
 
@@ -1101,11 +1101,11 @@ headers <span class="token operator">=</span> <span class="token punctuation">&#
 <span class="token punctuation">&#125;</span>
 
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> params<span class="token operator">=</span>query<span class="token punctuation">)</span>
-response<span class="token punctuation">.</span>text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+response<span class="token punctuation">.</span>text</code></pre>
 <p> Run code, it shows the players’ data of FC Barcelona(click picture for <strong>zoom in</strong>)<br> <img src="/dataPrep/1.jpg" alt="Players Data From FC Barcelona (JSON)"></p>
 </li>
 <li><p>The example code below shows the API get various data of Barcelona (include wins, loses, draws, goal for, goal against, etc for each season) for La Liga from 2020-2023.</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 
 url <span class="token operator">=</span> <span class="token string">"https://api-football-v1.p.rapidapi.com/v3/teams/statistics"</span>
 
@@ -1121,7 +1121,7 @@ headers <span class="token operator">=</span> <span class="token punctuation">&#
 <span class="token punctuation">&#125;</span>
 
 response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> params<span class="token operator">=</span>query<span class="token punctuation">)</span>
-response<span class="token punctuation">.</span>text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+response<span class="token punctuation">.</span>text</code></pre>
 <p> Run this sample code, it show the Barcelona’s Data in 2020 (click picture for <strong>zoom in</strong>)<br> <img src="/dataPrep/2.jpg" alt=" Data of FC Barcelona in 2020 (JSON)"></p>
 </li>
 </ol>
