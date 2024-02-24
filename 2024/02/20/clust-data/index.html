@@ -1039,12 +1039,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Preparation/">
-                                <span class="chip bg-color">Data Preparation</span>
-                            </a>
-                        
                             <a href="/tags/Unsupervised-Machine-Learning/">
                                 <span class="chip bg-color">Unsupervised Machine Learning</span>
+                            </a>
+                        
+                            <a href="/tags/Data-Preparation/">
+                                <span class="chip bg-color">Data Preparation</span>
                             </a>
                         
                             <a href="/tags/Clustring/">
@@ -1091,7 +1091,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h1><h2 id="Dataframes-Before-Transforming"><a href="#Dataframes-Before-Transforming" class="headerlink" title="Dataframes Before Transforming"></a>Dataframes Before Transforming</h2><p>Before processing Clustering analysis, it is necessary to extract the data required for Clustering analysis from the previously cleaned datasets (<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/clean_laliga_playerDF.csv">Players Datasets</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/clean_laliga_teamDF.csv">Clubs Dataset</a>) and combine the extracted data in a dataframe. It can be used for analysis. The figure below shows what the two datasets looked like before they were extracted and merged. </p>
+<p><img src="/clustring/data/1.jpg" alt="Cleaned La Liga Players Dataset"></p>
+<p><img src="/clustring/data/2.jpg" alt="Cleaned La Liga Clubs Dataset"></p>
+<p>This clustering analysis just focuses on the relationship between players’ shooting quality and the team’s performance(<a target="_blank" rel="noopener" href="https://hleof.github.io/2024/02/20/clust-intro/#Clustering-Plan">Clusetring Plan</a>). Therefore, Extracting the variables: <code>teanName</code>, <code>playerName</code>, <code>position</code>, <code>shots_total</code>,<code>shots_on</code>, and <code>goals_total</code> from the player dataset. <strong>The main reason for needing position variables is to drop the goalkeepers’ data because the goalkeepers are not involved in the attack or shooting for a game. Players in this position do not need to be considered in the analysis.</strong> For the clubs’ dataset, after calculating the points for each club per season and generating a new column called PTS(<em><strong>3 Points for a win, 1 Point for a draw, and 0 points for a loss</strong></em>), all extracted data can be combined into a data frame and ready for next step.</p>
+<p><img src="/clustring/data/4.jpg" alt="New Merged DataFrame"></p>
+<h2 id="DataFrame-After-Transforming"><a href="#DataFrame-After-Transforming" class="headerlink" title="DataFrame After Transforming"></a>DataFrame After Transforming</h2><p>According to the above Merge Dataframe, picking shots_total, shots_on, and goal_total as eigenvalue for this clustering analysis. These three variables are both unlabeled numeric data and are suitable for processing clustering analysis. </p>
+<p><img src="/clustring/data/3.jpg" alt="Data For Clustering Analysis"></p>
+<p>After that, it may use following code to transform and scale these data and get ready to implement clustering algorithms.</p>
+<pre class="language-python" data-language="python"><code class="language-python">X <span class="token operator">=</span> clustering_df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'shots_total'</span><span class="token punctuation">,</span><span class="token string">'shots_on'</span><span class="token punctuation">,</span><span class="token string">'goals_total'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+scaler <span class="token operator">=</span> StandardScaler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+scale_X <span class="token operator">=</span> scaler<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>X<span class="token punctuation">)</span></code></pre>
+<p><img src="/clustring/data/5.jpg" alt="variables tranfrom and scale"></p>
+<p>After finishing the clustering analysis, other variables in the merged dataframe will be used for in-depth explore the relationship between players’ shooting quality and the team’s performance. </p>
+
                 
             </div>
             <hr/>
@@ -1105,12 +1118,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Data-Preparation/">
-                                    <span class="chip bg-color">Data Preparation</span>
-                                </a>
-                            
                                 <a href="/tags/Unsupervised-Machine-Learning/">
                                     <span class="chip bg-color">Unsupervised Machine Learning</span>
+                                </a>
+                            
+                                <a href="/tags/Data-Preparation/">
+                                    <span class="chip bg-color">Data Preparation</span>
                                 </a>
                             
                                 <a href="/tags/Clustring/">
@@ -1194,12 +1207,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Unsupervised-Machine-Learning/">
-                        <span class="chip bg-color">Unsupervised Machine Learning</span>
-                    </a>
-                    
                     <a href="/tags/Code/">
                         <span class="chip bg-color">Code</span>
+                    </a>
+                    
+                    <a href="/tags/Unsupervised-Machine-Learning/">
+                        <span class="chip bg-color">Unsupervised Machine Learning</span>
                     </a>
                     
                     <a href="/tags/Clustring/">
