@@ -1091,7 +1091,123 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Python-Code-for-K-Means-Clustering"><a href="#Python-Code-for-K-Means-Clustering" class="headerlink" title="Python Code for K-Means Clustering"></a>Python Code for K-Means Clustering</h1><p><em><strong>Here is the K-Means code like: <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/clustering/K-means.py">Python Code</a></strong></em></p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>cluster <span class="token keyword">import</span> KMeans
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>preprocessing <span class="token keyword">import</span> StandardScaler
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> silhouette_score
+
+clustering_df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">"clustering_analysis_df.csv"</span><span class="token punctuation">)</span>
+
+<span class="token comment">######################### K-Means Clustering ##############</span>
+
+X <span class="token operator">=</span> clustering_df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'shots_total'</span><span class="token punctuation">,</span><span class="token string">'shots_on'</span><span class="token punctuation">,</span><span class="token string">'goals_total'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+scaler <span class="token operator">=</span> StandardScaler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+scale_X <span class="token operator">=</span> scaler<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+
+<span class="token comment">######################### K Value Selection ###############</span>
+wcss <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+score <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0.0</span><span class="token punctuation">]</span>
+
+<span class="token comment">#### Elbow Method #########################################</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  model <span class="token operator">=</span> KMeans<span class="token punctuation">(</span>n_clusters<span class="token operator">=</span>i<span class="token punctuation">)</span>
+  labels <span class="token operator">=</span> model<span class="token punctuation">.</span>fit_predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+  wcss<span class="token punctuation">.</span>append<span class="token punctuation">(</span>model<span class="token punctuation">.</span>inertia_<span class="token punctuation">)</span>
+
+<span class="token comment">########## Silhouette Method #############################</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  model <span class="token operator">=</span> KMeans<span class="token punctuation">(</span>n_clusters<span class="token operator">=</span>i<span class="token punctuation">)</span>
+  labels <span class="token operator">=</span> model<span class="token punctuation">.</span>fit_predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+  scores <span class="token operator">=</span> silhouette_score<span class="token punctuation">(</span>X<span class="token punctuation">,</span>model<span class="token punctuation">.</span>labels_<span class="token punctuation">)</span>
+  score<span class="token punctuation">.</span>append<span class="token punctuation">(</span>scores<span class="token punctuation">)</span>
+
+fig<span class="token punctuation">,</span> <span class="token punctuation">(</span>ax1<span class="token punctuation">,</span> ax2<span class="token punctuation">)</span> <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> wcss<span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>axvline<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">'--'</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">'Number of clusters K'</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'WCSS'</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'Elbow Method'</span><span class="token punctuation">)</span>
+
+ax2<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span> score<span class="token punctuation">,</span> marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>axvline<span class="token punctuation">(</span>x<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">,</span> linestyle<span class="token operator">=</span><span class="token string">'--'</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">'Number of clusters K'</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">'Silhouette Score'</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">'Silhouette Method'</span><span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>tight_layout<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">############# K-Mean Visualization ###########################</span>
+df2 <span class="token operator">=</span> clustering_df<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+model2 <span class="token operator">=</span> KMeans<span class="token punctuation">(</span>n_clusters<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+labels2 <span class="token operator">=</span> model2<span class="token punctuation">.</span>fit_predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+df2<span class="token punctuation">[</span><span class="token string">"cluster"</span><span class="token punctuation">]</span> <span class="token operator">=</span> labels2
+
+df3 <span class="token operator">=</span> clustering_df<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+model3 <span class="token operator">=</span> KMeans<span class="token punctuation">(</span>n_clusters<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span>
+labels3 <span class="token operator">=</span> model3<span class="token punctuation">.</span>fit_predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+df3<span class="token punctuation">[</span><span class="token string">"cluster"</span><span class="token punctuation">]</span> <span class="token operator">=</span> labels3
+
+df4 <span class="token operator">=</span> clustering_df<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+model4 <span class="token operator">=</span> KMeans<span class="token punctuation">(</span>n_clusters<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span>
+labels4 <span class="token operator">=</span> model4<span class="token punctuation">.</span>fit_predict<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+df4<span class="token punctuation">[</span><span class="token string">"cluster"</span><span class="token punctuation">]</span> <span class="token operator">=</span> labels4
+
+fig<span class="token punctuation">,</span> <span class="token punctuation">(</span>ax1<span class="token punctuation">,</span> ax2<span class="token punctuation">,</span> ax3<span class="token punctuation">)</span> <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+ax1<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>df2<span class="token punctuation">[</span><span class="token string">'shots_total'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>df2<span class="token punctuation">[</span><span class="token string">'shots_on'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c <span class="token operator">=</span> df2<span class="token punctuation">[</span><span class="token string">'cluster'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">"Shots Total"</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">"Shots On"</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">"K Value = 2 &amp; Silhouette Method"</span><span class="token punctuation">)</span>
+
+ax2<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>df3<span class="token punctuation">[</span><span class="token string">'shots_total'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>df3<span class="token punctuation">[</span><span class="token string">'shots_on'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c <span class="token operator">=</span> df3<span class="token punctuation">[</span><span class="token string">'cluster'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">"Shots Total"</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">"Shots On"</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">"K Value = 3 &amp; Elbow Method"</span><span class="token punctuation">)</span>
+
+ax3<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>df4<span class="token punctuation">[</span><span class="token string">'shots_total'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>df4<span class="token punctuation">[</span><span class="token string">'shots_on'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c <span class="token operator">=</span> df4<span class="token punctuation">[</span><span class="token string">'cluster'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ax3<span class="token punctuation">.</span>set_xlabel<span class="token punctuation">(</span><span class="token string">"Shots Total"</span><span class="token punctuation">)</span>
+ax3<span class="token punctuation">.</span>set_ylabel<span class="token punctuation">(</span><span class="token string">"Shots On"</span><span class="token punctuation">)</span>
+ax3<span class="token punctuation">.</span>set_title<span class="token punctuation">(</span><span class="token string">"K Value = 4 &amp; Random Picking"</span><span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>tight_layout<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+<h1 id="R-Code-For-hierarchical-clustering"><a href="#R-Code-For-hierarchical-clustering" class="headerlink" title="R Code For hierarchical clustering"></a>R Code For hierarchical clustering</h1><p><em><strong>Here is the Hclust Code: <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/clustering/hclust.R">R Code</a></strong></em></p>
+<pre class="language-R" data-language="R"><code class="language-R">#install.packages(&quot;stylo&quot;)
+#install.packages(&quot;factoextra&quot;)
+library(tidyverse)
+library(cluster)
+library(factoextra)
+library(stylo) ## for using dis cosine
+
+# Set the absolute file path
+setwd(&quot;D:&#x2F;clustering&quot;)
+
+#Read the csv file
+hclust_df &lt;- read.csv(&#39;clustering_analysis_df.csv&#39;)
+
+#Select shots_total, shots_on, and goals_total variables
+data &lt;- hclust_df[, 5:7]
+data_scl &lt;- scale(data) # scale data
+dist_df &lt;- stylo::dist.cosine(data_scl) # compute cosine Cosine Similarity
+hc &lt;- hclust(dist_df, method &#x3D; &quot;complete&quot;) # using cop
+plot(hc, cex &#x3D; 0.1, hang &#x3D; -1, main &#x3D; &quot;Cosine&quot;,labels &#x3D; hclust_df$playerName)
+
+tree_height &lt;-0.3 # cut tree height from the original hclust
+clus &lt;- cutree(hc, h &#x3D; tree_height)
+temp &lt;- data[clus &#x3D;&#x3D; 1, ]
+
+temp_dist &lt;- stylo::dist.cosine(scale(temp)) 
+temp_hc &lt;- hclust(temp_dist, method &#x3D; &quot;complete&quot;)
+
+l &lt;- hclust_df$playerName[clus &#x3D;&#x3D; 1]
+
+plot(temp_hc, cex &#x3D; 0.5, hang &#x3D; -30, main &#x3D; &quot;Cosine&quot;, labels &#x3D; l)
+</code></pre>
                 
             </div>
             <hr/>
@@ -1250,12 +1366,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Unsupervised-Machine-Learning/">
-                        <span class="chip bg-color">Unsupervised Machine Learning</span>
-                    </a>
-                    
                     <a href="/tags/Data-Preparation/">
                         <span class="chip bg-color">Data Preparation</span>
+                    </a>
+                    
+                    <a href="/tags/Unsupervised-Machine-Learning/">
+                        <span class="chip bg-color">Unsupervised Machine Learning</span>
                     </a>
                     
                     <a href="/tags/Clustring/">
