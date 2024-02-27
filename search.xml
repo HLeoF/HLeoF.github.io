@@ -20,11 +20,11 @@
       
         <tags>
             
+            <tag> Unsupervised Machine Learning </tag>
+            
             <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
-            
-            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -49,9 +49,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Results </tag>
             
@@ -66,7 +66,7 @@
       <link href="/2024/02/20/arm-code/"/>
       <url>/2024/02/20/arm-code/</url>
       
-        <content type="html"><![CDATA[<h1 id="ARM-Code"><a href="#ARM-Code" class="headerlink" title="ARM Code"></a>ARM Code</h1><p><em><strong>Data Paparation Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM_Data_Prep.R">R Code</a></strong></em><br><em><strong>Transcation Data<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/arm.csv">CSV File</a></strong></em><br><em><strong>ARM Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM.R">R Code</a></strong></em></p><pre class="language-R" data-language="R"><code class="language-R">install.packages(&quot;arulesViz&quot;)install.packages(&quot;arules&quot;)library(arulesViz)library(tidyverse)library(dplyr)library(arules)# Read CSV file data as Transaction Dataarm &lt;- read.transactions(&quot;arm.csv&quot;,                          rm.duplicates &#x3D; FALSE,                          format&#x3D;&quot;basket&quot;,                         sep &#x3D; &quot;,&quot;,                         cols&#x3D;NULL,                         header &#x3D; FALSE)### Apply ARM rulesrules &lt;- arules::apriori(arm, parameter &#x3D; list(supp&#x3D;0.01, conf&#x3D;0.5, minlen&#x3D;2))# 15 Supportsupport &lt;- sort(rules, by &#x3D; &quot;support&quot;, decreasing &#x3D; TRUE)inspect(support[1:15])subrules &lt;- head(sort(support,by&#x3D;&quot;support&quot;),15)plot(subrules,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)# 15 Supportconfidence &lt;- sort(rules, by &#x3D; &quot;confidence&quot;, decreasing &#x3D; TRUE)inspect(confidence[1:15])subrules1 &lt;- head(sort(confidence,by&#x3D;&quot;confidence&quot;, decreasing &#x3D; TRUE),15)plot(subrules1,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)#15 Liftlift &lt;- sort(rules, by &#x3D; &quot;lift&quot;, decreasing &#x3D; TRUE)inspect(life[1:15])subrules2 &lt;- head(sort(lift,by&#x3D;&quot;lift&quot;),15)plot(subrules2,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="ARM-Code"><a href="#ARM-Code" class="headerlink" title="ARM Code"></a>ARM Code</h1><p><em><strong>Data Paparation Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM_Data_Prep.R">R Code</a></strong></em><br><em><strong>Transcation Data<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/arm.csv">CSV File</a></strong></em><br><em><strong>ARM Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM.R">R Code</a></strong></em></p><pre class="language-R" data-language="R"><code class="language-R">install.packages(&quot;arulesViz&quot;)install.packages(&quot;arules&quot;)library(arulesViz)library(tidyverse)library(dplyr)library(arules)# Read CSV file data as Transaction Dataarm &lt;- read.transactions(&quot;arm.csv&quot;,                          rm.duplicates &#x3D; FALSE,                          format&#x3D;&quot;basket&quot;,                         sep &#x3D; &quot;,&quot;,                         cols&#x3D;NULL,                         header &#x3D; FALSE)### Apply ARM rulesrules &lt;- arules::apriori(arm, parameter &#x3D; list(supp&#x3D;0.01, conf&#x3D;0.5, minlen&#x3D;2))# 15 Supportsupport &lt;- sort(rules, by &#x3D; &quot;support&quot;, decreasing &#x3D; TRUE)inspect(support[1:15])subrules &lt;- head(sort(support,by&#x3D;&quot;support&quot;),15)plot(subrules,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)# 15 Confidenceconfidence &lt;- sort(rules, by &#x3D; &quot;confidence&quot;, decreasing &#x3D; TRUE)inspect(confidence[1:15])subrules1 &lt;- head(sort(confidence,by&#x3D;&quot;confidence&quot;, decreasing &#x3D; TRUE),15)plot(subrules1,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)#15 Liftlift &lt;- sort(rules, by &#x3D; &quot;lift&quot;, decreasing &#x3D; TRUE)inspect(lift[1:15])subrules2 &lt;- head(sort(lift,by&#x3D;&quot;lift&quot;),15)plot(subrules2,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)</code></pre>]]></content>
       
       
       <categories>
@@ -78,11 +78,11 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -95,7 +95,7 @@
       <link href="/2024/02/20/arm-data/"/>
       <url>/2024/02/20/arm-data/</url>
       
-        <content type="html"><![CDATA[<h1 id="ARM-Data-Preparation"><a href="#ARM-Data-Preparation" class="headerlink" title="ARM Data Preparation"></a>ARM Data Preparation</h1><p>First, calculate the saving goals rate(<code>rate_saved</code>) from clean_laliga_playerDF, and select variables of <code>season</code>, <code>teamName</code>, <code>position</code>, <code>game_minutes</code>, <code>rate_saved</code>, and <code>rating</code> to generate a new dataframe. Second, calculate the team’s points for each season(<code>PTS</code>) from the clean_laliga_teamDF CSV file and extract the columns of <code>season</code>, <code>teamName</code>, and <code>PTS</code> to generate a new dataframe. Then, using these two new datafram and merge them with teamName and season as ID. Next, the data of selecting only the goalkeeper’s position and picking the goalkeeper’s playing time is greater than 95 minutes (90 minutes is 1 game, so less than 95 has no reference significance, and it may directly exclude). After that, generating a new dataframe prepare for the next step. (As shown in the following figure, the first stage of data preparation is done) </p><p><img src="/ARM/data/1.jpg" alt="First Stage of Data Prepartion"></p><p>By following the above, based on the first stage, select variables of <code>game_minutes</code>, <code>rating</code>, <code>rate_saved</code>, and <code>PTS</code> to generate a new dataframe. Since these data are numeric data, so they need to be converted to transaction data.</p><p>The conversion rules are as follows:</p><p><img src="/ARM/data/2.jpg" alt="Coversion Rules"></p><p>Converting the dataset to transaction data by following the rules above. Saving this dataframe in CSV format for exploring association rules.</p><p><img src="/ARM/data/3.jpg" alt="Transcation Data"></p><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p><em><strong>Data Paparation Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM_Data_Prep.R">R Code</a></strong></em><br><em><strong>Transcation Data<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/arm.csv">CSV File</a></strong></em></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="ARM-Data-Preparation"><a href="#ARM-Data-Preparation" class="headerlink" title="ARM Data Preparation"></a>ARM Data Preparation</h1><p>First, calculate the saving goals rate(<code>rate_saved</code>) from clean_laliga_playerDF, and select variables of <code>season</code>, <code>teamName</code>, <code>position</code>, <code>game_minutes</code>, <code>rate_saved</code>, and <code>rating</code> to generate a new dataframe. Second, calculate the team’s points for each season(<code>PTS</code>) from the clean_laliga_teamDF CSV file and extract the columns of <code>season</code>, <code>teamName</code>, and <code>PTS</code> to generate a new dataframe. Then, using these two new datafram and merge them with teamName and season as ID. Next, the data of selecting only the goalkeeper’s position and picking the goalkeeper’s playing time is greater than 95 minutes (90 minutes is 1 game, so less than 95 has no reference significance, and it may directly exclude). After that, generating a new dataframe prepare for the next step. (As shown in the following figure, the first stage of data preparation is done) </p><p><img src="/ARM/data/1.jpg" alt="First Stage of Data Prepartion"></p><p>By following the above, based on the first stage, select variables of <code>game_minutes</code>, <code>rating</code>, <code>rate_saved</code>, and <code>PTS</code> to generate a new dataframe. Since these data are numeric data, so they need to be converted to transaction data.</p><p>The conversion rules are as follows:</p><p><img src="/ARM/data/2.JPEG" alt="Coversion Rules"></p><p>Converting the dataset to transaction data by following the rules above. Saving this dataframe in CSV format for exploring association rules.</p><p><img src="/ARM/data/3.jpg" alt="Transcation Data"></p><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p><em><strong>Data Paparation Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM_Data_Prep.R">R Code</a></strong></em><br><em><strong>Transcation Data<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/arm.csv">CSV File</a></strong></em></p>]]></content>
       
       
       <categories>
@@ -109,9 +109,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
         </tags>
       
@@ -136,9 +136,9 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Overview </tag>
             
@@ -165,11 +165,11 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
+            
+            <tag> Conclusion </tag>
             
         </tags>
       
@@ -196,9 +196,9 @@
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Clustring </tag>
-            
             <tag> Results </tag>
+            
+            <tag> Clustring </tag>
             
         </tags>
       
@@ -223,9 +223,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
