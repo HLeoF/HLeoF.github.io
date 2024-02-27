@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Association Rule Data Preparation, Maiqi&#39;s Blogs">
+    <meta name="keywords" content="Association Rule Mining Data Preparation, Maiqi&#39;s Blogs">
     <meta name="description" content="Data Preparation for Association Rule">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Association Rule Data Preparation | Maiqi&#39;s Blogs</title>
+    <title>Association Rule Mining Data Preparation | Maiqi&#39;s Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -1015,7 +1015,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Association Rule Data Preparation</h1>
+                    <h1 class="description center-align post-title">Association Rule Mining Data Preparation</h1>
                 </div>
             </div>
         </div>
@@ -1043,12 +1043,12 @@
                                 <span class="chip bg-color">Data Preparation</span>
                             </a>
                         
-                            <a href="/tags/Association-Rule/">
-                                <span class="chip bg-color">Association Rule</span>
-                            </a>
-                        
                             <a href="/tags/Unsupervised-Machine-Learning/">
                                 <span class="chip bg-color">Unsupervised Machine Learning</span>
+                            </a>
+                        
+                            <a href="/tags/Association-Rule-Mining/">
+                                <span class="chip bg-color">Association Rule Mining</span>
                             </a>
                         
                     </div>
@@ -1091,7 +1091,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="ARM-Data-Preparation"><a href="#ARM-Data-Preparation" class="headerlink" title="ARM Data Preparation"></a>ARM Data Preparation</h1><p>First, calculate the saving goals rate(<code>rate_saved</code>) from clean_laliga_playerDF, and select variables of <code>season</code>, <code>teamName</code>, <code>position</code>, <code>game_minutes</code>, <code>rate_saved</code>, and <code>rating</code> to generate a new dataframe. Second, calculate the team’s points for each season(<code>PTS</code>) from the clean_laliga_teamDF CSV file and extract the columns of <code>season</code>, <code>teamName</code>, and <code>PTS</code> to generate a new dataframe. Then, using these two new datafram and merge them with teamName and season as ID. Next, the data of selecting only the goalkeeper’s position and picking the goalkeeper’s playing time is greater than 95 minutes (90 minutes is 1 game, so less than 95 has no reference significance, and it may directly exclude). After that, generating a new dataframe prepare for the next step. (As shown in the following figure, the first stage of data preparation is done) </p>
+<p><img src="/ARM/data/1.jpg" alt="First Stage of Data Prepartion"></p>
+<p>By following the above, based on the first stage, select variables of <code>game_minutes</code>, <code>rating</code>, <code>rate_saved</code>, and <code>PTS</code> to generate a new dataframe. Since these data are numeric data, so they need to be converted to transaction data.</p>
+<p>The conversion rules are as follows:</p>
+<p><img src="/ARM/data/2.jpg" alt="Coversion Rules"></p>
+<p>Converting the dataset to transaction data by following the rules above. Saving this dataframe in CSV format for exploring association rules.</p>
+<p><img src="/ARM/data/3.jpg" alt="Transcation Data"></p>
+<hr>
+<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p><em><strong>Data Paparation Code<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM_Data_Prep.R">R Code</a></strong></em><br><em><strong>Transcation Data<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/arm.csv">CSV File</a></strong></em></p>
+
                 
             </div>
             <hr/>
@@ -1109,12 +1118,12 @@
                                     <span class="chip bg-color">Data Preparation</span>
                                 </a>
                             
-                                <a href="/tags/Association-Rule/">
-                                    <span class="chip bg-color">Association Rule</span>
-                                </a>
-                            
                                 <a href="/tags/Unsupervised-Machine-Learning/">
                                     <span class="chip bg-color">Unsupervised Machine Learning</span>
+                                </a>
+                            
+                                <a href="/tags/Association-Rule-Mining/">
+                                    <span class="chip bg-color">Association Rule Mining</span>
                                 </a>
                             
                         </div>
@@ -1164,9 +1173,9 @@
                 <a href="/2024/02/20/arm-code/">
                     <div class="card-image">
                         
-                        <img src="/article/arm.jpg" class="responsive-img" alt="Association Rule Code">
+                        <img src="/article/arm.jpg" class="responsive-img" alt="Association Rule Mining Code">
                         
-                        <span class="card-title">Association Rule Code</span>
+                        <span class="card-title">Association Rule Mining Code</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1220,9 +1229,9 @@
                 <a href="/2024/02/20/arm-intro/">
                     <div class="card-image">
                         
-                        <img src="/article/arm.jpg" class="responsive-img" alt="Association Rule Overview">
+                        <img src="/article/arm.jpg" class="responsive-img" alt="Association Rule Mininig Overview">
                         
-                        <span class="card-title">Association Rule Overview</span>
+                        <span class="card-title">Association Rule Mininig Overview</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1250,12 +1259,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Association-Rule/">
-                        <span class="chip bg-color">Association Rule</span>
-                    </a>
-                    
                     <a href="/tags/Unsupervised-Machine-Learning/">
                         <span class="chip bg-color">Unsupervised Machine Learning</span>
+                    </a>
+                    
+                    <a href="/tags/Association-Rule-Mining/">
+                        <span class="chip bg-color">Association Rule Mining</span>
                     </a>
                     
                     <a href="/tags/Overview/">
@@ -1383,6 +1392,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Association Rule Overview, Maiqi&#39;s Blogs">
+    <meta name="keywords" content="Association Rule Mininig Overview, Maiqi&#39;s Blogs">
     <meta name="description" content="Association Rule Overview for the project">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Association Rule Overview | Maiqi&#39;s Blogs</title>
+    <title>Association Rule Mininig Overview | Maiqi&#39;s Blogs</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -1015,7 +1015,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Association Rule Overview</h1>
+                    <h1 class="description center-align post-title">Association Rule Mininig Overview</h1>
                 </div>
             </div>
         </div>
@@ -1039,12 +1039,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Association-Rule/">
-                                <span class="chip bg-color">Association Rule</span>
-                            </a>
-                        
                             <a href="/tags/Unsupervised-Machine-Learning/">
                                 <span class="chip bg-color">Unsupervised Machine Learning</span>
+                            </a>
+                        
+                            <a href="/tags/Association-Rule-Mining/">
+                                <span class="chip bg-color">Association Rule Mining</span>
                             </a>
                         
                             <a href="/tags/Overview/">
@@ -1091,7 +1091,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Association-Rule-Mining"><a href="#Association-Rule-Mining" class="headerlink" title="Association Rule Mining"></a>Association Rule Mining</h1><p>Association Rule Mining is an unsupervised learning. The ARM algorithm can discover the relationship between items in the transaction dataset, and it can be applied to multiple scenarios in the real world. The best known example is shopping analytics, which digs into consumers’ transaction records to find correlations between products. As a result, it improves sales volume by recommending relevant products to customers. Therefore, ARM is an important and useful data analysis technique.</p>
+<h1 id="The-Rules"><a href="#The-Rules" class="headerlink" title="The Rules"></a>The Rules</h1><p>The association rule represents the pattern found in the dataset. It can be represented by $X \to Y$. (It can be expressed using an if-then literal expression.). Here X is called <code>antecedent/left-hand-side</code> and Y is called <code>consequent/right-hand-side</code>. There are three commonly used metrics when Using ARM, which are <code>Support</code>, <code>confidence</code>, and <code>lift</code>. They can be used to quantify the association rules between things, so as to reflect the usefulness of the rules.</p>
+<p><img src="/ARM/overview/1.png" alt="Association Rules"></p>
+<p>Here is an example transaction table plot below, to prepare for introducing the support, confidence, and lift.</p>
+<p><img src="/ARM/overview/2.png" alt="An Transaction Table Example"></p>
+<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>Assume a rule $Rice \to Chicken$ based on the figure above. $Support(Rice, Chicken)$ means how often items in $Rice$ and items in $Chicken$ occur together relative to all transactions. In other words, it represents the ratio of the number of product combinations of occurrences to the total number of occurrences.</p>
+<p>$$Support &#x3D; \frac{frq(Rice, Chicken)}{N} &#x3D; \frac{2}{8} &#x3D; 0.25$$</p>
+<h2 id="Confidence"><a href="#Confidence" class="headerlink" title="Confidence"></a>Confidence</h2><p>Using the same rule above $Rice \to Chicken$. $Confidence(Rice, Chicken)$ means how often items in $Rice$ and items in $Chicken$ occur together relative to transactions that contain Rice. In other words, it represents the probability that when a user buys Rice, the user will purchase Chicken. </p>
+<p>$$Confidence &#x3D; \frac{frq(Rice, Chicken)}{frq(Rice)} &#x3D; \frac{2}{4} &#x3D; 0.5$$</p>
+<h2 id="Lift"><a href="#Lift" class="headerlink" title="Lift"></a>Lift</h2><p>Still Using the same rule above $Rice \to Chicken$, $Lift(Rice, Chicken)$ means the extent to which the appearance of $Rice$ increases the appearance probability of $Chicken$.</p>
+<p>$$Lift &#x3D; \frac{Support(Rice,Chicken)}{Support(Rice) * Support(Chicken)} &#x3D; \frac{0.25}{0.5 * 0.25} &#x3D; 2 $$</p>
+<h1 id="Apriori-Algorithm"><a href="#Apriori-Algorithm" class="headerlink" title="Apriori Algorithm"></a>Apriori Algorithm</h1><p>Apriori Algorithm is one of the most common algorithms used by association rule mining to find frequent itemsets. These frequent itemsets help data analysts make some decisions. Using Support, Confidence, or Lift to evaluate and itemsets. The goal of Apriori is to find the maximum set of K frequent itemsets. Here is an example below, using Support as a criterion for evaluating frequent itemsets. After that, Apriori uses an iterative method to find the candidate itemset and its corresponding support and drop out item set with lower support to obtain frequent itemset and so on.</p>
+<p><img src="/ARM/overview/3.png" alt="How Apriori Algorithm Work"></p>
+<h1 id="Plan-For-The-Project"><a href="#Plan-For-The-Project" class="headerlink" title="Plan For The Project"></a>Plan For The Project</h1><p>Focusing on explore the impact of a goalkeepers’ save ability on a club’s ranking. Selecting the features of conceding goals, the ratio of goals saving, the game minutes, and performance rating and the club ranking, then using the ARM to study the correlation between the goalkeeper’s saving ability and team’s ranking. Also, setting minimum support, confidence and other parameters ensure the reliability of the association rules have been discovered. Finaly, using frequent itemset analyzed the relationship between goalkeepers ‘saving ability and clubs’ ranking.</p>
+<hr>
+<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>Image 1: <a target="_blank" rel="noopener" href="https://images.app.goo.gl/88PuEgtbmvfMNzXW7">https://images.app.goo.gl/88PuEgtbmvfMNzXW7</a></p>
+<p>Image 2: <a target="_blank" rel="noopener" href="https://images.app.goo.gl/8KXKYytYNBonLcz78">https://images.app.goo.gl/8KXKYytYNBonLcz78</a></p>
+<p>Image 3: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/p/6293298.html">https://www.cnblogs.com/pinard/p/6293298.html</a></p>
+
                 
             </div>
             <hr/>
@@ -1105,12 +1123,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Association-Rule/">
-                                    <span class="chip bg-color">Association Rule</span>
-                                </a>
-                            
                                 <a href="/tags/Unsupervised-Machine-Learning/">
                                     <span class="chip bg-color">Unsupervised Machine Learning</span>
+                                </a>
+                            
+                                <a href="/tags/Association-Rule-Mining/">
+                                    <span class="chip bg-color">Association Rule Mining</span>
                                 </a>
                             
                                 <a href="/tags/Overview/">
@@ -1164,9 +1182,9 @@
                 <a href="/2024/02/20/arm-data/">
                     <div class="card-image">
                         
-                        <img src="/article/arm.jpg" class="responsive-img" alt="Association Rule Data Preparation">
+                        <img src="/article/arm.jpg" class="responsive-img" alt="Association Rule Mining Data Preparation">
                         
-                        <span class="card-title">Association Rule Data Preparation</span>
+                        <span class="card-title">Association Rule Mining Data Preparation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1198,12 +1216,12 @@
                         <span class="chip bg-color">Data Preparation</span>
                     </a>
                     
-                    <a href="/tags/Association-Rule/">
-                        <span class="chip bg-color">Association Rule</span>
-                    </a>
-                    
                     <a href="/tags/Unsupervised-Machine-Learning/">
                         <span class="chip bg-color">Unsupervised Machine Learning</span>
+                    </a>
+                    
+                    <a href="/tags/Association-Rule-Mining/">
+                        <span class="chip bg-color">Association Rule Mining</span>
                     </a>
                     
                 </div>
@@ -1383,6 +1401,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 

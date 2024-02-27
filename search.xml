@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Association Rule Conclusion</title>
+      <title>Association Rule Mining Conclusion</title>
       <link href="/2024/02/20/arm-conclu/"/>
       <url>/2024/02/20/arm-conclu/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><img src="/ARM/result/22.jpg" alt="La Liga Top Goalkeepers"></p>]]></content>
       
       
       <categories>
@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> Association Rule </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
             
@@ -33,11 +33,11 @@
     
     
     <entry>
-      <title>Association Rule Results</title>
+      <title>Association Rule Mining Results</title>
       <link href="/2024/02/20/arm-result/"/>
       <url>/2024/02/20/arm-result/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h1><p><img src="/ARM/result/1.jpg" alt="Top 15 Rules For Support"><br><img src="/ARM/result/1-1.jpg" alt="Network Graph For Support"></p><h1 id="Confidence"><a href="#Confidence" class="headerlink" title="Confidence"></a>Confidence</h1><p><img src="/ARM/result/2.jpg" alt="Top 15 Rules For Confidence"><br><img src="/ARM/result/2-2.jpg" alt="Netwrok Graph For Confidence"></p><h1 id="Lift"><a href="#Lift" class="headerlink" title="Lift"></a>Lift</h1><p><img src="/ARM/result/3.jpg" alt="Top 15 Rules For Lift"><br><img src="/ARM/result/3-1.jpg" alt="Network Graph For Lift"></p>]]></content>
       
       
       <categories>
@@ -62,11 +62,11 @@
     
     
     <entry>
-      <title>Association Rule Code</title>
+      <title>Association Rule Mining Code</title>
       <link href="/2024/02/20/arm-code/"/>
       <url>/2024/02/20/arm-code/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="ARM-Code"><a href="#ARM-Code" class="headerlink" title="ARM Code"></a>ARM Code</h1><p><em><strong>Data Paparation Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM_Data_Prep.R">R Code</a></strong></em><br><em><strong>Transcation Data<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/arm.csv">CSV File</a></strong></em><br><em><strong>ARM Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM.R">R Code</a></strong></em></p><pre class="language-R" data-language="R"><code class="language-R">install.packages(&quot;arulesViz&quot;)install.packages(&quot;arules&quot;)library(arulesViz)library(tidyverse)library(dplyr)library(arules)# Read CSV file data as Transaction Dataarm &lt;- read.transactions(&quot;arm.csv&quot;,                          rm.duplicates &#x3D; FALSE,                          format&#x3D;&quot;basket&quot;,                         sep &#x3D; &quot;,&quot;,                         cols&#x3D;NULL,                         header &#x3D; FALSE)### Apply ARM rulesrules &lt;- arules::apriori(arm, parameter &#x3D; list(supp&#x3D;0.01, conf&#x3D;0.5, minlen&#x3D;2))# 15 Supportsupport &lt;- sort(rules, by &#x3D; &quot;support&quot;, decreasing &#x3D; TRUE)inspect(support[1:15])subrules &lt;- head(sort(support,by&#x3D;&quot;support&quot;),15)plot(subrules,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)# 15 Supportconfidence &lt;- sort(rules, by &#x3D; &quot;confidence&quot;, decreasing &#x3D; TRUE)inspect(confidence[1:15])subrules1 &lt;- head(sort(confidence,by&#x3D;&quot;confidence&quot;, decreasing &#x3D; TRUE),15)plot(subrules1,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)#15 Liftlift &lt;- sort(rules, by &#x3D; &quot;lift&quot;, decreasing &#x3D; TRUE)inspect(life[1:15])subrules2 &lt;- head(sort(lift,by&#x3D;&quot;lift&quot;),15)plot(subrules2,method&#x3D;&quot;graph&quot;,engine &#x3D;&quot;interactive&quot;)</code></pre>]]></content>
       
       
       <categories>
@@ -91,11 +91,11 @@
     
     
     <entry>
-      <title>Association Rule Data Preparation</title>
+      <title>Association Rule Mining Data Preparation</title>
       <link href="/2024/02/20/arm-data/"/>
       <url>/2024/02/20/arm-data/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="ARM-Data-Preparation"><a href="#ARM-Data-Preparation" class="headerlink" title="ARM Data Preparation"></a>ARM Data Preparation</h1><p>First, calculate the saving goals rate(<code>rate_saved</code>) from clean_laliga_playerDF, and select variables of <code>season</code>, <code>teamName</code>, <code>position</code>, <code>game_minutes</code>, <code>rate_saved</code>, and <code>rating</code> to generate a new dataframe. Second, calculate the team’s points for each season(<code>PTS</code>) from the clean_laliga_teamDF CSV file and extract the columns of <code>season</code>, <code>teamName</code>, and <code>PTS</code> to generate a new dataframe. Then, using these two new datafram and merge them with teamName and season as ID. Next, the data of selecting only the goalkeeper’s position and picking the goalkeeper’s playing time is greater than 95 minutes (90 minutes is 1 game, so less than 95 has no reference significance, and it may directly exclude). After that, generating a new dataframe prepare for the next step. (As shown in the following figure, the first stage of data preparation is done) </p><p><img src="/ARM/data/1.jpg" alt="First Stage of Data Prepartion"></p><p>By following the above, based on the first stage, select variables of <code>game_minutes</code>, <code>rating</code>, <code>rate_saved</code>, and <code>PTS</code> to generate a new dataframe. Since these data are numeric data, so they need to be converted to transaction data.</p><p>The conversion rules are as follows:</p><p><img src="/ARM/data/2.jpg" alt="Coversion Rules"></p><p>Converting the dataset to transaction data by following the rules above. Saving this dataframe in CSV format for exploring association rules.</p><p><img src="/ARM/data/3.jpg" alt="Transcation Data"></p><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p><em><strong>Data Paparation Code<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/ARM_Data_Prep.R">R Code</a></strong></em><br><em><strong>Transcation Data<a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/ARM/arm.csv">CSV File</a></strong></em></p>]]></content>
       
       
       <categories>
@@ -109,9 +109,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Association Rule </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
         </tags>
       
@@ -120,11 +120,11 @@
     
     
     <entry>
-      <title>Association Rule Overview</title>
+      <title>Association Rule Mininig Overview</title>
       <link href="/2024/02/20/arm-intro/"/>
       <url>/2024/02/20/arm-intro/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Association-Rule-Mining"><a href="#Association-Rule-Mining" class="headerlink" title="Association Rule Mining"></a>Association Rule Mining</h1><p>Association Rule Mining is an unsupervised learning. The ARM algorithm can discover the relationship between items in the transaction dataset, and it can be applied to multiple scenarios in the real world. The best known example is shopping analytics, which digs into consumers’ transaction records to find correlations between products. As a result, it improves sales volume by recommending relevant products to customers. Therefore, ARM is an important and useful data analysis technique.</p><h1 id="The-Rules"><a href="#The-Rules" class="headerlink" title="The Rules"></a>The Rules</h1><p>The association rule represents the pattern found in the dataset. It can be represented by $X \to Y$. (It can be expressed using an if-then literal expression.). Here X is called <code>antecedent/left-hand-side</code> and Y is called <code>consequent/right-hand-side</code>. There are three commonly used metrics when Using ARM, which are <code>Support</code>, <code>confidence</code>, and <code>lift</code>. They can be used to quantify the association rules between things, so as to reflect the usefulness of the rules.</p><p><img src="/ARM/overview/1.png" alt="Association Rules"></p><p>Here is an example transaction table plot below, to prepare for introducing the support, confidence, and lift.</p><p><img src="/ARM/overview/2.png" alt="An Transaction Table Example"></p><h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p>Assume a rule $Rice \to Chicken$ based on the figure above. $Support(Rice, Chicken)$ means how often items in $Rice$ and items in $Chicken$ occur together relative to all transactions. In other words, it represents the ratio of the number of product combinations of occurrences to the total number of occurrences.</p><p>$$Support &#x3D; \frac{frq(Rice, Chicken)}{N} &#x3D; \frac{2}{8} &#x3D; 0.25$$</p><h2 id="Confidence"><a href="#Confidence" class="headerlink" title="Confidence"></a>Confidence</h2><p>Using the same rule above $Rice \to Chicken$. $Confidence(Rice, Chicken)$ means how often items in $Rice$ and items in $Chicken$ occur together relative to transactions that contain Rice. In other words, it represents the probability that when a user buys Rice, the user will purchase Chicken. </p><p>$$Confidence &#x3D; \frac{frq(Rice, Chicken)}{frq(Rice)} &#x3D; \frac{2}{4} &#x3D; 0.5$$</p><h2 id="Lift"><a href="#Lift" class="headerlink" title="Lift"></a>Lift</h2><p>Still Using the same rule above $Rice \to Chicken$, $Lift(Rice, Chicken)$ means the extent to which the appearance of $Rice$ increases the appearance probability of $Chicken$.</p><p>$$Lift &#x3D; \frac{Support(Rice,Chicken)}{Support(Rice) * Support(Chicken)} &#x3D; \frac{0.25}{0.5 * 0.25} &#x3D; 2 $$</p><h1 id="Apriori-Algorithm"><a href="#Apriori-Algorithm" class="headerlink" title="Apriori Algorithm"></a>Apriori Algorithm</h1><p>Apriori Algorithm is one of the most common algorithms used by association rule mining to find frequent itemsets. These frequent itemsets help data analysts make some decisions. Using Support, Confidence, or Lift to evaluate and itemsets. The goal of Apriori is to find the maximum set of K frequent itemsets. Here is an example below, using Support as a criterion for evaluating frequent itemsets. After that, Apriori uses an iterative method to find the candidate itemset and its corresponding support and drop out item set with lower support to obtain frequent itemset and so on.</p><p><img src="/ARM/overview/3.png" alt="How Apriori Algorithm Work"></p><h1 id="Plan-For-The-Project"><a href="#Plan-For-The-Project" class="headerlink" title="Plan For The Project"></a>Plan For The Project</h1><p>Focusing on explore the impact of a goalkeepers’ save ability on a club’s ranking. Selecting the features of conceding goals, the ratio of goals saving, the game minutes, and performance rating and the club ranking, then using the ARM to study the correlation between the goalkeeper’s saving ability and team’s ranking. Also, setting minimum support, confidence and other parameters ensure the reliability of the association rules have been discovered. Finaly, using frequent itemset analyzed the relationship between goalkeepers ‘saving ability and clubs’ ranking.</p><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>Image 1: <a href="https://images.app.goo.gl/88PuEgtbmvfMNzXW7">https://images.app.goo.gl/88PuEgtbmvfMNzXW7</a></p><p>Image 2: <a href="https://images.app.goo.gl/8KXKYytYNBonLcz78">https://images.app.goo.gl/8KXKYytYNBonLcz78</a></p><p>Image 3: <a href="https://www.cnblogs.com/pinard/p/6293298.html">https://www.cnblogs.com/pinard/p/6293298.html</a></p>]]></content>
       
       
       <categories>
@@ -136,9 +136,9 @@
       
         <tags>
             
-            <tag> Association Rule </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Overview </tag>
             
