@@ -1091,9 +1091,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h1><p><img src="/ARM/result/1.jpg" alt="Top 15 Rules For Support"><br><img src="/ARM/result/1-1.jpg" alt="Network Graph For Support"></p>
-<h1 id="Confidence"><a href="#Confidence" class="headerlink" title="Confidence"></a>Confidence</h1><p><img src="/ARM/result/2.jpg" alt="Top 15 Rules For Confidence"><br><img src="/ARM/result/2-2.jpg" alt="Netwrok Graph For Confidence"></p>
-<h1 id="Lift"><a href="#Lift" class="headerlink" title="Lift"></a>Lift</h1><p><img src="/ARM/result/3.jpg" alt="Top 15 Rules For Lift"><br><img src="/ARM/result/3-1.jpg" alt="Network Graph For Lift"></p>
+                <h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><p>During exploring association rule mining, the thresholds hold finally determined after repeated testing and comparison results are follows:</p>
+<p>$$ Support &#x3D; 0.01 $$</p>
+<p>$$ Confidence &#x3D; 0.5 $$</p>
+<p>$$ Min Length &#x3D; 2 $$</p>
+<pre class="language-R" data-language="R"><code class="language-R">rules &lt;- arules::apriori(arm, parameter &#x3D; list(supp&#x3D;0.01, conf&#x3D;0.5, minlen&#x3D;2))</code></pre>
+
+
+<h2 id="Support"><a href="#Support" class="headerlink" title="Support"></a>Support</h2><p><img src="/ARM/result/1.jpg" alt="Top 15 Rules For Support"><br><img src="/ARM/result/1-1.jpg" alt="Network Graph For Support"></p>
+<p>Finding some interesting things through analyzing the top 15 rules for support and its visualization of results.</p>
+<p>For $\text{Normal_Saved_Skill} \to \text{Normal_Preformance} (Support \approx 0.57 \And  Confidence \approx 0.95)$. It represents that a goalkeeper’s performance in saves is closely related to his overall performance on the field. Normally, a goalkeeper with average save ability can lead to conceding goals, which can affect the club’s results and ranking.</p>
+<p>For $\text{Good_Preformance} \to \text{Good_Saved_Skill} (Support \approx 0.27 \And  Confidence \approx 0.9)$.It tells that a goalkeeper who performs well is likely to have excellent save ability, which may help to boost the team’s ranking.</p>
+<p>For $\text{(Mid_Ranking, Normal_Saved_Skill)} \to \text{Normal_Preformance} (Support \approx 0.27 \And  Confidence \approx 1)$. It indicates that goalkeepers on teams in the middle table are likely to be average in their ability to make saves, so it reflects these goalkeepers’ average performance on the pitch.</p>
+<h2 id="Confidence"><a href="#Confidence" class="headerlink" title="Confidence"></a>Confidence</h2><p><img src="/ARM/result/2.jpg" alt="Top 15 Rules For Confidence"><br><img src="/ARM/result/2-2.jpg" alt="Netwrok Graph For Confidence"></p>
+<p>Getting some interesting results based on the top 15 rules for confidence and its node graph.</p>
+<p>According to $\text{(Bad_Performance, Bad_Saved_Skill)} \to \text{LessTime_Games} rule$. It shows that a goalkeeper’s saving ability is bad, his performance on the pitch would also be affected, so the probability of getting a chance to play becomes small.  This situation can cause his performance to deteriorate further, and step into a vicious circle. Not only will undermine the goalkeeper’s own confidence, but it may also have a negative impact on the team’s overall results. </p>
+<p>According to $\text{Bad_Saved_Skill} \to \text{Mid_Ranking} $ rule. It reflects on a common situation in reality. When a goalkeeper has a relatively low save ability and his team is in the middle of the table, this usually means that the goalkeeper is not the starting goalkeeper, and he may be the second or third goalkeeper of the team. As his save ability was not sufficient for the role of starting goalkeeper, he played relatively little in the game. However, the goalkeeper with poor save ability may be forced to replace the starting goalkeeper once the starting GK is injured and unable to play. Because clubs’ backup GK may not be able to provide the same level of performance as their starting GK, the teams’ results may be affected.</p>
+<h2 id="Lift"><a href="#Lift" class="headerlink" title="Lift"></a>Lift</h2><p><img src="/ARM/result/3.jpg" alt="Top 15 Rules For Lift"><br><img src="/ARM/result/3-1.jpg" alt="Network Graph For Lift"></p>
+<p>According to $\text{(Good_Saved_Skill, High_Ranking, Normal_Saved_Skill)} \to \text{NormalTime_Games}$ rule. It indicates that a goalkeeper is good on the field, and his team’s ranks also high. However, his chances of getting playing time are also average due to his average save ability. Therefore, this rule is quite realistic. For higher-ranked teams, a goalkeeper’s ability to save is crucial. As a typical example, Barcelona’s goalkeeper Peña has had some opportunities to play after Ter Stegen’s injury. He has had serval highlight performances at the beginning, but the team often loses the ball due to his average saving ability. </p>
 
                 
             </div>
@@ -1386,6 +1401,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 
