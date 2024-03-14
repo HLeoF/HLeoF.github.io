@@ -4,6 +4,151 @@
   
     
     <entry>
+      <title>Naive Bayes Conclusion</title>
+      <link href="/2024/03/14/nb-conclu/"/>
+      <url>/2024/03/14/nb-conclu/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Naive Bayes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
+            
+            <tag> Naive Bayes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Naive Bayes Results</title>
+      <link href="/2024/03/14/nb-result/"/>
+      <url>/2024/03/14/nb-result/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Naive Bayes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Results </tag>
+            
+            <tag> Naive Bayes </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Naive Bayes Code</title>
+      <link href="/2024/03/14/nb-code/"/>
+      <url>/2024/03/14/nb-code/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Naive Bayes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Code </tag>
+            
+            <tag> Naive Bayes </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Naive Bayes Data Preparation</title>
+      <link href="/2024/03/14/nb-data/"/>
+      <url>/2024/03/14/nb-data/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Naive Bayes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data Preparation </tag>
+            
+            <tag> Naive Bayes </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Introduction of Naive Bayes (NB)</title>
+      <link href="/2024/03/14/nb-intro/"/>
+      <url>/2024/03/14/nb-intro/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Naive Bayes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Overview </tag>
+            
+            <tag> Naive Bayes </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Association Rule Mining Conclusion</title>
       <link href="/2024/02/20/arm-conclu/"/>
       <url>/2024/02/20/arm-conclu/</url>
@@ -20,11 +165,11 @@
       
         <tags>
             
+            <tag> Unsupervised Machine Learning </tag>
+            
             <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
-            
-            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -49,9 +194,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Results </tag>
             
@@ -78,11 +223,11 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -109,9 +254,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
         </tags>
       
@@ -136,9 +281,9 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Overview </tag>
             
@@ -165,9 +310,9 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
             
             <tag> Clustring </tag>
             
@@ -223,9 +368,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
