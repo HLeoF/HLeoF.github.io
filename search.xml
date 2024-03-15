@@ -124,7 +124,7 @@
       <link href="/2024/03/14/nb-intro/"/>
       <url>/2024/03/14/nb-intro/</url>
       
-        <content type="html"><![CDATA[<h1 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h1><p>The Naïve Bayes algorithm is a machine learning classification algorithm based on Bayes theorem, and it is also a supervised learning algorithm. It will classify datasets by using Bayes’ theorem and the assumption of independence between features. In the real world, it is used for text classification, spam filtering, and sentiment analysis, etc.</p><h2 id="Bayes-Theorem"><a href="#Bayes-Theorem" class="headerlink" title="Bayes Theorem"></a>Bayes Theorem</h2><p>It is a theorem in probability theory that describes the probability that something will happen given some known conditions. For example, the duration of smoking is relatively high with lung cancer. Thus, using  the formula of the Bayes theorem to accurately calculate how likely someone is to get lung cancer depending on their duration of smoking.</p><p>$$P(A | B) &#x3D; \frac{P(A)P(B|A)}{P(B)}$$</p><p>$P(A | B)$: It is the <em><strong>posterior probability</strong></em> of A given the predictor B</p><p>$P(B | A)$: It is the <em><strong>likelihood</strong></em>, that probability of B given the A</p><p>$P(A)$: It is <em><strong>A Prior Probability</strong></em> that is probability of the A</p><p>$P(B)$: It is <em><strong>B prior Probability</strong></em> that is probability of the B</p><p>Here is an example that using the Bayes theorem</p><blockquote><p>Doctors know that hyperthyroidism(H) causes a thick neck(T) is  60%, So $P(T|H) &#x3D; 0.6$<br>Prior probability of any patient having hyperthyroidism is $\frac{1}{300}$, So $P(H) &#x3D; \frac{1}{300}$<br>Prior probability of any patient having thick neck is $\frac{1}{60}$, So $P(T) &#x3D; \frac{1}{60}$<br>The probability of a patient having hyperthyroidism if he&#x2F;she has a thick neck.<br>$$P(H|T) &#x3D; \frac{P(H)P(T|H)}{P(T)} &#x3D; \frac{\frac{1}{300}*0.6}{\frac{1}{60}} &#x3D; 0.12$$<br>Therefore, if a patient has a thick neck, he&#x2F;she has the probability of hyperthyroidism is 12%.</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="Bayes-Theorem"><a href="#Bayes-Theorem" class="headerlink" title="Bayes Theorem"></a>Bayes Theorem</h1><p>It is a theorem in probability theory that describes the probability that something will happen given some known conditions. For example, the duration of smoking is relatively high with lung cancer. Thus, using  the formula of the Bayes theorem to accurately calculate how likely someone is to get lung cancer depending on their duration of smoking.</p><p>$$P(A | B) &#x3D; \frac{P(A)P(B|A)}{P(B)}$$</p><p>$P(A | B)$: It is the <em><strong>posterior probability</strong></em> of A given the predictor B</p><p>$P(B | A)$: It is the <em><strong>likelihood</strong></em>, that probability of B given the A</p><p>$P(A)$: It is <em><strong>A Prior Probability</strong></em> that is probability of the A</p><p>$P(B)$: It is <em><strong>B prior Probability</strong></em> that is probability of the B</p><blockquote><p>Here is an example that using the Bayes theorem<br>Doctors know that hyperthyroidism(H) causes a thick neck(T) is  60%, So $P(T|H) &#x3D; 0.6$<br>Prior probability of any patient having hyperthyroidism is $\frac{1}{300}$, So $P(H) &#x3D; \frac{1}{300}$<br>Prior probability of any patient having thick neck is $\frac{1}{60}$, So $P(T) &#x3D; \frac{1}{60}$<br>The probability of a patient having hyperthyroidism if he&#x2F;she has a thick neck.<br>$$P(H|T) &#x3D; \frac{P(H)P(T|H)}{P(T)} &#x3D; \frac{\frac{1}{300}*0.6}{\frac{1}{60}} &#x3D; 0.12$$<br>Therefore, if a patient has a thick neck, he&#x2F;she has the probability of hyperthyroidism is 12%.</p></blockquote><h2 id="Bayesian-Classifiers"><a href="#Bayesian-Classifiers" class="headerlink" title="Bayesian Classifiers"></a>Bayesian Classifiers</h2><p>Bayes classifier is a class of classification algorithms based on Bayes theorem; Naïve Bayes classifier is one of them. It uses the Bayes theorem and calculates the posterior probability of each category based on the conditional probability of the input features, then selects the features with the highest posterior probability as the prediction results.</p><h2 id="Naive-Bayes-Algorithm"><a href="#Naive-Bayes-Algorithm" class="headerlink" title="Naive Bayes Algorithm"></a>Naive Bayes Algorithm</h2><p>The Naïve Bayes algorithm is a machine learning classification algorithm based on Bayes theorem, and it is also a supervised learning algorithm. It will classify datasets by using Bayes’ theorem and the assumption of independence between features. In the real world, it is used for text classification, spam filtering, and sentiment analysis, etc.</p><p>There are serval variations of the Naive Bayes algorithm, such as Gaussian Naive Bayes, multinomial Naive Bayes, and Bernoulli Naive Bayes.  These variations may apply to different types of features such as continuous, and discrete data types, and also apply to different distributions such as multinomial, gaussian, etc.  Its advantage is that the simply implements the algorithm and is computationally efficient.  It works well for high-dimensional data and large-scale datasets. But it assumes that the features are independent of each other, which is inconsistent in some cases in reality.  </p>]]></content>
       
       
       <categories>
@@ -165,9 +165,9 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
             
@@ -194,9 +194,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Results </tag>
             
@@ -223,11 +223,11 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -252,11 +252,11 @@
       
         <tags>
             
-            <tag> Data Preparation </tag>
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Association Rule Mining </tag>
             
-            <tag> Unsupervised Machine Learning </tag>
+            <tag> Data Preparation </tag>
             
         </tags>
       
@@ -281,9 +281,9 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Overview </tag>
             
@@ -341,9 +341,9 @@
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Results </tag>
-            
             <tag> Clustring </tag>
+            
+            <tag> Results </tag>
             
         </tags>
       
@@ -368,9 +368,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
@@ -397,9 +397,9 @@
       
         <tags>
             
-            <tag> Data Preparation </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Data Preparation </tag>
             
             <tag> Clustring </tag>
             
@@ -447,11 +447,11 @@
       
         <tags>
             
+            <tag> Data Preparation </tag>
+            
             <tag> Data Gathering </tag>
             
             <tag> Data Cleaning </tag>
-            
-            <tag> Data Preparation </tag>
             
         </tags>
       
