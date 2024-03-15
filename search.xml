@@ -252,11 +252,11 @@
       
         <tags>
             
+            <tag> Data Preparation </tag>
+            
             <tag> Unsupervised Machine Learning </tag>
             
             <tag> Association Rule Mining </tag>
-            
-            <tag> Data Preparation </tag>
             
         </tags>
       
@@ -341,9 +341,9 @@
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Clustring </tag>
-            
             <tag> Results </tag>
+            
+            <tag> Clustring </tag>
             
         </tags>
       
@@ -397,9 +397,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Data Preparation </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
@@ -447,11 +447,11 @@
       
         <tags>
             
-            <tag> Data Preparation </tag>
-            
             <tag> Data Gathering </tag>
             
             <tag> Data Cleaning </tag>
+            
+            <tag> Data Preparation </tag>
             
         </tags>
       
