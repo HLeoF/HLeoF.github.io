@@ -124,7 +124,7 @@
       <link href="/2024/03/14/nb-intro/"/>
       <url>/2024/03/14/nb-intro/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Naive-Bayes"><a href="#Naive-Bayes" class="headerlink" title="Naive Bayes"></a>Naive Bayes</h1><p>The Naïve Bayes algorithm is a machine learning classification algorithm based on Bayes theorem, and it is also a supervised learning algorithm. It will classify datasets by using Bayes’ theorem and the assumption of independence between features. In the real world, it is used for text classification, spam filtering, and sentiment analysis, etc.</p><h2 id="Bayes-Theorem"><a href="#Bayes-Theorem" class="headerlink" title="Bayes Theorem"></a>Bayes Theorem</h2><p>It is a theorem in probability theory that describes the probability that something will happen given some known conditions. For example, the duration of smoking is relatively high with lung cancer. Thus, using  the formula of the Bayes theorem to accurately calculate how likely someone is to get lung cancer depending on their duration of smoking.</p><p>$$P(A | B) &#x3D; \frac{P(A)P(B|A)}{P(B)}$$</p><p>$P(A | B)$: It is the <em><strong>posterior probability</strong></em> of A given the predictor B</p><p>$P(B | A)$: It is the <em><strong>likelihood</strong></em>, that probability of B given the A</p><p>$P(A)$: It is <em><strong>A Prior Probability</strong></em> that is probability of the A</p><p>$P(B)$: It is <em><strong>B prior Probability</strong></em> that is probability of the B</p><p>Here is an example that using the Bayes theorem</p><blockquote><p>Doctors know that hyperthyroidism(H) causes a thick neck(T) is  60%, So $P(T|H) &#x3D; 0.6$<br>Prior probability of any patient having hyperthyroidism is $\frac{1}{300}$, So $P(H) &#x3D; \frac{1}{300}$<br>Prior probability of any patient having thick neck is $\frac{1}{60}$, So $P(T) &#x3D; \frac{1}{60}$<br>The probability of a patient having hyperthyroidism if he&#x2F;she has a thick neck.<br>$$P(H|T) &#x3D; \frac{P(H)P(T|H)}{P(T)} &#x3D; \frac{\frac{1}{300}*0.6}{\frac{1}{60}} &#x3D; 0.12$$<br>Therefore, if a patient has a thick neck, he&#x2F;she has the probability of hyperthyroidism is 12%.</p></blockquote>]]></content>
       
       
       <categories>
@@ -165,9 +165,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule Mining </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Conclusion </tag>
             
@@ -194,9 +194,9 @@
       
         <tags>
             
-            <tag> Association Rule </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule </tag>
             
             <tag> Results </tag>
             
@@ -223,11 +223,11 @@
       
         <tags>
             
+            <tag> Unsupervised Machine Learning </tag>
+            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
-            
-            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -254,9 +254,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule Mining </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -281,9 +281,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule Mining </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Overview </tag>
             
@@ -368,9 +368,9 @@
       
         <tags>
             
-            <tag> Code </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Code </tag>
             
             <tag> Clustring </tag>
             
