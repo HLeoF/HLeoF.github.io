@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
             
             <tag> Naive Bayes </tag>
             
@@ -124,7 +124,7 @@
       <link href="/2024/03/14/nb-intro/"/>
       <url>/2024/03/14/nb-intro/</url>
       
-        <content type="html"><![CDATA[<h1 id="Bayes-Theorem"><a href="#Bayes-Theorem" class="headerlink" title="Bayes Theorem"></a>Bayes Theorem</h1><p>It is a theorem in probability theory that describes the probability that something will happen given some known conditions. For example, the duration of smoking is relatively high with lung cancer. Thus, using  the formula of the Bayes theorem to accurately calculate how likely someone is to get lung cancer depending on their duration of smoking.</p><p>$$P(A | B) &#x3D; \frac{P(A)P(B|A)}{P(B)}$$</p><p>$P(A | B)$: It is the <em><strong>posterior probability</strong></em> of A given the predictor B</p><p>$P(B | A)$: It is the <em><strong>likelihood</strong></em>, that probability of B given the A</p><p>$P(A)$: It is <em><strong>A Prior Probability</strong></em> that is probability of the A</p><p>$P(B)$: It is <em><strong>B prior Probability</strong></em> that is probability of the B</p><blockquote><p>Here is an example that using the Bayes theorem<br>Doctors know that hyperthyroidism(H) causes a thick neck(T) is  60%, So $P(T|H) &#x3D; 0.6$<br>Prior probability of any patient having hyperthyroidism is $\frac{1}{300}$, So $P(H) &#x3D; \frac{1}{300}$<br>Prior probability of any patient having thick neck is $\frac{1}{60}$, So $P(T) &#x3D; \frac{1}{60}$<br>The probability of a patient having hyperthyroidism if he&#x2F;she has a thick neck.<br>$$P(H|T) &#x3D; \frac{P(H)P(T|H)}{P(T)} &#x3D; \frac{\frac{1}{300}*0.6}{\frac{1}{60}} &#x3D; 0.12$$<br>Therefore, if a patient has a thick neck, he&#x2F;she has the probability of hyperthyroidism is 12%.</p></blockquote><h2 id="Bayesian-Classifiers"><a href="#Bayesian-Classifiers" class="headerlink" title="Bayesian Classifiers"></a>Bayesian Classifiers</h2><p>Bayes classifier is a class of classification algorithms based on Bayes theorem; Naïve Bayes classifier is one of them. It uses the Bayes theorem and calculates the posterior probability of each category based on the conditional probability of the input features, then selects the features with the highest posterior probability as the prediction results.</p><h2 id="Naive-Bayes-Algorithm"><a href="#Naive-Bayes-Algorithm" class="headerlink" title="Naive Bayes Algorithm"></a>Naive Bayes Algorithm</h2><p>The Naive Bayes algorithm is a machine learning classification algorithm based on Bayes theorem, and it is also a supervised learning algorithm. It will classify datasets by using Bayes’ theorem and the assumption of independence between features. In the real world, it is used for text classification, spam filtering, and sentiment analysis, etc.</p><p>There are serval variations of the Naive Bayes algorithm, such as Gaussian Naive Bayes, multinomial Naive Bayes, and Bernoulli Naive Bayes.  These variations may apply to different types of features such as continuous, and discrete data types, and also apply to different distributions such as multinomial, gaussian, etc.  Its advantage is that the simply implements the algorithm and is computationally efficient.  It works well for high-dimensional data and large-scale datasets. But it assumes that the features are independent of each other, which is inconsistent in some cases in reality.  </p><h1 id="Multinomial-Naive-Bayes"><a href="#Multinomial-Naive-Bayes" class="headerlink" title="Multinomial Naive Bayes"></a>Multinomial Naive Bayes</h1><p>Multinomial Naive Bayes is a kind of classification algorithm based on the Bayes theorem, and it is often used for text classification. It assumes that the probability distribution of the text sample is a multinomial distribution (Each feature is a discrete count value). These features could be words or phrases, and the value of each feature is the number of times the word or phrase appears in the text. In text classification, the text data needs to be converted into feature vectors at first, which can be represented by TF-IDF. Then, use a trained dataset to train a multinomial model to estimate the conditions probability distribution for each category. Finally, based on Bayes theorem, calculating the posterior probability of each category, and then picking a category with the greatest posterior probability as the final classification result.</p><p>The process of text classification using Multinomial NB can be divided into two main steps (The figure shown below).</p><p><strong>Training Phase</strong></p><ol><li><p>Count the number of documents for each category from the training dataset and calculate the prior probability of the category. </p></li><li><p>For each category, count the frequency of each feature under the category, and calculate the conditional probability of the feature under the given category.</p></li></ol><p><strong>Prediction Phase</strong></p><ol><li><p>For each category, calculate the posterior probability that the new documents belong to that category. </p></li><li><p>Select the category with the highest posterior probability as the prediction results.<br><img src="/NB/overviews/1.jpg" alt="The Flowchart for Applying Multinomial NB"></p></li></ol><h2 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h2><p>Some features never appear in a category, which leads to a value of zero when calculating the condition probabilities. This situation may cause the model to be less predictive of never-before-seen features when predicted and may affect the model’s ability to generalize to new data. Thus, using the smoothing to deal with this issue. Common smoothing techniques such as Laplace smoothing and Lidstone smoothing. The main idea is to ensure the probability estimates for all features under each category are non-zero by adjusting the numerator and denominator of conditional probabilities. Smoothing is adding a small constant to the probability for each feature or adjusting the denominator to avoid it being zero. Therefore, using smoothing can prevent zero probability appear due to unseen features and improve the performance of the Multinomial NB model.</p><h1 id="Bernoulli-Naive-Bayes"><a href="#Bernoulli-Naive-Bayes" class="headerlink" title="Bernoulli Naive Bayes"></a>Bernoulli Naive Bayes</h1><p>Bernoulli Naive Bayes is another variant of the Naive Bayes classifier and is mainly used to process binary data.   It is also commonly used for text classification. It is different from multinomial Naive Bayes in that it mainly applies to binary features (the eigenvalues are usually 0 or 1). Therefore, the Bernoulli distribution is called a binary distribution, which means there are two possibilities for each event(Happen or not happen).  It also needs to use smoothing techniques to handle features that do not appear in the training dataset to avoid the occurrence of 0 probabilities.</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Bayes-Theorem"><a href="#Bayes-Theorem" class="headerlink" title="Bayes Theorem"></a>Bayes Theorem</h1><p>It is a theorem in probability theory that describes the probability that something will happen given some known conditions. For example, the duration of smoking is relatively high with lung cancer. Thus, using  the formula of the Bayes theorem to accurately calculate how likely someone is to get lung cancer depending on their duration of smoking.</p><p>$$P(A | B) &#x3D; \frac{P(A)P(B|A)}{P(B)}$$</p><p>$P(A | B)$: It is the <em><strong>posterior probability</strong></em> of A given the predictor B</p><p>$P(B | A)$: It is the <em><strong>likelihood</strong></em>, that probability of B given the A</p><p>$P(A)$: It is <em><strong>A Prior Probability</strong></em> that is probability of the A</p><p>$P(B)$: It is <em><strong>B prior Probability</strong></em> that is probability of the B</p><blockquote><p>Here is an example that using the Bayes theorem<br>Doctors know that hyperthyroidism(H) causes a thick neck(T) is  60%, So $P(T|H) &#x3D; 0.6$<br>Prior probability of any patient having hyperthyroidism is $\frac{1}{300}$, So $P(H) &#x3D; \frac{1}{300}$<br>Prior probability of any patient having thick neck is $\frac{1}{60}$, So $P(T) &#x3D; \frac{1}{60}$<br>The probability of a patient having hyperthyroidism if he&#x2F;she has a thick neck.<br>$$P(H|T) &#x3D; \frac{P(H)P(T|H)}{P(T)} &#x3D; \frac{\frac{1}{300}*0.6}{\frac{1}{60}} &#x3D; 0.12$$<br>Therefore, if a patient has a thick neck, he&#x2F;she has the probability of hyperthyroidism is 12%.</p></blockquote><h2 id="Bayesian-Classifiers"><a href="#Bayesian-Classifiers" class="headerlink" title="Bayesian Classifiers"></a>Bayesian Classifiers</h2><p>Bayes classifier is a class of classification algorithms based on Bayes theorem; Naïve Bayes classifier is one of them. It uses the Bayes theorem and calculates the posterior probability of each category based on the conditional probability of the input features, then selects the features with the highest posterior probability as the prediction results.</p><h2 id="Naive-Bayes-Algorithm"><a href="#Naive-Bayes-Algorithm" class="headerlink" title="Naive Bayes Algorithm"></a>Naive Bayes Algorithm</h2><p>The Naive Bayes algorithm is a machine learning classification algorithm based on Bayes theorem, and it is also a supervised learning algorithm. It will classify datasets by using Bayes’ theorem and the assumption of independence between features. In the real world, it is used for text classification, spam filtering, and sentiment analysis, etc.</p><p>There are serval variations of the Naive Bayes algorithm, such as Gaussian Naive Bayes, multinomial Naive Bayes, and Bernoulli Naive Bayes.  These variations may apply to different types of features such as continuous, and discrete data types, and also apply to different distributions such as multinomial, gaussian, etc.  Its advantage is that the simply implements the algorithm and is computationally efficient.  It works well for high-dimensional data and large-scale datasets. But it assumes that the features are independent of each other, which is inconsistent in some cases in reality.  </p><h1 id="Multinomial-Naive-Bayes"><a href="#Multinomial-Naive-Bayes" class="headerlink" title="Multinomial Naive Bayes"></a>Multinomial Naive Bayes</h1><p>Multinomial Naive Bayes is a kind of classification algorithm based on the Bayes theorem, and it is often used for text classification. It assumes that the probability distribution of the text sample is a multinomial distribution (Each feature is a discrete count value). These features could be words or phrases, and the value of each feature is the number of times the word or phrase appears in the text. In text classification, the text data needs to be converted into feature vectors at first, which can be represented by TF-IDF. Then, use a trained dataset to train a multinomial model to estimate the conditions probability distribution for each category. Finally, based on Bayes theorem, calculating the posterior probability of each category, and then picking a category with the greatest posterior probability as the final classification result.</p><p>The process of text classification using Multinomial NB can be divided into two main steps (The figure shown below).</p><p><strong>Training Phase</strong></p><ol><li><p>Count the number of documents for each category from the training dataset and calculate the prior probability of the category. </p></li><li><p>For each category, count the frequency of each feature under the category, and calculate the conditional probability of the feature under the given category.</p></li></ol><p><strong>Prediction Phase</strong></p><ol><li><p>For each category, calculate the posterior probability that the new documents belong to that category. </p></li><li><p>Select the category with the highest posterior probability as the prediction results.<br><img src="/NB/overviews/1.jpg" alt="The Flowchart for Applying Multinomial NB"></p></li></ol><h2 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h2><p>Some features never appear in a category, which leads to a value of zero when calculating the condition probabilities. This situation may cause the model to be less predictive of never-before-seen features when predicted and may affect the model’s ability to generalize to new data. Thus, using the smoothing to deal with this issue. Common smoothing techniques such as Laplace smoothing and Lidstone smoothing. The main idea is to ensure the probability estimates for all features under each category are non-zero by adjusting the numerator and denominator of conditional probabilities. Smoothing is adding a small constant to the probability for each feature or adjusting the denominator to avoid it being zero. Therefore, using smoothing can prevent zero probability appear due to unseen features and improve the performance of the Multinomial NB model.</p><p>$$\text{Probability Estimation(Smoothing)}$$</p><p>$$\text{C:number of Classes, P: prior probability, m &#x3D; parameter}$$</p><p>$$\text{Laplace:} P(A_i|C) &#x3D; \frac{N_{iC}+1}{N_C + C}$$</p><p>$$\text{m-estimate:} P(A_i|C) &#x3D; \frac{N_{iC}+mp}{N_C + m}$$</p><h1 id="Bernoulli-Naive-Bayes"><a href="#Bernoulli-Naive-Bayes" class="headerlink" title="Bernoulli Naive Bayes"></a>Bernoulli Naive Bayes</h1><p>Bernoulli Naive Bayes is another variant of the Naive Bayes classifier and is mainly used to process binary data.   It is also commonly used for text classification. It is different from multinomial Naive Bayes in that it mainly applies to binary features (the eigenvalues are usually 0 or 1). Therefore, the Bernoulli distribution is called a binary distribution, which means there are two possibilities for each event(Happen or not happen).  It also needs to use smoothing techniques to handle features that do not appear in the training dataset to avoid the occurrence of 0 probabilities.</p><h1 id="Plan-For-the-Project"><a href="#Plan-For-the-Project" class="headerlink" title="Plan For the Project"></a>Plan For the Project</h1>]]></content>
       
       
       <categories>
@@ -165,11 +165,11 @@
       
         <tags>
             
+            <tag> Unsupervised Machine Learning </tag>
+            
             <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
-            
-            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -194,9 +194,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Results </tag>
             
@@ -223,11 +223,11 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -254,9 +254,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
         </tags>
       
@@ -281,9 +281,9 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Overview </tag>
             
@@ -310,9 +310,9 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
             
             <tag> Clustring </tag>
             
@@ -341,9 +341,9 @@
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Results </tag>
-            
             <tag> Clustring </tag>
+            
+            <tag> Results </tag>
             
         </tags>
       
@@ -368,9 +368,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
