@@ -1121,7 +1121,7 @@
 </ol>
 <h2 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h2><p>Some features never appear in a category, which leads to a value of zero when calculating the condition probabilities. This situation may cause the model to be less predictive of never-before-seen features when predicted and may affect the model’s ability to generalize to new data. Thus, using the smoothing to deal with this issue. Common smoothing techniques such as Laplace smoothing and Lidstone smoothing. The main idea is to ensure the probability estimates for all features under each category are non-zero by adjusting the numerator and denominator of conditional probabilities. Smoothing is adding a small constant to the probability for each feature or adjusting the denominator to avoid it being zero. Therefore, using smoothing can prevent zero probability appear due to unseen features and improve the performance of the Multinomial NB model.</p>
 <p>$$\text{Probability Estimation(Smoothing)}$$</p>
-<p>$$\text{C:number of Classes, P: prior probability, m &#x3D; parameter}$$</p>
+<p>$$\text{C:number of Classes, p: prior probability, m &#x3D; parameter}$$</p>
 <p>$$\text{Laplace:} P(A_i|C) &#x3D; \frac{N_{iC}+1}{N_C + C}$$</p>
 <p>$$\text{m-estimate:} P(A_i|C) &#x3D; \frac{N_{iC}+mp}{N_C + m}$$</p>
 <h1 id="Bernoulli-Naive-Bayes"><a href="#Bernoulli-Naive-Bayes" class="headerlink" title="Bernoulli Naive Bayes"></a>Bernoulli Naive Bayes</h1><p>Bernoulli Naive Bayes is another variant of the Naive Bayes classifier and is mainly used to process binary data.   It is also commonly used for text classification. It is different from multinomial Naive Bayes in that it mainly applies to binary features (the eigenvalues are usually 0 or 1). Therefore, the Bernoulli distribution is called a binary distribution, which means there are two possibilities for each event(Happen or not happen).  It also needs to use smoothing techniques to handle features that do not appear in the training dataset to avoid the occurrence of 0 probabilities.</p>
@@ -1284,16 +1284,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Unsupervised-Machine-Learning/">
-                        <span class="chip bg-color">Unsupervised Machine Learning</span>
-                    </a>
-                    
                     <a href="/tags/Association-Rule-Mining/">
                         <span class="chip bg-color">Association Rule Mining</span>
                     </a>
                     
                     <a href="/tags/Conclusion/">
                         <span class="chip bg-color">Conclusion</span>
+                    </a>
+                    
+                    <a href="/tags/Unsupervised-Machine-Learning/">
+                        <span class="chip bg-color">Unsupervised Machine Learning</span>
                     </a>
                     
                 </div>

@@ -1091,7 +1091,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h1><p>Selecting columns of <code>season</code>, <code>teamName</code>, <code>playerName</code>, <code>position</code>, <code>geam_appear</code>, <code>game_lineups</code>, <code>game_minutes</code>. <code>key_pass</code>, <code>pass accuracy</code>, and <code>fouls drawn</code> in the <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/NB/clean_laliga_playerDF.csv">player dataset</a>. Calculating shot success rate by <code>goals_total/shots_total</code>, calculating duel success rate by <code>duel_won/duel_total</code>, and calculating dribble success rate by <code>dribble_success/dribble_attempt.</code> Then, pick players whose position is the attacker and season from 2020 to 2022. There are some NaN values due to some players being transferred by clubs at the beginning of the season, so dropping these NaN values. After that, generate a new data frame. </p>
+<p><img src="/NB/data/1.jpg" alt="The Player Dataset"></p>
+<p><img src="/NB/data/2.jpg" alt="The New Datafram"></p>
+
                 
             </div>
             <hr/>
