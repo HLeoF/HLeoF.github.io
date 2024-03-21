@@ -1091,7 +1091,54 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Multinomial-Naive-Bayes-Algorithm-Python-Code"><a href="#Multinomial-Naive-Bayes-Algorithm-Python-Code" class="headerlink" title="Multinomial Naive Bayes Algorithm Python Code"></a>Multinomial Naive Bayes Algorithm Python Code</h1><p>Data Paparation Code <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/NB/NB_pre_data.py">Python Code</a></p>
+<p>Multinomial Naive Bayes Algorithm <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/NB/Multinomial%20NB%20Model.py">Python Code</a></p>
+<pre class="language-Python" data-language="Python"><code class="language-Python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import confusion_matrix
+
+
+player &#x3D; pd.read_csv(&quot;label_clean_DF.csv&quot;)
+
+playerTrainDF, playerTestDF &#x3D; train_test_split(player,test_size &#x3D; 0.3)
+playerTestLabel &#x3D; playerTestDF[&#39;label&#39;]
+
+playerTestDF &#x3D; playerTestDF.drop([&quot;label&quot;],axis &#x3D; 1)
+playerTrainDF_nolabel &#x3D; playerTrainDF.drop([&quot;label&quot;],axis &#x3D; 1)
+playerTrainLabel &#x3D; playerTrainDF[&#39;label&#39;]
+
+dropcols &#x3D; [&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;position&#39;]
+playerTrainDF_nolabel_quant &#x3D; playerTrainDF_nolabel.drop(dropcols,axis &#x3D; 1)
+playerTestDF_quant &#x3D; playerTestDF.drop(dropcols,axis&#x3D;1)
+
+model &#x3D; MultinomialNB()
+model.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+
+prediction &#x3D; model.predict(playerTestDF_quant)
+
+cnf_matrix &#x3D; confusion_matrix(playerTestLabel, prediction)
+print(&quot;\nThe confusion matrix is:&quot;)
+print(cnf_matrix)
+
+print(np.round(model.predict_proba(playerTestDF_quant),2))
+
+
+labels &#x3D; [&#39;Good&#39;,&#39;Normal&#39;,&#39;Bad&#39;]
+sns.heatmap(cnf_matrix, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False)
+plt.title(&quot;Confusion Matrix&quot;,fontsize&#x3D;20)
+plt.xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+plt.ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+
+prob_matrix &#x3D; np.round(model.predict_proba(playerTestDF_quant),2)
+plt.figure(figsize&#x3D;(15, 15))
+sns.heatmap(prob_matrix, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, cbar&#x3D;False)
+plt.title(&quot;Model Prediction Probability&quot;,fontsize&#x3D;20)
+plt.xlabel(&quot;Labels&quot;, fontsize&#x3D;15)</code></pre>
                 
             </div>
             <hr/>

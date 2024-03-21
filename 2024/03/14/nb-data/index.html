@@ -1105,6 +1105,43 @@
 
 player<span class="token punctuation">[</span><span class="token string">'label'</span><span class="token punctuation">]</span> <span class="token operator">=</span> player<span class="token punctuation">[</span><span class="token punctuation">[</span>col <span class="token keyword">for</span> col <span class="token keyword">in</span> cols<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mode<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></code></pre>
 <p><img src="/NB/data/5.jpg" alt="Final DataFrame"></p>
+<h1 id="Train-Dataset-and-Test-Dataset-Splitting"><a href="#Train-Dataset-and-Test-Dataset-Splitting" class="headerlink" title="Train Dataset and Test Dataset Splitting"></a>Train Dataset and Test Dataset Splitting</h1><pre class="language-Python" data-language="Python"><code class="language-Python">import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import confusion_matrix
+
+
+player &#x3D; pd.read_csv(&quot;label_clean_DF.csv&quot;)
+
+playerTrainDF, playerTestDF &#x3D; train_test_split(player,test_size &#x3D; 0.3)
+playerTestLabel &#x3D; playerTestDF[&#39;label&#39;]
+
+playerTestDF &#x3D; playerTestDF.drop([&quot;label&quot;],axis &#x3D; 1)
+playerTrainDF_nolabel &#x3D; playerTrainDF.drop([&quot;label&quot;],axis &#x3D; 1)
+playerTrainLabel &#x3D; playerTrainDF[&#39;label&#39;]
+
+dropcols &#x3D; [&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;position&#39;]
+playerTrainDF_nolabel_quant &#x3D; playerTrainDF_nolabel.drop(dropcols,axis &#x3D; 1)
+playerTestDF_quant &#x3D; playerTestDF.drop(dropcols,axis&#x3D;1)
+</code></pre>
+
+<p>Using the train_test_split function, and getting the train set and test set (shown below).   Here the test dataset is divided into 30% of the total dataframe.   This allows us to evaluate the generalization ability of the multinomial NB model divided by the final dataframe 70% as the training dataset, and the final dataset 30% as the test dataset, Creating a disjoint split is essential for the prediction model.   If there are overlapping samples in the training set and test dataset, the model will view the labels in the test set and remember them during training.   It can lead to errors in the evaluation of the performance of the model.   Just as a student knows the answers to an exam in advance, a teacher cannot determine whether this student has really learned content by the test score.</p>
+<table>
+<thead>
+<tr>
+<th><img src="/NB/code/1.jpg" alt="Train Dataframe"></th>
+<th><img src="/NB/code/2.jpg" alt="Test Dataframe"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The Train Dataset<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/NB/playerTrainDataset.csv">Train Set</a></td>
+<td>The Test Dataset<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/NB/playerTestDataset.csv">Test Set</a></td>
+</tr>
+</tbody></table>
+<hr>
 <h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>The Final Dataset<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/NB/label_clean_DF.csv">Final Dataframe</a></p>
 <p>The Data Preparation Code<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/NB/NB_pre_data.py">Python Code</a></p>
 

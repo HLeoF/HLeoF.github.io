@@ -1091,7 +1091,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Accuracy-of-Model’s-Prediction"><a href="#Accuracy-of-Model’s-Prediction" class="headerlink" title="Accuracy of Model’s Prediction"></a>Accuracy of Model’s Prediction</h1><p>The prediction results are shown through the following the confusion matrix and line plot. The confusion matrix can evaluate the prediction performance of this multinomial Naive Bayes model. First of all, it can calculate the accuracy of the model through this matrix. According to the formula of accuracy:<br>$$ \frac{\text{Number of corretly classified Samples}}{\text{Total Number of Sampels}} &#x3D; \frac{10+5+27}{10+0+5+1+5+4+3+1+27} &#x3D; \frac{42}{56} \approx 0.75$$</p>
+<p>The accuracy of the model’s prediction is 75%. This result is the same as the result of accuracy_score in the Sklearn library.</p>
+<pre class="language-Python" data-language="Python"><code class="language-Python">
+from sklearn.metrics import accuracy_score
+accuracy &#x3D; accuracy_score(playerTestLabel, prediction)
+print(accuracy)
+
+&gt;&gt;&gt; 0.75
+</code></pre>
+
+<p><img src="/NB/result/1.png" alt="Confusion Matrix"></p>
+<p><img src="/NB/result/3.png" alt="Test Label vs. Prediction Label"></p>
+<p>The line plot also reveals that roughly 35% of the folds in the plot are not overlapped. The 75% correct accuracy of prediction may indicate that the predictive ability of this model is at intermediate to upper intermediate level. Thus, the predicted results that can be convincing.</p>
+<p>Not only that, getting the precision rate for each category by using the confusion matrix:</p>
+<p>$$\text{‘Good’ Precision} &#x3D; \frac{10}{10+1+3} &#x3D; \frac{10}{14} \approx 0.71$$</p>
+<p>$$\text{‘Normal’ Precision} &#x3D; \frac{5}{0+5+1} &#x3D; \frac{5}{6} \approx 0.83$$</p>
+<p>$$\text{‘Bad’ Precision} &#x3D; \frac{24}{5+4+27} &#x3D; \frac{24}{36} \approx 0.75$$</p>
+<p>According to the these formulas can be seen that the category of <code>Nomral</code> has highest precision rate, which is about 83%. The next highest precision rate for the category of <code>Bad</code> is about 75%. The category of <code>Good</code> has a precision rate of about 71%. Therefore, predicting the category as <code>Normal</code> is the most accurate, and predicting the category as <code>Good</code> is less effective than the other two categories. </p>
+<p><img src="/NB/result/2.png" alt="Model Prediction Prability"></p>
+<p><img src="/NB/result/4.jpg" alt="Attacker Preformance Whether Affect Ranking of A Club"></p>
+
                 
             </div>
             <hr/>
@@ -1194,12 +1214,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Unsupervised-Machine-Learning/">
-                        <span class="chip bg-color">Unsupervised Machine Learning</span>
-                    </a>
-                    
                     <a href="/tags/Conclusion/">
                         <span class="chip bg-color">Conclusion</span>
+                    </a>
+                    
+                    <a href="/tags/Unsupervised-Machine-Learning/">
+                        <span class="chip bg-color">Unsupervised Machine Learning</span>
                     </a>
                     
                     <a href="/tags/Naive-Bayes/">
