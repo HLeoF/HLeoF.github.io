@@ -1114,8 +1114,58 @@
 </ul>
 <h2 id="Pros-and-Cons-of-Decision-Tree"><a href="#Pros-and-Cons-of-Decision-Tree" class="headerlink" title="Pros and Cons of Decision Tree"></a>Pros and Cons of Decision Tree</h2><p><code>Advantage:</code> It is easy to explain, and its Boolean logic and visualization help people to understand and use it. Also, the hierarchical structure of the decision tree makes it easier to spot essential features. It can handle discrete or continuous data types. It is also capable of handling data with missing values. </p>
 <p><code>Disadvantage:</code> Complex decision trees can overfit and do not work well with new data(decision tree pruning mentioned above can be avoided). Also, it is constructed using a greedy search method and its tanning cost will be higher than other algorithms.</p>
-<h1 id="Optimal-Division-Ways"><a href="#Optimal-Division-Ways" class="headerlink" title="Optimal Division Ways"></a>Optimal Division Ways</h1><hr>
+<h1 id="Choosing-The-Best-Way-to-Divide"><a href="#Choosing-The-Best-Way-to-Divide" class="headerlink" title="Choosing The Best Way to Divide"></a>Choosing The Best Way to Divide</h1><p>The most important step in a decision tree is to choose an appropriate division way. Typically, as the division proceeds, the developers expect the branch nodes of the decision tree to contain samples that belong to the same category as much as possible to increase the purity of the nodes.  For example, to identify the quality of seeds, the final expectation is to group good seeds with good seeds and bad seeds with bad seeds as much as possible. Information Gain (including Entropy) and Gini Impurity are commonly as segmentation metrics in decision trees, and they are used to evaluate the contribution of each test condition to classification and the ability to improve node purity.</p>
+<h2 id="Information-Gain"><a href="#Information-Gain" class="headerlink" title="Information Gain"></a>Information Gain</h2><p>Information gain is based on the change in entropy to determine the extent to which features contribute to the task of classification. The greater the information gain, the better classification results are obtained for feature division. Information entropy is the measure of uncertainty in datasets. Therefore, information gain is a measure of the effectiveness of features in reducing uncertainty and improving the purity of the datasets.</p>
+<p>$$\text{Information Gain}(S,a) &#x3D; \text{Entropy(S)} - \sum_{j&#x3D;1}^{K}\frac{|S_j|}{|S|} \text{Entropy}(S_j)$$</p>
+<p>$\text{a: Specific attributes or category label}$</p>
+<p>$\text{S: Infomration Entropy of the dataset}$</p>
+<p>$\sum_{j&#x3D;1}^{K} \frac{|S_j|}{|S|} \text{Entropy}(S_j): \text{The conditional entropy of each feature}$</p>
+<blockquote>
+<p><code>Information gain</code> is a measure quantifies how much a given <code>tree node split</code> unmixes the labels at a node. Mathematically it is measure of the difference between impurity values before splitting the data at a node and the weighted average of the impurity after the split<br>source from: <a target="_blank" rel="noopener" href="https://gatesboltonanalytics.com/?page_id=278">https://gatesboltonanalytics.com/?page_id=278</a></p>
+</blockquote>
+<h3 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h3><p>Entropy is a metric used to measure the uncertainty of a dataset, the higher the entropy value, the higher the uncertainty of the dataset. This situation leads to a subset of a dataset containing a greater mix of different categories. Thus, during the division process, make sure that the lower the entropy value, which cases higher the purity of the divided subset.</p>
+<p>$$\text{Entropy} &#x3D; \sum_{i&#x3D;1}^{C} - p_ilog_2(p_i) $$</p>
+<p>$\text{S: Infomration entropy of dataset}$</p>
+<p>$\text{C: categories in the set}$</p>
+<p>$p_i:\text{Proportion of data points in category i to the total number of points in the dataset}$</p>
+<h3 id="Gini"><a href="#Gini" class="headerlink" title="Gini"></a>Gini</h3><p>Gini impurity is the probability of misclassification after classifying the data based on some feature. The lower the value of Gini, the more samples of the same category are included in the subset and the better affection of the division. If the dataset cannot be further divided, then its impurity is zero.</p>
+<p>$$\text{Gini} &#x3D; 1 - \sum_{i&#x3D;1}^{C}{(p_i)^2}$$</p>
+<p>During the processing of building a decision tree, using Gini as a picking feature method is a good way once encounter a dataset that contains a larger number of categorical categories, or to evaluate the nodes of the decision tree.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><img src="/DT/intro/3.jpg" alt="Dataset Sample"></p>
+<h3 id="Entropy-and-Information-Gain"><a href="#Entropy-and-Information-Gain" class="headerlink" title="Entropy and Information Gain"></a>Entropy and Information Gain</h3><ul>
+<li>Calculate the entropy of origial dataset<br>$$P(\text{Play Soccer &#x3D; Yes}) &#x3D; \frac{3}{5} &#x3D; 0.6 \text{, and }  P(\text{Play Soccer &#x3D; No}) &#x3D; \frac{2}{5} &#x3D; 0.4$$</li>
+</ul>
+<p>$$ Entropy(S) &#x3D; \sum_{i&#x3D;1}^{C} - p_ilog_2(p_i) &#x3D; -0.6log_2{0.6} - 0.4log_2{0.4} \approx 0.9710$$</p>
+<ul>
+<li>Calcualte conditional entropy of Weather</li>
+</ul>
+<p>$$P(\text{P&#x3D; Yes | Weather &#x3D; Sunny}) &#x3D; \frac{1}{2} &#x3D; 0.5 \text{, and }  P(\text{P&#x3D;No | Weather &#x3D; Sunny}) &#x3D; \frac{1}{2} &#x3D; 0.5$$</p>
+<p>$$P(\text{P&#x3D;Yes | Weather &#x3D; Cloud}) &#x3D; \frac{2}{3} \text{, and }  P(\text{P &#x3D; No | Weather &#x3D; Cloud}) &#x3D; \frac{1}{3}$$</p>
+<p>$$Entropy(S_\text{Sunny}) &#x3D; \sum_{i&#x3D;1}^{2} - p_ilog_2(p_i) &#x3D; -0.5log_2{0.5} - 0.5log_2{0.5} &#x3D; 1$$</p>
+<p>$$Entropy(S_\text{Cloud}) &#x3D; \sum_{i&#x3D;1}^{2} - p_ilog_2(p_i) &#x3D; -\frac{2}{3}log_2{\frac{2}{3}} - \frac{1}{3}log_2{\frac{1}{3}} &#x3D; 0.9183$$</p>
+<p>$$H(S|Weather) &#x3D; \sum_{j&#x3D;1}^{2}\frac{|S_\text{Weather}|}{|S|} \text{Entropy}(S_\text{Weather}) &#x3D; \frac{2}{5} * 1+ \frac{3}{5} * 0.9183 &#x3D; 0.9510$$</p>
+<ul>
+<li>Calcuate the conditional entropy of Temperature</li>
+</ul>
+<p>$$P(\text{P&#x3D; Yes | Temp &#x3D; Hot}) &#x3D; \frac{1}{2} \text{, and }  P(\text{P&#x3D;No | Temp &#x3D; Hot}) &#x3D; \frac{1}{2}$$</p>
+<p>$$P(\text{P&#x3D;Yes | Temp &#x3D; Cool}) &#x3D; \frac{2}{2} \text{, and }  P(\text{P &#x3D; No | Temp &#x3D; Cool}) &#x3D; \frac{0}{2}$$</p>
+<p>$$P(\text{P&#x3D;Yes | Temp &#x3D; Cold}) &#x3D; \frac{0}{1} \text{, and }  P(\text{P &#x3D; No | Temp &#x3D; Cold}) &#x3D; \frac{1}{1}$$</p>
+<p>$$Entropy(S_\text{Hot}) &#x3D; \sum_{i&#x3D;1}^{2} - p_ilog_2(p_i) &#x3D; -0.5log_2{0.5} - 0.5log_2{0.5} &#x3D; 1$$</p>
+<p>$$Entropy(S_\text{Cool}) &#x3D; \sum_{i&#x3D;1}^{2} - p_ilog_2(p_i) &#x3D; -\frac{2}{2}log_2{\frac{2}{2}} &#x3D; 0$$</p>
+<p>$$Entropy(S_\text{Cold}) &#x3D; \sum_{i&#x3D;1}^{2} - p_ilog_2(p_i) &#x3D; -\frac{1}{1}log_2{\frac{1}{1}} &#x3D; 0$$</p>
+<p>$$H(S|Temp) &#x3D; \sum_{j&#x3D;1}^{2}\frac{|S_\text{Temp}|}{|S|} \text{Entropy}(S_\text{Temp}) &#x3D; \frac{2}{5} * 1+ \frac{2}{5} * 0 + \frac{1}{5}*0 &#x3D; 0.4$$</p>
+<ul>
+<li>Calcuate the information gain for each feature</li>
+</ul>
+<p>$$\text{Information Gain}(S,Weather) &#x3D; \text{Entropy(S)} - \sum_{j&#x3D;1}^{K}\frac{|S_j|}{|S|} \text{Entropy}(S_j) &#x3D; 0.9710 - 0.9510 &#x3D;  0.02$$</p>
+<p>$$\text{Information Gain}(S,Temp) &#x3D; \text{Entropy(S)} - \sum_{j&#x3D;1}^{K}\frac{|S_j|}{|S|} \text{Entropy}(S_j) &#x3D; 0.9710 - 0.4 &#x3D;  0.571$$</p>
+<p>Therefore, choosing feature of Temperature as the first split point, because $\text{Information Gain}(S,Temp) &gt; \text{Information Gain}(S,Weather)$</p>
+<p><img src="/DT/intro/4.jpg" alt="Demo for Splitting Process"></p>
+<h1 id="Create-an-infinite-number-of-trees"><a href="#Create-an-infinite-number-of-trees" class="headerlink" title="Create an infinite number of trees"></a>Create an infinite number of trees</h1><p>In each split of a node, the decision tree can select the best-split point from multiple features. Also, the continuity features are able to choose different division points, so this allows the decision tree to create many different topologies. Second, for large-scale datasets with many features, a decision tree may create deeper trees to better fit the data. It can be able to classify or regress the data better.</p>
+<hr>
 <h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>image1: <a target="_blank" rel="noopener" href="https://images.app.goo.gl/zW6zUWat4zN1hwTCA">https://images.app.goo.gl/zW6zUWat4zN1hwTCA</a></p>
+<p>reference1 : <a target="_blank" rel="noopener" href="https://www.ibm.com/cn-zh/topics/decision-trees">https://www.ibm.com/cn-zh/topics/decision-trees</a></p>
+<p>reference2: <a target="_blank" rel="noopener" href="https://zyzypeter.github.io/2017/07/25/machine-learning-ch6-decision-tree/#%E9%80%89%E6%8B%A9%E6%9C%80%E4%BC%98%E5%88%92%E5%88%86%E6%96%B9%E5%BC%8F">https://zyzypeter.github.io/2017/07/25/machine-learning-ch6-decision-tree/#%E9%80%89%E6%8B%A9%E6%9C%80%E4%BC%98%E5%88%92%E5%88%86%E6%96%B9%E5%BC%8F</a></p>
 
                 
             </div>
@@ -1245,7 +1295,7 @@
                 <a href="/2024/03/14/nb-conclu/">
                     <div class="card-image">
                         
-                        <img src="/article/clustring.jpg" class="responsive-img" alt="Naive Bayes Conclusion">
+                        <img src="/article/nb.jpg" class="responsive-img" alt="Naive Bayes Conclusion">
                         
                         <span class="card-title">Naive Bayes Conclusion</span>
                     </div>
@@ -1275,12 +1325,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Unsupervised-Machine-Learning/">
-                        <span class="chip bg-color">Unsupervised Machine Learning</span>
-                    </a>
-                    
                     <a href="/tags/Conclusion/">
                         <span class="chip bg-color">Conclusion</span>
+                    </a>
+                    
+                    <a href="/tags/Unsupervised-Machine-Learning/">
+                        <span class="chip bg-color">Unsupervised Machine Learning</span>
                     </a>
                     
                     <a href="/tags/Naive-Bayes/">
