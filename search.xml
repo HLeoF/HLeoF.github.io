@@ -4,6 +4,151 @@
   
     
     <entry>
+      <title>Decision Tree Conclusion</title>
+      <link href="/2024/03/22/dt-conclu/"/>
+      <url>/2024/03/22/dt-conclu/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Decision Tree </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Conclusion </tag>
+            
+            <tag> Decision Trees </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Decision Tree Results</title>
+      <link href="/2024/03/22/dt-result/"/>
+      <url>/2024/03/22/dt-result/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Decision Tree </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Results </tag>
+            
+            <tag> Decision Trees </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Decision Tree Code</title>
+      <link href="/2024/03/22/dt-code/"/>
+      <url>/2024/03/22/dt-code/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Decision Tree </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Code </tag>
+            
+            <tag> Decision Trees </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Decision Tree Data Preparation</title>
+      <link href="/2024/03/22/dt-data/"/>
+      <url>/2024/03/22/dt-data/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Decision Tree </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data Preparation </tag>
+            
+            <tag> Decision Trees </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Decision Tree Overview</title>
+      <link href="/2024/03/22/dt-intro/"/>
+      <url>/2024/03/22/dt-intro/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h1><p>Decision tree is a supervised learning algorithm for classification and regression tasks. It is a hierarchical tree mechanism that combines root nodes, branches, internal nodes, and leaf nodes.</p><ul><li><p>Root Node: It contains the whole set of samples.</p></li><li><p>Internal Nodes: It is corresponding feature attributes test</p></li><li><p>Leaf Nodes: It is decision results.</p></li></ul><p>According to the figure shown below, this sample decision tree does not have any incoming branches from the root node, and then the branches from the root node start to provide information to the internal nodes (which are the decision nodes.). These two types of nodes both perform evaluations based on available functionality from a subset of the same class. The leaf nodes are these subsets and represent all possible decision outcomes.</p><p><img src="/DT/intro/1.png" alt="Structure of Decision Tree"></p><p>Hers is a simple example below, the CS department of a university to determine whether students can apply for the Capstone in their junior year. There are two indicators: GPA and whether students have taken advanced courses. From the figure blow, students with a GPA greater than 3.75 that can take Capstone course. If the students’ GPA are less than 3.75, it is necessary to determine whether the students had taken advance course. If they already did, they can. Otherwise, they cannot take the Capstone course. </p><p><img src="/DT/intro/2.jpg" alt="Decision Tree Example"></p><h2 id="Steps-for-Decision-Tree"><a href="#Steps-for-Decision-Tree" class="headerlink" title="Steps for Decision Tree"></a>Steps for Decision Tree</h2><ul><li><p><strong>Feature Selection:</strong> It determines which features do the judging. In the training dataset, each sample may have multiple attributes with different features playing a greater or lesser role. Thus, the function of feature selection is to pick the feature with a high correlation of classification results (The feature with strong classification ability). Some ways to select optimized feature such as Gini, Entropy, and Information Gain, and this part will be discussed later.</p></li><li><p><strong>Decision Tree Generation:</strong> Assuming that using information gain is the most important feature selection criterion. Once the features are selected, the information gain of all the features is computed from all nodes. Then, the feature with the largest information gain is selected as a node and leaf nodes are created based on the different values of that feature. Using this method and so on until there is small information gain or no features to choose from.</p></li><li><p><strong>Decision Tree Pruning:</strong> Its main purpose is to against overfitting, and it actively removes some branches to reduce the risk of overfitting.</p></li></ul><h2 id="Pros-and-Cons-of-Decision-Tree"><a href="#Pros-and-Cons-of-Decision-Tree" class="headerlink" title="Pros and Cons of Decision Tree"></a>Pros and Cons of Decision Tree</h2><p><code>Advantage:</code> It is easy to explain, and its Boolean logic and visualization help people to understand and use it. Also, the hierarchical structure of the decision tree makes it easier to spot essential features. It can handle discrete or continuous data types. It is also capable of handling data with missing values. </p><p><code>Disadvantage:</code> Complex decision trees can overfit and do not work well with new data(decision tree pruning mentioned above can be avoided). Also, it is constructed using a greedy search method and its tanning cost will be higher than other algorithms.</p><h1 id="Optimal-Division-Ways"><a href="#Optimal-Division-Ways" class="headerlink" title="Optimal Division Ways"></a>Optimal Division Ways</h1><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>image1: <a href="https://images.app.goo.gl/zW6zUWat4zN1hwTCA">https://images.app.goo.gl/zW6zUWat4zN1hwTCA</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Decision Tree </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Overview </tag>
+            
+            <tag> Decision Trees </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Naive Bayes Conclusion</title>
       <link href="/2024/03/14/nb-conclu/"/>
       <url>/2024/03/14/nb-conclu/</url>
@@ -20,9 +165,9 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
             
             <tag> Naive Bayes </tag>
             
@@ -51,9 +196,9 @@
             
             <tag> Results </tag>
             
-            <tag> Naive Bayes </tag>
-            
             <tag> Supervised Machine Learning </tag>
+            
+            <tag> Naive Bayes </tag>
             
         </tags>
       
@@ -80,9 +225,9 @@
             
             <tag> Code </tag>
             
-            <tag> Naive Bayes </tag>
-            
             <tag> Supervised Machine Learning </tag>
+            
+            <tag> Naive Bayes </tag>
             
         </tags>
       
@@ -109,9 +254,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Naive Bayes </tag>
-            
             <tag> Supervised Machine Learning </tag>
+            
+            <tag> Naive Bayes </tag>
             
         </tags>
       
@@ -138,9 +283,9 @@
             
             <tag> Overview </tag>
             
-            <tag> Naive Bayes </tag>
-            
             <tag> Supervised Machine Learning </tag>
+            
+            <tag> Naive Bayes </tag>
             
         </tags>
       
@@ -165,11 +310,11 @@
       
         <tags>
             
+            <tag> Unsupervised Machine Learning </tag>
+            
             <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
-            
-            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -194,9 +339,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Results </tag>
             
@@ -223,11 +368,11 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -254,9 +399,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
         </tags>
       
@@ -281,9 +426,9 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Overview </tag>
             
@@ -310,9 +455,9 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
             
             <tag> Clustring </tag>
             
@@ -368,9 +513,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
