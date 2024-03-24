@@ -1091,7 +1091,128 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Decision-Tree-Algorithm-Python-Code"><a href="#Decision-Tree-Algorithm-Python-Code" class="headerlink" title="Decision Tree Algorithm Python Code"></a>Decision Tree Algorithm Python Code</h1><p>Data Perparation Code <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/DT/DT_pre_data.py">Python Code</a></p>
+<p>The Train Dataset <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/DT/DTTrainDF.csv">Train Set</a></p>
+<p>The Test Dataset <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/DT/DTTestDF.csv">Test Set</a></p>
+<p>Decision Tree Algorithm <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/DT/decision_tree_model.py">Python</a></p>
+<pre class="language-Python" data-language="Python"><code class="language-Python">import pandas as pd
+from sklearn import tree
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+import graphviz
+
+playerTrainDF &#x3D; pd.read_csv(&quot;DTTrainDF.csv&quot;)
+playerTestDF &#x3D; pd.read_csv(&quot;DTTestDF.csv&quot;)
+
+playerTestLabel &#x3D; playerTestDF[&#39;performance&#39;]
+
+playerTestDF &#x3D; playerTestDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainDF_nolabel &#x3D; playerTrainDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainLabel &#x3D; playerTrainDF[&#39;performance&#39;]
+
+dropcols &#x3D; [&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;position&#39;]
+playerTrainDF_nolabel_quant &#x3D; playerTrainDF_nolabel.drop(dropcols,axis &#x3D; 1)
+playerTestDF_quant &#x3D; playerTestDF.drop(dropcols,axis&#x3D;1)
+
+
+############ Tree 1: Gini &amp; Best ################################
+
+model &#x3D; DecisionTreeClassifier(criterion&#x3D;&#39;gini&#39;, splitter&#x3D;&#39;best&#39;, max_depth&#x3D;None,
+                  min_samples_split&#x3D;2, min_samples_leaf&#x3D;1,
+                  min_weight_fraction_leaf&#x3D;0.0,
+                  max_features&#x3D;None, random_state&#x3D;42,
+                  max_leaf_nodes&#x3D;None, min_impurity_decrease&#x3D;0.0,
+                  class_weight&#x3D;None, ccp_alpha&#x3D;0.0)
+
+model.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+
+TREE_Vis &#x3D; tree.export_graphviz(model,
+                    out_file&#x3D;None,
+                    feature_names&#x3D;playerTrainDF_nolabel_quant.columns,
+                    class_names&#x3D;[&quot;Good&quot;, &quot;Normal&quot;, &quot;Bad&quot;],
+                    filled&#x3D;True, rounded&#x3D;True,
+                    special_characters&#x3D;True)
+
+graph &#x3D; graphviz.Source(TREE_Vis)
+graph
+
+predictions &#x3D; model.predict(playerTestDF_quant)
+conf_matrix &#x3D; confusion_matrix(playerTestLabel, predictions)
+accuracy &#x3D; accuracy_score(playerTestLabel, predictions)
+print(accuracy)
+
+
+labels &#x3D; [&#39;Good&#39;,&#39;Normal&#39;,&#39;Bad&#39;]
+sns.heatmap(conf_matrix, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False)
+plt.title(&quot;Confusion Matrix&quot;,fontsize&#x3D;20)
+plt.xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+plt.ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+plt.show()
+
+################## Tree plot 2 Entropy &amp; Best splitter ######################
+
+model2 &#x3D; DecisionTreeClassifier(criterion&#x3D;&#39;entropy&#39;,splitter&#x3D;&#39;best&#39;,max_depth&#x3D;None,
+                  min_samples_split&#x3D;2, min_samples_leaf&#x3D;1,
+                  min_weight_fraction_leaf&#x3D;0.0,
+                  max_features&#x3D;None, random_state&#x3D;42,
+                  max_leaf_nodes&#x3D;None, min_impurity_decrease&#x3D;0.0,
+                  class_weight&#x3D;None, ccp_alpha&#x3D;0.0)
+
+model2.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+TREE_Vis &#x3D; tree.export_graphviz(model2,
+                    out_file&#x3D;None,
+                    feature_names&#x3D;playerTrainDF_nolabel_quant.columns,
+                    class_names&#x3D;[&quot;Good&quot;, &quot;Normal&quot;, &quot;Bad&quot;],
+                    filled&#x3D;True, rounded&#x3D;True,
+                    special_characters&#x3D;True)
+graph &#x3D; graphviz.Source(TREE_Vis)
+graph
+
+predictions2 &#x3D; model2.predict(playerTestDF_quant)
+conf_matrix2 &#x3D; confusion_matrix(playerTestLabel, predictions2)
+accuracy2 &#x3D; accuracy_score(playerTestLabel, predictions2)
+print(conf_matrix2)
+print(accuracy2)
+
+sns.heatmap(conf_matrix2, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False)
+plt.title(&quot;Confusion Matrix&quot;,fontsize&#x3D;20)
+plt.xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+plt.ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+plt.show()
+
+######################### Tree Plot 3 Gini and random splitter #########################
+
+model3 &#x3D; DecisionTreeClassifier(criterion&#x3D;&#39;gini&#39;,splitter&#x3D;&#39;random&#39;,max_depth&#x3D;None,
+                  min_samples_split&#x3D;2, min_samples_leaf&#x3D;1,
+                  min_weight_fraction_leaf&#x3D;0.0,
+                  max_features&#x3D;None, random_state&#x3D;42,
+                  max_leaf_nodes&#x3D;None, min_impurity_decrease&#x3D;0.0,
+                  class_weight&#x3D;None, ccp_alpha&#x3D;0.0)
+model3.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+TREE_Vis &#x3D; tree.export_graphviz(model3,
+                    out_file&#x3D;None,
+                    feature_names&#x3D;playerTrainDF_nolabel_quant.columns,
+                    class_names&#x3D;[&quot;Good&quot;, &quot;Normal&quot;, &quot;Bad&quot;],
+                    filled&#x3D;True, rounded&#x3D;True,
+                    special_characters&#x3D;True)
+graph &#x3D; graphviz.Source(TREE_Vis)
+graph
+
+predictions3 &#x3D; model3.predict(playerTestDF_quant)
+conf_matrix3 &#x3D; confusion_matrix(playerTestLabel, predictions3)
+accuracy3 &#x3D; accuracy_score(playerTestLabel, predictions3)
+print(conf_matrix3)
+print(accuracy3)
+
+sns.heatmap(conf_matrix3, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False)
+plt.title(&quot;Confusion Matrix&quot;,fontsize&#x3D;20)
+plt.xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+plt.ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+plt.show()
+</code></pre>
                 
             </div>
             <hr/>

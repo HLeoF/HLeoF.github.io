@@ -1093,6 +1093,51 @@
             <div id="articleContent">
                 <h1 id="Data-Preparationg"><a href="#Data-Preparationg" class="headerlink" title="Data Preparationg"></a>Data Preparationg</h1><p>Select columns of <code>season</code>, <code>teamName</code>, <code>playerName</code>, &#96;position, pass_accura, tackle_blocks, tackle_intercep, and fouls_committed in the player dataset. Then, choose players whose position is the defender and playing season from 2020 to 2022. Dropping rows that are pass_accura, tackle_blocks, tackle_intercep, and foul_committed all are equal to 0. The main reason is these players are transferred by clubs at the beginning of the season or have never player in La Liga. After generating a new data set.<br><img src="/DT/data/1.jpg" alt="The Players Dataset"></p>
 <p><img src="/DT/data/2.jpg" alt="The New Dataset"></p>
+<p>Since the new dataset does not have a label column. Therefore, using k-mean clustering based on numeric variables of <code>pass_accura</code>, <code>tackle_bolcks</code>, <code>tackle_intercep</code> and <code>fouls_committed</code>. The k-value used here is 3 (Categories: Good performance, normal performance, and bad performance). After K-mean clustering, the label columns are merged into the new dataframe, as shown below.</p>
+<p><img src="/DT/data/3.jpg" alt="The New Dataset with label(Performance) column"></p>
+<h1 id="Train-Data-and-Test-Data-Splitting"><a href="#Train-Data-and-Test-Data-Splitting" class="headerlink" title="Train Data and Test Data Splitting"></a>Train Data and Test Data Splitting</h1><pre class="language-Python" data-language="Python"><code class="language-Python">playerTrainDF, playerTestDF &#x3D; train_test_split(player,test_size &#x3D; 0.3, random_state&#x3D;42)
+
+playerTrainDF.to_csv(&quot;DTTrainDF.csv&quot;)
+playerTestDF.to_csv(&quot;DTTestDF.csv&quot;)
+print(playerTrainDF)
+print(playerTestDF)</code></pre>
+
+<p>Also using the train_split function as same in the <a target="_blank" rel="noopener" href="http://localhost:4000/2024/03/14/nb-data/#Train-Dataset-and-Test-Dataset-Splitting">Multinomial NB section</a>, and getting the train dataset and test dataset. Here the test is divided into 30% of the new dataframe. Also, use reandom_state&#x3D;42 to ensure that the train set and test set do not change once running code every time. Creating a disjoint split is essential for the prediction model. If there are overlapping samples in the training set and test dataset, the model will view the labels in the test set and remember them during training. It can lead to errors in the evaluation of the performance of the model. Just as a student knows the answers to an exam in advance, a teacher cannot determine whether this student has really learned content by the test score.<br>Using the code below to check whether train set and test set disjoint splitting or not.</p>
+<pre class="language-Python" data-language="Python"><code class="language-Python">disjoint_check &#x3D; pd.merge(playerTrainDF, playerTestDF, how&#x3D;&#39;inner&#39;)
+
+# Check Train and Test sets are disjoint
+if not disjoint_check.empty:
+    print(&quot;Train and Test set have same rows&quot;)
+else:
+    print(&quot;Train and Test set have not same rows&quot;)</code></pre>
+
+<table>
+<thead>
+<tr>
+<th><img src="/DT/data/4.jpg" alt="Train Dataframe"></th>
+<th><img src="/DT/data/5.jpg" alt="Test Dataframe"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The Train Dataset<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/DT/DTTrainDF.csv">Train Set</a></td>
+<td>The Test Dataset<a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/DT/DTTestDF.csv">Test Set</a></td>
+</tr>
+</tbody></table>
+<p>After that, the train set and test will be fine-tuned using the following code in preparation for use with the decision tree algorithm.</p>
+<pre class="language-Python" data-language="Python"><code class="language-Python">
+playerTestLabel &#x3D; playerTestDF[&#39;performance&#39;]
+
+playerTestDF &#x3D; playerTestDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainDF_nolabel &#x3D; playerTrainDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainLabel &#x3D; playerTrainDF[&#39;performance&#39;]
+
+dropcols &#x3D; [&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;position&#39;]
+playerTrainDF_nolabel_quant &#x3D; playerTrainDF_nolabel.drop(dropcols,axis &#x3D; 1)
+playerTestDF_quant &#x3D; playerTestDF.drop(dropcols,axis&#x3D;1)
+</code></pre>
+
+<hr>
+<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>Decision Tree Data Preparation Code <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/DT/DT_pre_data.py">Python Code</a></p>
 
                 
             </div>
