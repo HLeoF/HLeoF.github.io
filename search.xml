@@ -4,6 +4,151 @@
   
     
     <entry>
+      <title>svm-conclu</title>
+      <link href="/2024/04/15/svm-conclu/"/>
+      <url>/2024/04/15/svm-conclu/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Support Vector Machine </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Conclusion </tag>
+            
+            <tag> Decision Trees </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>svm-result</title>
+      <link href="/2024/04/15/svm-result/"/>
+      <url>/2024/04/15/svm-result/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Support Vector Machine </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Results </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+            <tag> Support Vector Machine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>svm-code</title>
+      <link href="/2024/04/15/svm-code/"/>
+      <url>/2024/04/15/svm-code/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Support Vector Machine </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Code </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+            <tag> Support Vector Machine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>svm-data</title>
+      <link href="/2024/04/15/svm-data/"/>
+      <url>/2024/04/15/svm-data/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Support Vector Machine </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data Preparation </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+            <tag> Support Vector Machine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>svm-intro</title>
+      <link href="/2024/04/15/svm-intro/"/>
+      <url>/2024/04/15/svm-intro/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Support Vector Machine </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Overview </tag>
+            
+            <tag> Supervised Machine Learning </tag>
+            
+            <tag> Support Vector Machine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Decision Tree Conclusion</title>
       <link href="/2024/03/22/dt-conclu/"/>
       <url>/2024/03/22/dt-conclu/</url>
@@ -609,7 +754,7 @@
       <link href="/2024/01/17/Introduction/"/>
       <url>/2024/01/17/Introduction/</url>
       
-        <content type="html"><![CDATA[<h1 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h1><p><em><strong>Is the individual ability of La Liga players a key factor in determining how a club goes throughout a season? Whether a player’s performance on the pitch (such as dribbling, shots, passes, yellow card, red card, etc.) can indicate the outcome of every game and affect a club’s position at the end of each season.</strong></em></p><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>&emsp;In real life, a lot of analysis work has been done based on players’ statistics. For example, it is possible to access a player’s performance and potential by analyzing a player’s passing, shooting, dribbling, and other data. This way will support clubs in making more informed choices in the transfer market for each season. Also, players’ data is used to optimize the teams’ training sessions to help players improve their individual abilities and overall performance. More in-depth analysis of player data is now needed to better understand the role and impact of players in games. This word cannot only offer the team more tactical options but also guide the club to make more good decisions during training and games. At the same time, it is desirable to use data analysis to predict fluctuations in players’ states and their performance at critical moments so that improving the stability and combat effectiveness of the teams in a game. Therefore, through in-depth analysis of player data, the club can be provided with tactical options and decision-making support, thereby improving team performance and results during a season. </p><p>&emsp;Soccer is the number one sport in the world, with tens of thousands of soccer fans watching every weekend around the world. Many people like the fast pace and physicality of the Premier League, some like the defensive art of Serie A, and some people like the attacking football of the Bundesliga. According to the latest World Soccer League ranking (<a href="https://www.teamform.com/en/league-ranking/world/2024/q1">https://www.teamform.com/en/league-ranking/world/2024/q1</a>), La Liga is second in the world, and the main reason it has a large group fans&#x2F;audience is that La Liga is known for its ball control and exquisite technique. On the pitch of La Liga, each team’s 11 players operate like a sophisticated machine for 90 minutes. Each man on the pitch is a part of the machine, and their performance affects the operation of the entire machine. Therefore, the various clubs in La Liga pay great attention to the comprehensive quality of players. Every touch, every pass, every breakthrough of players on the pitch is silently writing the fate of a club’s entire season. Thus, just by standing on the pitch they are playing a key role in the success of a club. In the data era, the soccer area is like a tiger that has grown wings. A player’s individual stats will become what the team or scout focuses on, which is an essential factor in the success of the club’s strategic development and team management. In addition, it also provides fans with a deeper soccer-watching experience, making each player’s performance stand out to the audience. </p><p><img src="/introduction/1.jpg" alt="The Latest World Soccer League Ranking"></p><p>&emsp;Many people or fans may subconsciously believe that if a club purchases players who have wonderful individual abilities, the whole club will win all the trophies. However, it is not like FIFA or Football Manager games where players can win everything if they are good enough. One of the more famous examples, Real Madrid bought a large number of expensive players(<a href="https://www.goal.com/en/news/what-galactico-ronaldo-beckham-all-real-madrids-super-signings/1lrrb6x9j0n9f1actzefqw47am">https://www.goal.com/en/news/what-galactico-ronaldo-beckham-all-real-madrids-super-signings/1lrrb6x9j0n9f1actzefqw47am</a>) in 2000 and formed the Galacticos I era(<a href="https://en.wikipedia.org/wiki/Gal%C3%A1cticos#First_gal%C3%A1ctico_era_2">https://en.wikipedia.org/wiki/Gal%C3%A1cticos#First_gal%C3%A1ctico_era_2</a>). At first, as the fans hoped, Real Madrid was able to win various titles from 2000 to 2002. However, since 2002, they have been unable to win any championships just like the honeymoon period of lovers is over. During this period, Real Madrid’s bitter rivals Barcelona won the championships in successive competitions. Therefore, a successful club may not often depend on the outstanding performances of individual players. If the whole club is not well coordinated or appears internal conflicts, the club’s results may also be affected. Besides, a player’s state fluctuation, injuries, and psychological quality are also important factors that affect the results of a game. Even players with outstanding individual skills can hurt the performance of the team once they are out of form or injured.</p><p><img src="/introduction/2.jpg" alt="The Players of Galacticos I Era"></p><p><img src="/introduction/3.jpg" alt="Japan vs. Belgium World Cup 2018"></p><p>&emsp;With the advent of the data era, both big-scale soccer clubs and small-scale clubs are beginning to pay more attention to players’ statistics. Each team has built its data analytics team. Not only it is used to analyze the data of one’s own players to offer a better strategy for the coach, but it is also useful to analyze the data of players of the opposing team to determine their weaknesses and obtain an advantage in a game. For example, before an important Derby game, one club’s data analyst team finds that the opponent’s back line is not strong enough to defend against high-altitude balls. They discovered this weakness through analyzing data such as opposition players’ height and their ability to head the ball. (2018 World Cup, Japan vs. Belgium, Belgium’s national team used this strategy to defeat Japan. The final is 3-2. Japan had the lead for a while.) During the game, the team used frequent crosses, made targeted attacks on the opponent’s weak points, and eventually won the game. In another example, one team’s analysts found that opponents’ midfielders had problems with passing accuracy and were prone to turnovers. They figure out this issue by analyzing the passing success of opposing players and their performance under high pressure. The team uses a high position and force-pressing approach in the game, taking advantage of the loose pass in the opponent’s midfield to launch a quick counterattack, and win the game eventually. Therefore, by making full use of players’ data for opponent analysis, one’s team can better make tactics and strategies, and grasp the shortcomings of opponents, which can help them win the game.</p><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul><li><p><strong>Whether the official rating of a player can verify the situation of a team (good or bad) and its future trend?</strong></p></li><li><p><strong>Does the quality of a player’s shooting determine the outcome of a game and a club’s trend at the end of a season?</strong> </p></li><li><p><strong>Does the goalkeeper’s save ability become the key to the team’s victory?</strong></p></li><li><p><strong>Whether the number of red and yellow cards obtained by players can affect the trend of the team’s season?</strong></p></li><li><p><strong>Striker, Midfielder, or defender, which position has the most direct impact on the team ranking for each season?</strong></p></li><li><p><strong>Are the players’ on-field technique values (such as passes, defenses, saves, goals, etc.) have a positive correlation with team ranking?</strong></p></li><li><p><strong>Does the quantity and quality of penalty kicks determine a team’s performance?</strong></p></li><li><p><strong>Can a player’s duels won rate determine the outcome of the game?</strong></p></li><li><p><strong>Can players bring better results to the team as their skill boosts as the season progresses?</strong></p></li><li><p><strong>Can the number of lineups and appearances of a player determine a game’s result?</strong></p></li></ul><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p><code>cover image</code>: <a href="https://images.app.goo.gl/RR4agxTTYDRBukKE8">https://images.app.goo.gl/RR4agxTTYDRBukKE8</a><br><code>World Cup 2018 Japan vs. Belgium</code>:<a href="https://images.app.goo.gl/qfCThxKCB2vMR4Mi6">https://images.app.goo.gl/qfCThxKCB2vMR4Mi6</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h1><p><em><strong>Is the individual ability of La Liga players a key factor in determining how a club goes throughout a season? Whether a player’s performance on the pitch (such as dribbling, shots, passes, yellow card, red card, etc.) can indicate the outcome of every game and affect a club’s position at the end of each season.</strong></em></p><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>&emsp;In real life, a lot of analysis work has been done based on players’ statistics. For example, it is possible to access a player’s performance and potential by analyzing a player’s passing, shooting, dribbling, and other data. This way will support clubs in making more informed choices in the transfer market for each season. Also, players’ data is used to optimize the teams’ training sessions to help players improve their individual abilities and overall performance. More in-depth analysis of player data is now needed to better understand the role and impact of players in games. This word cannot only offer the team more tactical options but also guide the club to make more good decisions during training and games. At the same time, it is desirable to use data analysis to predict fluctuations in players’ states and their performance at critical moments so that improving the stability and combat effectiveness of the teams in a game. Therefore, through in-depth analysis of player data, the club can be provided with tactical options and decision-making support, thereby improving team performance and results during a season. </p><p>&emsp;Soccer is the number one sport in the world, with tens of thousands of soccer fans watching every weekend around the world. Many people like the fast pace and physicality of the Premier League, some like the defensive art of Serie A, and some people like the attacking football of the Bundesliga. According to the latest World Soccer League ranking (<a href="https://www.teamform.com/en/league-ranking/world/2024/q1">https://www.teamform.com/en/league-ranking/world/2024/q1</a>), La Liga is second in the world, and the main reason it has a large group fans&#x2F;audience is that La Liga is known for its ball control and exquisite technique. On the pitch of La Liga, each team’s 11 players operate like a sophisticated machine for 90 minutes. Each man on the pitch is a part of the machine, and their performance affects the operation of the entire machine. Therefore, the various clubs in La Liga pay great attention to the comprehensive quality of players. Every touch, every pass, every breakthrough of players on the pitch is silently writing the fate of a club’s entire season. Thus, just by standing on the pitch they are playing a key role in the success of a club. In the data era, the soccer area is like a tiger that has grown wings. A player’s individual stats will become what the team or scout focuses on, which is an essential factor in the success of the club’s strategic development and team management. In addition, it also provides fans with a deeper soccer-watching experience, making each player’s performance stand out to the audience. </p><p><img src="/introduction/1.jpg" alt="The Latest World Soccer League Ranking"></p><p>&emsp;Many people or fans may subconsciously believe that if a club purchases players who have wonderful individual abilities, the whole club will win all the trophies. However, it is not like FIFA or Football Manager games where players can win everything if they are good enough. One of the more famous examples, Real Madrid bought a large number of expensive players(<a href="https://www.goal.com/en/news/what-galactico-ronaldo-beckham-all-real-madrids-super-signings/1lrrb6x9j0n9f1actzefqw47am">https://www.goal.com/en/news/what-galactico-ronaldo-beckham-all-real-madrids-super-signings/1lrrb6x9j0n9f1actzefqw47am</a>) in 2000 and formed the Galacticos I era(<a href="https://en.wikipedia.org/wiki/Gal%C3%A1cticos#First_gal%C3%A1ctico_era_2">https://en.wikipedia.org/wiki/Gal%C3%A1cticos#First_gal%C3%A1ctico_era_2</a>). At first, as the fans hoped, Real Madrid was able to win various titles from 2000 to 2002. However, since 2002, they have been unable to win any championships just like the honeymoon period of lovers is over. During this period, Real Madrid’s bitter rivals Barcelona won the championships in successive competitions. Therefore, a successful club may not often depend on the outstanding performances of individual players. If the whole club is not well coordinated or appears internal conflicts, the club’s results may also be affected. Besides, a player’s state fluctuation, injuries, and psychological quality are also important factors that affect the results of a game. Even players with outstanding individual skills can hurt the performance of the team once they are out of form or injured.</p><p><img src="/introduction/2.jpg" alt="The Players of Galacticos I Era"></p><p><img src="/introduction/3.jpg" alt="Japan vs. Belgium World Cup 2018"></p><p>&emsp;With the advent of the data era, both big-scale soccer clubs and small-scale clubs are beginning to pay more attention to players’ statistics. Each team has built its data analytics team. Not only it is used to analyze the data of one’s own players to offer a better strategy for the coach, but it is also useful to analyze the data of players of the opposing team to determine their weaknesses and obtain an advantage in a game. For example, before an important Derby game, one club’s data analyst team finds that the opponent’s back line is not strong enough to defend against high-altitude balls. They discovered this weakness through analyzing data such as opposition players’ height and their ability to head the ball. (2018 World Cup, Japan vs. Belgium, Belgium’s national team used this strategy to defeat Japan. The final is 3-2. Japan had the lead for a while.) During the game, the team used frequent crosses, made targeted attacks on the opponent’s weak points, and eventually won the game. In another example, one team’s analysts found that opponents’ midfielders had problems with passing accuracy and were prone to turnovers. They figure out this issue by analyzing the passing success of opposing players and their performance under high pressure. The team uses a high position and force-pressing approach in the game, taking advantage of the loose pass in the opponent’s midfield to launch a quick counterattack, and win the game eventually. Therefore, by making full use of players’ data for opponent analysis, one’s team can better make tactics and strategies, and grasp the shortcomings of opponents, which can help them win the game.</p><p>&emsp;In La Liga, each player demonstrates unique individual abilities that may have a direct impact on the club’s performance over all seasons. Every movement they make on the pitch is like weaving the parts of a precision machine that determines the fate of an entire team. Outstanding performances from individual players alone may not ensure the club’s success, as the club’s overall coherence and internal unity are equally crucial. With the advent of the data age, teams are increasingly relying on data analytics to optimize tactics and strategies in an effort to gain an edge in games. By analyzing players’ data in-depth, clubs can provide more tactical options and decision support to improve their teams’ performance. This journey into the world of soccer data not only brings a new way of managing clubs, but also provides fans with a more in-depth soccer-watching experience. In the future, with the further development of technology and data analytics, exploring full of infinite possibilities in the world of soccer and create more opportunities and fun for players and soccer fans. Now please follow data footsteps and dive into the exciting world behind La Liga through player statistics.</p><h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ul><li><p><strong>Whether the official rating of a player can verify the situation of a team (good or bad) and its future trend?</strong></p></li><li><p><strong>Does the quality of a player’s shooting determine the outcome of a game and a club’s trend at the end of a season?</strong> </p></li><li><p><strong>Does the goalkeeper’s save ability become the key to the team’s victory?</strong></p></li><li><p><strong>Whether the number of red and yellow cards obtained by players can affect the trend of the team’s season?</strong></p></li><li><p><strong>Striker, Midfielder, or defender, which position has the most direct impact on the team ranking for each season?</strong></p></li><li><p><strong>Are the players’ on-field technique values (such as passes, defenses, saves, goals, etc.) have a positive correlation with team ranking?</strong></p></li><li><p><strong>Does the quantity and quality of penalty kicks determine a team’s performance?</strong></p></li><li><p><strong>Can a player’s duels won rate determine the outcome of the game?</strong></p></li><li><p><strong>Can players bring better results to the team as their skill boosts as the season progresses?</strong></p></li><li><p><strong>Can the number of lineups and appearances of a player determine a game’s result?</strong></p></li></ul><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p><code>cover image</code>: <a href="https://images.app.goo.gl/RR4agxTTYDRBukKE8">https://images.app.goo.gl/RR4agxTTYDRBukKE8</a><br><code>World Cup 2018 Japan vs. Belgium</code>:<a href="https://images.app.goo.gl/qfCThxKCB2vMR4Mi6">https://images.app.goo.gl/qfCThxKCB2vMR4Mi6</a></p>]]></content>
       
       
       <categories>
