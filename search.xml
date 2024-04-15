@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>svm-conclu</title>
+      <title>Support Vector Machine (SVM) Conclusion</title>
       <link href="/2024/04/15/svm-conclu/"/>
       <url>/2024/04/15/svm-conclu/</url>
       
@@ -33,7 +33,7 @@
     
     
     <entry>
-      <title>svm-result</title>
+      <title>Support Vector Machine (SVM) Result</title>
       <link href="/2024/04/15/svm-result/"/>
       <url>/2024/04/15/svm-result/</url>
       
@@ -62,7 +62,7 @@
     
     
     <entry>
-      <title>svm-code</title>
+      <title>Support Vector Machine (SVM) Code</title>
       <link href="/2024/04/15/svm-code/"/>
       <url>/2024/04/15/svm-code/</url>
       
@@ -91,7 +91,7 @@
     
     
     <entry>
-      <title>svm-data</title>
+      <title>Support Vector Machine (SVM) Data Preparation</title>
       <link href="/2024/04/15/svm-data/"/>
       <url>/2024/04/15/svm-data/</url>
       
@@ -120,7 +120,7 @@
     
     
     <entry>
-      <title>svm-intro</title>
+      <title>Support Vector Machine (SVM) Overview</title>
       <link href="/2024/04/15/svm-intro/"/>
       <url>/2024/04/15/svm-intro/</url>
       
@@ -310,9 +310,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Conclusion </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Naive Bayes </tag>
             
@@ -455,11 +455,11 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -484,9 +484,9 @@
       
         <tags>
             
-            <tag> Association Rule </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule </tag>
             
             <tag> Results </tag>
             
@@ -513,11 +513,11 @@
       
         <tags>
             
+            <tag> Unsupervised Machine Learning </tag>
+            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
-            
-            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -544,9 +544,9 @@
             
             <tag> Data Preparation </tag>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule Mining </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -571,9 +571,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule Mining </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Overview </tag>
             
@@ -600,9 +600,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Conclusion </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
@@ -658,9 +658,9 @@
       
         <tags>
             
-            <tag> Code </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Code </tag>
             
             <tag> Clustring </tag>
             
