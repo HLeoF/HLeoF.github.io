@@ -1093,6 +1093,7 @@
             <div id="articleContent">
                 <h1 id="Support-Vector-Machine"><a href="#Support-Vector-Machine" class="headerlink" title="Support Vector Machine"></a>Support Vector Machine</h1><p>Support Vector Machine (SVM) is a supervised learning for classification and regression tasks. It works by figuring out the best decision boundary or hyperplane that can effectively separate different classes of data points. </p>
 <p>A <code>hyperplane</code> is a line or surface used to separate data points in the feature space of input variables. In SVM algorithms, the main goal is to select a suitable hyperplane to classify the data points. The <code>margin</code> is the distance between the classifier and the training data point closest to the best hyperplane. Seeking to find a hyperplane that not only separates different classes of data points but also maximizes the distance to the training data points closest to it which is called maximizes the margin. <code>Support vectors</code> are those training sample points that are closest to the hyperplane. These support vectors play an essential role in determining the final decision boundaries.</p>
+<p><img src="/SVM/overviews/1.png" alt="Support Vector Machine (SVM)"></p>
 <h2 id="SVMs-Are-Linear-Separators"><a href="#SVMs-Are-Linear-Separators" class="headerlink" title="SVMs Are Linear Separators"></a>SVMs Are Linear Separators</h2><p>Support Vector Machine as a linear separator mainly because it is the classification decision boundary is a linear hyperplane. It can be represented by a linear equation:</p>
 <p>$$w^{T}x + b &#x3D; 0$$</p>
 <blockquote>
@@ -1106,6 +1107,30 @@
 <li><p>Kernel Trick is used to handle non-separable cases. It maps the data points from the original feature space to a high-dimensional feature space. Therefore, this makes a non-separable case as linear separable in a high-dimensional feature space.</p>
 </li>
 </ol>
+<h1 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h1><p>The main role of the kernel is to map data sample points from the original feature space to a higher dimensional feature space. It makes data points that are hard to separate in low-dimensional feature space easier to handle. It allows support vector machine algorithms to find suitable linear decision boundaries in more complex feature spaces and can effectively solve nonlinear classification problems. Kernel method has the advantage of implicitly manipulating the support vectors of a high-dimensional feature space through dot product computation while computing the support vectors of the high-dimensional feature space explicitly.</p>
+<h2 id="Dot-Product"><a href="#Dot-Product" class="headerlink" title="Dot Product"></a>Dot Product</h2><p>The dot product plays a crucial role when using the kernel, which measures the similarity between the data points. If the dot product of two points in the feature space is large, this may mean that two data points are more similar. Second, using the dot product enables points operations in high-dimensional space without explicitly computing the data points in high-dimensional space. Therefore, it can improve computational efficiency and model generalization.</p>
+<p><img src="/SVM/overviews/2.jpg" alt="Dot Product"></p>
+<blockquote>
+<p>If we have n points in our datasets, the SVM needs only the dot product of each pair of points to find a classifier<br>We only need to give it the dot product between all pairs of pints in the projected space<br>This is relevent because this is exaclty what kernels do.<br>resource from: <a target="_blank" rel="noopener" href="https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings">https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings</a></p>
+</blockquote>
+<h2 id="Kernel-Functions"><a href="#Kernel-Functions" class="headerlink" title="Kernel Functions"></a>Kernel Functions</h2><p><img src="/SVM/overviews/3.png" alt="Kernels"></p>
+<h3 id="Linear-Kernel-Function"><a href="#Linear-Kernel-Function" class="headerlink" title="Linear Kernel Function"></a>Linear Kernel Function</h3><p>It performs the dot product directly and performs linear classification in the original feature space.</p>
+<p>$$K(a,b) &#x3D; a^{T}b$$</p>
+<h3 id="Gaussian-Radial-Basis-Function"><a href="#Gaussian-Radial-Basis-Function" class="headerlink" title="Gaussian Radial Basis Function"></a>Gaussian Radial Basis Function</h3><p>$$K(a,b) &#x3D; e^{-\gamma(a-b)^{2}}\text{, where gamme} &#x3D; \frac{1}{2\sigma^{2}}$$</p>
+<p>$$a\text{ is a vector}$$</p>
+<p>$$b\text{ is a vector}$$</p>
+<p>$$(a-b)^{2}\text{square distance}$$</p>
+<p>$$\gamma\text{ Gamma scales the affect two points have on each other}$$</p>
+<p>It maps data points to a feature space of infinite dimensions.</p>
+<h3 id="Polynomial-Kernel-Function"><a href="#Polynomial-Kernel-Function" class="headerlink" title="Polynomial Kernel Function"></a>Polynomial Kernel Function</h3><p>$$K(a,b) &#x3D; (a^{T} b + r) ^{d}$$</p>
+<p>$$a\text{ is a vector}$$</p>
+<p>$$b\text{ is a vector}$$</p>
+<p>$$r \text{ is the coefficient of the polynomial}$$</p>
+<p>$$d \text{ is the degree of the polynomial}$$</p>
+<p>Adding the constant $r$ term to the calculated dot product, then get the $d$ degree of the results. This computational process maps the data points from the original feature space to a higher dimensional space via polynomials.</p>
+<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p>Image 1: <a target="_blank" rel="noopener" href="https://images.app.goo.gl/VvT8ekEycCK7qgwA8">https://images.app.goo.gl/VvT8ekEycCK7qgwA8</a></p>
+<p>Image 2: <a target="_blank" rel="noopener" href="https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings">https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings</a></p>
+<p>Image 3: <a target="_blank" rel="noopener" href="https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8">https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8</a></p>
 
                 
             </div>
