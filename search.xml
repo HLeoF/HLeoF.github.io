@@ -95,7 +95,7 @@
       <link href="/2024/04/15/svm-data/"/>
       <url>/2024/04/15/svm-data/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h1><p>Selecting columns of <code>season</code>, <code>teamName</code>, <code>playerName</code>, <code>position</code>, <code>rating</code>, <code>game_minutes</code>, <code>key_pass</code>, <code>pass_accura</code>, and <code>fouls_drawn</code> in the <a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/clean_laliga_playerDF.csv">player dataset</a>. Calculating duel success rate by <code>duel_won/duel_total</code>, and computing dribble success rate by <code>dribble_success/dribble_attemp</code>. Then picking players whose position in the midfielder and season from 2020 to 2022. There are some NaN values due to some players being transfeered out by clubs at the beginning of the season, so dropping these NaN values. After that, generating a new data frame. </p><p><img src="/SVM/data/1.jpg" alt="The Players Dataset"></p><p><img src="/SVM/data/2.jpg" alt="The New Dataset"></p><p>Since the new dataset not have a category column. Thus, using K-means based on numeric variables of <code>rating</code>, <code>game_minutes</code>, <code>key_pass</code>, <code>pass_accura</code>, <code>fouls_drawn</code>, <code>duel_success_rate</code>, and <code>dribble_success_rate</code>. The k value used here is 2 (categries: Good and Normal). After K-mean clustering processing, the label columns is merged into the new dataset, as shown below. (<a href="https://hleof.github.io/2024/03/22/dt-data/">Same processing as Decision Tree Section</a>)</p><p><img src="/SVM/data/3.jpg" alt="The New Dataset with label(Performance) column"></p><h1 id="Train-Dataset-Test-Dataset-Splitting"><a href="#Train-Dataset-Test-Dataset-Splitting" class="headerlink" title="Train Dataset &amp; Test Dataset Splitting"></a>Train Dataset &amp; Test Dataset Splitting</h1><pre class="language-Python" data-language="Python"><code class="language-Python">playerTrainDF, playerTestDF &#x3D; train_test_split(player,test_size &#x3D; 0.3, random_state&#x3D;42)playerTrainDF.to_csv(&quot;DTTrainDF.csv&quot;)playerTestDF.to_csv(&quot;DTTestDF.csv&quot;)print(playerTrainDF)print(playerTestDF)</code></pre><p>Also using the train_split function as same in the <a href="http://hleof.github.io/2024/03/14/nb-data/#Train-Dataset-and-Test-Dataset-Splitting">Multinomial NB section</a>&amp;<a href="https://hleof.github.io/2024/03/22/dt-data/#Train-Data-and-Test-Data-Splitting">Decision Tree</a>, and getting the train dataset and test dataset. Here the test is divided into 30% of the new dataframe. Also, use reandom_state&#x3D;42 to ensure that the train set and test set do not change once running code every time. Creating a disjoint split is essential for the prediction model. If there are overlapping samples in the training set and test dataset, the model will view the labels in the test set and remember them during training. It can lead to errors in the evaluation of the performance of the model. Just as a student knows the answers to an exam in advance, a teacher cannot determine whether this student has really learned content by the test score.<br>Using the code below to check whether train set and test set disjoint splitting or not.</p><pre class="language-Python" data-language="Python"><code class="language-Python"># Check Train and Test sets are disjointif not disjoint_check.empty:    print(&quot;Train and Test set have same rows&quot;)else:    print(&quot;Train and Test set have not same rows&quot;)</code></pre><p>After that, the train set and test will be fine-tuned using the following code in preparation for use with the support vector machine algorithm.</p><pre class="language-Python" data-language="Python"><code class="language-Python">playerTestLabel &#x3D; playerTestDF[&#39;performance&#39;]playerTestDF &#x3D; playerTestDF.drop([&#39;performance&#39;],axis &#x3D; 1)playerTrainDF_nolabel &#x3D; playerTrainDF.drop([&#39;performance&#39;],axis &#x3D; 1)playerTrainLabel &#x3D; playerTrainDF[&#39;performance&#39;]dropcols &#x3D; [&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;position&#39;]playerTrainDF_nolabel_quant &#x3D; playerTrainDF_nolabel.drop(dropcols,axis &#x3D; 1)playerTestDF_quant &#x3D; playerTestDF.drop(dropcols,axis&#x3D;1)</code></pre><hr><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>Support Vector Machine Data Preparation Code: <a href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/SVM_pre_data.py">Python Code</a></p>]]></content>
       
       
       <categories>
@@ -124,7 +124,7 @@
       <link href="/2024/04/15/svm-intro/"/>
       <url>/2024/04/15/svm-intro/</url>
       
-        <content type="html"><![CDATA[<h1 id="Support-Vector-Machine"><a href="#Support-Vector-Machine" class="headerlink" title="Support Vector Machine"></a>Support Vector Machine</h1><p>Support Vector Machine (SVM) is a supervised learning for classification and regression tasks. It works by figuring out the best decision boundary or hyperplane that can effectively separate different classes of data points. </p><p>A <code>hyperplane</code> is a line or surface used to separate data points in the feature space of input variables. In SVM algorithms, the main goal is to select a suitable hyperplane to classify the data points. The <code>margin</code> is the distance between the classifier and the training data point closest to the best hyperplane. Seeking to find a hyperplane that not only separates different classes of data points but also maximizes the distance to the training data points closest to it which is called maximizes the margin. <code>Support vectors</code> are those training sample points that are closest to the hyperplane. These support vectors play an essential role in determining the final decision boundaries.</p><p><img src="/SVM/overviews/1.png" alt="Support Vector Machine (SVM)"></p><h2 id="SVMs-Are-Linear-Separators"><a href="#SVMs-Are-Linear-Separators" class="headerlink" title="SVMs Are Linear Separators"></a>SVMs Are Linear Separators</h2><p>Support Vector Machine as a linear separator mainly because it is the classification decision boundary is a linear hyperplane. It can be represented by a linear equation:</p><p>$$w^{T}x + b &#x3D; 0$$</p><blockquote><p>w is a vector of coefficients<br>x is the vector of variables (variable values)<br>b is the translation (can be thought of in 2D as the y intercept)</p></blockquote><p>Second it is based on the assumption of linear separable. If a training set is linearly divisible then there exists a hyperplane capable of completely separating different classes of data samples. Third, the quadratic optimization problem, which has the objective of maximizing the separation margin, which will produce a linear decision boundary. In other words, the linear classification boundary is obtained during the optimization process.  </p><h3 id="Special-Cases-linearly-Approximately-Separable-Non-Separable"><a href="#Special-Cases-linearly-Approximately-Separable-Non-Separable" class="headerlink" title="Special Cases (linearly Approximately Separable &amp; Non-Separable)"></a>Special Cases (linearly Approximately Separable &amp; Non-Separable)</h3><p>There are two methods to deal with the case of linearly approximately separable or case of non-separable.</p><ol><li><p>Soft Margin SVM is used in cases where the data points are not completely linear separable. In the real-world dataset may exists some outliers or noisy data, which may result in data points are not linearly separable. Thus, a soft margin allows some data points located on the wrong side of the hyperplane or inside the margin to achieve better generalization performance and robustness.</p></li><li><p>Kernel Trick is used to handle non-separable cases. It maps the data points from the original feature space to a high-dimensional feature space. Therefore, this makes a non-separable case as linear separable in a high-dimensional feature space.</p></li></ol><h1 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h1><p>The main role of the kernel is to map data sample points from the original feature space to a higher dimensional feature space. It makes data points that are hard to separate in low-dimensional feature space easier to handle. It allows support vector machine algorithms to find suitable linear decision boundaries in more complex feature spaces and can effectively solve nonlinear classification problems. Kernel method has the advantage of implicitly manipulating the support vectors of a high-dimensional feature space through dot product computation while computing the support vectors of the high-dimensional feature space explicitly.</p><h2 id="Dot-Product"><a href="#Dot-Product" class="headerlink" title="Dot Product"></a>Dot Product</h2><p>The dot product plays a crucial role when using the kernel, which measures the similarity between the data points. If the dot product of two points in the feature space is large, this may mean that two data points are more similar. Second, using the dot product enables points operations in high-dimensional space without explicitly computing the data points in high-dimensional space. Therefore, it can improve computational efficiency and model generalization.</p><p><img src="/SVM/overviews/2.jpg" alt="Dot Product"></p><blockquote><p>If we have n points in our datasets, the SVM needs only the dot product of each pair of points to find a classifier<br>We only need to give it the dot product between all pairs of pints in the projected space<br>This is relevent because this is exaclty what kernels do.<br>resource from: <a href="https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings">https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings</a></p></blockquote><h2 id="Kernel-Functions"><a href="#Kernel-Functions" class="headerlink" title="Kernel Functions"></a>Kernel Functions</h2><p><img src="/SVM/overviews/3.png" alt="Kernels"></p><h3 id="Linear-Kernel-Function"><a href="#Linear-Kernel-Function" class="headerlink" title="Linear Kernel Function"></a>Linear Kernel Function</h3><p>It performs the dot product directly and performs linear classification in the original feature space.</p><p>$$K(a,b) &#x3D; a^{T}b$$</p><h3 id="Gaussian-Radial-Basis-Function"><a href="#Gaussian-Radial-Basis-Function" class="headerlink" title="Gaussian Radial Basis Function"></a>Gaussian Radial Basis Function</h3><p>$$K(a,b) &#x3D; e^{-\gamma(a-b)^{2}}\text{, where gamme} &#x3D; \frac{1}{2\sigma^{2}}$$</p><p>$$a\text{ is a vector}$$</p><p>$$b\text{ is a vector}$$</p><p>$$(a-b)^{2}\text{square distance}$$</p><p>$$\gamma\text{ Gamma scales the affect two points have on each other}$$</p><p>It maps data points to a feature space of infinite dimensions.</p><h3 id="Polynomial-Kernel-Function"><a href="#Polynomial-Kernel-Function" class="headerlink" title="Polynomial Kernel Function"></a>Polynomial Kernel Function</h3><p>$$K(a,b) &#x3D; (a^{T} b + r) ^{d}$$</p><p>$$a\text{ is a vector}$$</p><p>$$b\text{ is a vector}$$</p><p>$$r \text{ is the coefficient of the polynomial}$$</p><p>$$d \text{ is the degree of the polynomial}$$</p><p>Adding the constant $r$ term to the calculated dot product, then get the $d$ degree of the results. This computational process maps the data points from the original feature space to a higher dimensional space via polynomials.</p><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p>Image 1: <a href="https://images.app.goo.gl/VvT8ekEycCK7qgwA8">https://images.app.goo.gl/VvT8ekEycCK7qgwA8</a></p><p>Image 2: <a href="https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings">https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings</a></p><p>Image 3: <a href="https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8">https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Support-Vector-Machine"><a href="#Support-Vector-Machine" class="headerlink" title="Support Vector Machine"></a>Support Vector Machine</h1><p>Support Vector Machine (SVM) is a supervised learning for classification and regression tasks. It works by figuring out the best decision boundary or hyperplane that can effectively separate different classes of data points. </p><p>A <code>hyperplane</code> is a line or surface used to separate data points in the feature space of input variables. In SVM algorithms, the main goal is to select a suitable hyperplane to classify the data points. The <code>margin</code> is the distance between the classifier and the training data point closest to the best hyperplane. Seeking to find a hyperplane that not only separates different classes of data points but also maximizes the distance to the training data points closest to it which is called maximizes the margin. <code>Support vectors</code> are those training sample points that are closest to the hyperplane. These support vectors play an essential role in determining the final decision boundaries.</p><p><img src="/SVM/overviews/1.png" alt="Support Vector Machine (SVM)"></p><h2 id="SVMs-Are-Linear-Separators"><a href="#SVMs-Are-Linear-Separators" class="headerlink" title="SVMs Are Linear Separators"></a>SVMs Are Linear Separators</h2><p>Support Vector Machine as a linear separator mainly because it is the classification decision boundary is a linear hyperplane. It can be represented by a linear equation:</p><p>$$w^{T}x + b &#x3D; 0$$</p><blockquote><p>w is a vector of coefficients<br>x is the vector of variables (variable values)<br>b is the translation (can be thought of in 2D as the y intercept)</p></blockquote><p>Second it is based on the assumption of linear separable. If a training set is linearly divisible then there exists a hyperplane capable of completely separating different classes of data samples. Third, the quadratic optimization problem, which has the objective of maximizing the separation margin, which will produce a linear decision boundary. In other words, the linear classification boundary is obtained during the optimization process.  </p><h3 id="Special-Cases-linearly-Approximately-Separable-Non-Separable"><a href="#Special-Cases-linearly-Approximately-Separable-Non-Separable" class="headerlink" title="Special Cases (linearly Approximately Separable &amp; Non-Separable)"></a>Special Cases (linearly Approximately Separable &amp; Non-Separable)</h3><p>There are two methods to deal with the case of linearly approximately separable or case of non-separable.</p><ol><li><p>Soft Margin SVM is used in cases where the data points are not completely linear separable. In the real-world dataset may exists some outliers or noisy data, which may result in data points are not linearly separable. Thus, a soft margin allows some data points located on the wrong side of the hyperplane or inside the margin to achieve better generalization performance and robustness.</p></li><li><p>Kernel Trick is used to handle non-separable cases. It maps the data points from the original feature space to a high-dimensional feature space. Therefore, this makes a non-separable case as linear separable in a high-dimensional feature space.</p></li></ol><h1 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h1><p>The main role of the kernel is to map data sample points from the original feature space to a higher dimensional feature space. It makes data points that are hard to separate in low-dimensional feature space easier to handle. It allows support vector machine algorithms to find suitable linear decision boundaries in more complex feature spaces and can effectively solve nonlinear classification problems. Kernel method has the advantage of implicitly manipulating the support vectors of a high-dimensional feature space through dot product computation while computing the support vectors of the high-dimensional feature space explicitly.</p><h2 id="Dot-Product"><a href="#Dot-Product" class="headerlink" title="Dot Product"></a>Dot Product</h2><p>The dot product plays a crucial role when using the kernel, which measures the similarity between the data points. If the dot product of two points in the feature space is large, this may mean that two data points are more similar. Second, using the dot product enables points operations in high-dimensional space without explicitly computing the data points in high-dimensional space. Therefore, it can improve computational efficiency and model generalization.</p><p><img src="/SVM/overviews/2.jpg" alt="Dot Product"></p><blockquote><p>If we have n points in our datasets, the SVM needs only the dot product of each pair of points to find a classifier<br>We only need to give it the dot product between all pairs of pints in the projected space<br>This is relevent because this is exaclty what kernels do.<br>resource from: <a href="https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings">https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings</a></p></blockquote><h2 id="Kernel-Functions"><a href="#Kernel-Functions" class="headerlink" title="Kernel Functions"></a>Kernel Functions</h2><p><img src="/SVM/overviews/3.png" alt="Kernels"></p><h3 id="Linear-Kernel-Function"><a href="#Linear-Kernel-Function" class="headerlink" title="Linear Kernel Function"></a>Linear Kernel Function</h3><p>It performs the dot product directly and performs linear classification in the original feature space.</p><p>$$K(a,b) &#x3D; a^{T}b$$</p><h3 id="Gaussian-Radial-Basis-Function"><a href="#Gaussian-Radial-Basis-Function" class="headerlink" title="Gaussian Radial Basis Function"></a>Gaussian Radial Basis Function</h3><p>$$K(a,b) &#x3D; e^{-\gamma(a-b)^{2}}\text{, where gamme} &#x3D; \frac{1}{2\sigma^{2}}$$</p><p>$$a\text{ is a vector}$$</p><p>$$b\text{ is a vector}$$</p><p>$$(a-b)^{2}\text{square distance}$$</p><p>$$\gamma\text{ Gamma scales the affect two points have on each other}$$</p><p>It maps data points to a feature space of infinite dimensions.</p><h3 id="Polynomial-Kernel-Function"><a href="#Polynomial-Kernel-Function" class="headerlink" title="Polynomial Kernel Function"></a>Polynomial Kernel Function</h3><p>$$K(a,b) &#x3D; (a^{T} b + r) ^{d}$$</p><p>$$a\text{ is a vector}$$</p><p>$$b\text{ is a vector}$$</p><p>$$r \text{ is the coefficient of the polynomial}$$</p><p>$$d \text{ is the degree of the polynomial}$$</p><p>Adding the constant $r$ term to the calculated dot product, then get the $d$ degree of the results. This computational process maps the data points from the original feature space to a higher dimensional space via polynomials.</p><h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>$$\text{Taking a 2D points and a polynomial kernel with r &#x3D; 1 and d &#x3D; 2}$$</p><p>$$\text{“Casting” that point into the proper number of dimensions}$$</p><p>$$r &#x3D; 1, d &#x3D; 2, \text{2D}&#x3D;(2,1)$$</p><p>$$\text{Polynomial Kernel: } K(a,b) &#x3D; (a^{T}b+r)^{d} &#x3D; (a^{T}b+1)^{2}$$</p><p>$$(a^{T}b+1)^{2} $$</p><p>$$ &#x3D; (a^{T}b+1)(a^{T}b+1)$$</p><p>$$ &#x3D; (a^{T}b)(a^{T}b)+2(a^{T}b)+1$$</p><p>$$ &#x3D; a_{1}^{2}+2a_{1}^{2}a_{2}^{2}b_{1}^{2}b_{2}^{2}+a_{2}^{2}b_{2}^{2} + 2a_{1}b_{1}+2a_{2}b_{2}+1$$</p><p>$$ \text{Write this as a dot product} $$</p><p>$$[a_{1}^{2},\sqrt{2}a_{1}a_{2},a_{2}^{2},a_{1},a_{2},r] \text{dot} [b_{1}^{2},\sqrt{2}b_{1}b_{2},b_{2}^{2},b_{1},b_{2},r]$$</p><p>$$\text{The Transformation of a is  } [a_{1}^{2},\sqrt{2}a_{1}a_{2},a_{2}^{2},a_{1},a_{2},r] -&gt; [4,\sqrt{2}2,1,2,1,1]$$</p><p>$$\text{Thus, 2D point point into the 6 dimensions when r &#x3D; 1 and d &#x3D; 2}$$</p><h2 id="Pros-and-Cons-of-Support-Vector-Machine"><a href="#Pros-and-Cons-of-Support-Vector-Machine" class="headerlink" title="Pros and Cons of Support Vector Machine"></a>Pros and Cons of Support Vector Machine</h2><p><code>Advantage: </code> It is able to solve the problem of high-dimensional feature space. It is also able to handle interactions between nonlinear features with strong generalization ability.</p><p><code>Disadvantage: </code> There is no generalized solution for nonlinear problems and it is difficult to find a suitable kernel function. In general, SVM only supports binary classification.</p><h1 id="Plan-For-the-Project"><a href="#Plan-For-the-Project" class="headerlink" title="Plan For the Project"></a>Plan For the Project</h1><p>Analyzing the midfielders key capabilities of La Liga, including preformance rating, duel success rate, dribble success rate, key passes, pass accuracy, and fouls drawn. Using Support Vector Machine(SVM) algorithms to predict whether the summed ability of the midfield players meest realistics expectations. Whether their overall ability is a key factor in a club’s ranking.</p><h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p>Image 1: <a href="https://images.app.goo.gl/VvT8ekEycCK7qgwA8">https://images.app.goo.gl/VvT8ekEycCK7qgwA8</a></p><p>Image 2: <a href="https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings">https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings</a></p><p>Image 3: <a href="https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8">https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8</a></p><p>Resource 1： <a href="https://easyai.tech/ai-definition/svm/">https://easyai.tech/ai-definition/svm/</a></p><p>Resource 2: <a href="https://www.showmeai.tech/article-detail/196">https://www.showmeai.tech/article-detail/196</a></p>]]></content>
       
       
       <categories>
@@ -310,9 +310,9 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
             
             <tag> Naive Bayes </tag>
             
@@ -455,11 +455,11 @@
       
         <tags>
             
+            <tag> Unsupervised Machine Learning </tag>
+            
             <tag> Association Rule Mining </tag>
             
             <tag> Conclusion </tag>
-            
-            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -484,9 +484,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Results </tag>
             
@@ -513,11 +513,11 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Association Rule </tag>
             
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
         </tags>
       
@@ -542,11 +542,11 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
+            <tag> Data Preparation </tag>
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Data Preparation </tag>
+            <tag> Association Rule Mining </tag>
             
         </tags>
       
@@ -571,9 +571,9 @@
       
         <tags>
             
-            <tag> Association Rule Mining </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Association Rule Mining </tag>
             
             <tag> Overview </tag>
             
@@ -600,9 +600,9 @@
       
         <tags>
             
-            <tag> Conclusion </tag>
-            
             <tag> Unsupervised Machine Learning </tag>
+            
+            <tag> Conclusion </tag>
             
             <tag> Clustring </tag>
             
@@ -631,9 +631,9 @@
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Clustring </tag>
-            
             <tag> Results </tag>
+            
+            <tag> Clustring </tag>
             
         </tags>
       
@@ -658,9 +658,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Code </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             
@@ -687,9 +687,9 @@
       
         <tags>
             
-            <tag> Unsupervised Machine Learning </tag>
-            
             <tag> Data Preparation </tag>
+            
+            <tag> Unsupervised Machine Learning </tag>
             
             <tag> Clustring </tag>
             

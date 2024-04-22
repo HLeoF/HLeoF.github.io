@@ -1128,9 +1128,26 @@
 <p>$$r \text{ is the coefficient of the polynomial}$$</p>
 <p>$$d \text{ is the degree of the polynomial}$$</p>
 <p>Adding the constant $r$ term to the calculated dot product, then get the $d$ degree of the results. This computational process maps the data points from the original feature space to a higher dimensional space via polynomials.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>$$\text{Taking a 2D points and a polynomial kernel with r &#x3D; 1 and d &#x3D; 2}$$</p>
+<p>$$\text{“Casting” that point into the proper number of dimensions}$$</p>
+<p>$$r &#x3D; 1, d &#x3D; 2, \text{2D}&#x3D;(2,1)$$</p>
+<p>$$\text{Polynomial Kernel: } K(a,b) &#x3D; (a^{T}b+r)^{d} &#x3D; (a^{T}b+1)^{2}$$</p>
+<p>$$(a^{T}b+1)^{2} $$</p>
+<p>$$ &#x3D; (a^{T}b+1)(a^{T}b+1)$$</p>
+<p>$$ &#x3D; (a^{T}b)(a^{T}b)+2(a^{T}b)+1$$</p>
+<p>$$ &#x3D; a_{1}^{2}+2a_{1}^{2}a_{2}^{2}b_{1}^{2}b_{2}^{2}+a_{2}^{2}b_{2}^{2} + 2a_{1}b_{1}+2a_{2}b_{2}+1$$</p>
+<p>$$ \text{Write this as a dot product} $$</p>
+<p>$$[a_{1}^{2},\sqrt{2}a_{1}a_{2},a_{2}^{2},a_{1},a_{2},r] \text{dot} [b_{1}^{2},\sqrt{2}b_{1}b_{2},b_{2}^{2},b_{1},b_{2},r]$$</p>
+<p>$$\text{The Transformation of a is  } [a_{1}^{2},\sqrt{2}a_{1}a_{2},a_{2}^{2},a_{1},a_{2},r] -&gt; [4,\sqrt{2}2,1,2,1,1]$$</p>
+<p>$$\text{Thus, 2D point point into the 6 dimensions when r &#x3D; 1 and d &#x3D; 2}$$</p>
+<h2 id="Pros-and-Cons-of-Support-Vector-Machine"><a href="#Pros-and-Cons-of-Support-Vector-Machine" class="headerlink" title="Pros and Cons of Support Vector Machine"></a>Pros and Cons of Support Vector Machine</h2><p><code>Advantage: </code> It is able to solve the problem of high-dimensional feature space. It is also able to handle interactions between nonlinear features with strong generalization ability.</p>
+<p><code>Disadvantage: </code> There is no generalized solution for nonlinear problems and it is difficult to find a suitable kernel function. In general, SVM only supports binary classification.</p>
+<h1 id="Plan-For-the-Project"><a href="#Plan-For-the-Project" class="headerlink" title="Plan For the Project"></a>Plan For the Project</h1><p>Analyzing the midfielders key capabilities of La Liga, including preformance rating, duel success rate, dribble success rate, key passes, pass accuracy, and fouls drawn. Using Support Vector Machine(SVM) algorithms to predict whether the summed ability of the midfield players meest realistics expectations. Whether their overall ability is a key factor in a club’s ranking.</p>
 <h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource:"></a>Resource:</h1><p>Image 1: <a target="_blank" rel="noopener" href="https://images.app.goo.gl/VvT8ekEycCK7qgwA8">https://images.app.goo.gl/VvT8ekEycCK7qgwA8</a></p>
 <p>Image 2: <a target="_blank" rel="noopener" href="https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings">https://canvas.colorado.edu/courses/98366/pages/module-4-code-resources-guides-readings</a></p>
 <p>Image 3: <a target="_blank" rel="noopener" href="https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8">https://images.app.goo.gl/2yGZSgnJhFSWgoUJ8</a></p>
+<p>Resource 1： <a target="_blank" rel="noopener" href="https://easyai.tech/ai-definition/svm/">https://easyai.tech/ai-definition/svm/</a></p>
+<p>Resource 2: <a target="_blank" rel="noopener" href="https://www.showmeai.tech/article-detail/196">https://www.showmeai.tech/article-detail/196</a></p>
 
                 
             </div>

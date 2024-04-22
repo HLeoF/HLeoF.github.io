@@ -1091,7 +1091,39 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h1><p>Selecting columns of <code>season</code>, <code>teamName</code>, <code>playerName</code>, <code>position</code>, <code>rating</code>, <code>game_minutes</code>, <code>key_pass</code>, <code>pass_accura</code>, and <code>fouls_drawn</code> in the <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/clean_laliga_playerDF.csv">player dataset</a>. Calculating duel success rate by <code>duel_won/duel_total</code>, and computing dribble success rate by <code>dribble_success/dribble_attemp</code>. Then picking players whose position in the midfielder and season from 2020 to 2022. There are some NaN values due to some players being transfeered out by clubs at the beginning of the season, so dropping these NaN values. After that, generating a new data frame. </p>
+<p><img src="/SVM/data/1.jpg" alt="The Players Dataset"></p>
+<p><img src="/SVM/data/2.jpg" alt="The New Dataset"></p>
+<p>Since the new dataset not have a category column. Thus, using K-means based on numeric variables of <code>rating</code>, <code>game_minutes</code>, <code>key_pass</code>, <code>pass_accura</code>, <code>fouls_drawn</code>, <code>duel_success_rate</code>, and <code>dribble_success_rate</code>. The k value used here is 2 (categries: Good and Normal). After K-mean clustering processing, the label columns is merged into the new dataset, as shown below. (<a target="_blank" rel="noopener" href="https://hleof.github.io/2024/03/22/dt-data/">Same processing as Decision Tree Section</a>)</p>
+<p><img src="/SVM/data/3.jpg" alt="The New Dataset with label(Performance) column"></p>
+<h1 id="Train-Dataset-Test-Dataset-Splitting"><a href="#Train-Dataset-Test-Dataset-Splitting" class="headerlink" title="Train Dataset &amp; Test Dataset Splitting"></a>Train Dataset &amp; Test Dataset Splitting</h1><pre class="language-Python" data-language="Python"><code class="language-Python">playerTrainDF, playerTestDF &#x3D; train_test_split(player,test_size &#x3D; 0.3, random_state&#x3D;42)
+
+playerTrainDF.to_csv(&quot;DTTrainDF.csv&quot;)
+playerTestDF.to_csv(&quot;DTTestDF.csv&quot;)
+print(playerTrainDF)
+print(playerTestDF)</code></pre>
+
+<p>Also using the train_split function as same in the <a target="_blank" rel="noopener" href="http://hleof.github.io/2024/03/14/nb-data/#Train-Dataset-and-Test-Dataset-Splitting">Multinomial NB section</a>&amp;<a target="_blank" rel="noopener" href="https://hleof.github.io/2024/03/22/dt-data/#Train-Data-and-Test-Data-Splitting">Decision Tree</a>, and getting the train dataset and test dataset. Here the test is divided into 30% of the new dataframe. Also, use reandom_state&#x3D;42 to ensure that the train set and test set do not change once running code every time. Creating a disjoint split is essential for the prediction model. If there are overlapping samples in the training set and test dataset, the model will view the labels in the test set and remember them during training. It can lead to errors in the evaluation of the performance of the model. Just as a student knows the answers to an exam in advance, a teacher cannot determine whether this student has really learned content by the test score.<br>Using the code below to check whether train set and test set disjoint splitting or not.</p>
+<pre class="language-Python" data-language="Python"><code class="language-Python"># Check Train and Test sets are disjoint
+if not disjoint_check.empty:
+    print(&quot;Train and Test set have same rows&quot;)
+else:
+    print(&quot;Train and Test set have not same rows&quot;)</code></pre>
+
+<p>After that, the train set and test will be fine-tuned using the following code in preparation for use with the support vector machine algorithm.</p>
+<pre class="language-Python" data-language="Python"><code class="language-Python">playerTestLabel &#x3D; playerTestDF[&#39;performance&#39;]
+
+playerTestDF &#x3D; playerTestDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainDF_nolabel &#x3D; playerTrainDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainLabel &#x3D; playerTrainDF[&#39;performance&#39;]
+
+dropcols &#x3D; [&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;position&#39;]
+playerTrainDF_nolabel_quant &#x3D; playerTrainDF_nolabel.drop(dropcols,axis &#x3D; 1)
+playerTestDF_quant &#x3D; playerTestDF.drop(dropcols,axis&#x3D;1)</code></pre>
+
+<hr>
+<h1 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h1><p>Support Vector Machine Data Preparation Code: <a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/SVM_pre_data.py">Python Code</a></p>
+
                 
             </div>
             <hr/>
