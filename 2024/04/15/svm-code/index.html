@@ -1091,7 +1091,205 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Support-Vector-Machien-Algorithm-Python-Code"><a href="#Support-Vector-Machien-Algorithm-Python-Code" class="headerlink" title="Support Vector Machien Algorithm Python Code"></a>Support Vector Machien Algorithm Python Code</h1><p><a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/SVM_pre_data.py">Data Perparation Code</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/SVMTrainDF.csv">The Train Dataset</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/SVMTestDF.csv">The Test Dataset</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HLeoF/laliga_machine_learning/blob/main/laligaProject/SVM/SVM_models.py">Support Vector Machine Code</a></p>
+<pre class="language-Python" data-language="Python"><code class="language-Python">import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
+from sklearn.svm import LinearSVC
+from sklearn.svm import SVC
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+playerTrainDF &#x3D; pd.read_csv(&quot;SVMTrainDF.csv&quot;)
+playerTestDF &#x3D; pd.read_csv(&quot;SVMTestDF.csv&quot;)
+
+playerTestLabel &#x3D; playerTestDF[&#39;performance&#39;]
+
+playerTestDF &#x3D; playerTestDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainDF_nolabel &#x3D; playerTrainDF.drop([&#39;performance&#39;],axis &#x3D; 1)
+playerTrainLabel &#x3D; playerTrainDF[&#39;performance&#39;]
+
+dropcols &#x3D; [&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;position&#39;]
+playerTrainDF_nolabel_quant &#x3D; playerTrainDF_nolabel.drop(dropcols,axis &#x3D; 1)
+playerTestDF_quant &#x3D; playerTestDF.drop(dropcols,axis&#x3D;1)
+
+############################# Kernel: Linear ###########################################
+
+svm_model &#x3D; LinearSVC(C&#x3D;1.0,random_state&#x3D;42)
+svm_model.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+prediction &#x3D; svm_model.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel, prediction))
+
+svm_model2 &#x3D; LinearSVC(C&#x3D;1.0,random_state&#x3D;42)
+svm_model2.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+prediction2 &#x3D; svm_model2.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel, prediction2))
+
+svm_model3 &#x3D; LinearSVC(C&#x3D;50,random_state&#x3D;42)
+svm_model3.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+prediction3 &#x3D; svm_model3.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel, prediction3))
+
+linear_cnf_matrix &#x3D; confusion_matrix(playerTestLabel,prediction)
+linear_cnf_matrix2 &#x3D; confusion_matrix(playerTestLabel,prediction2)
+linear_cnf_matrix3 &#x3D; confusion_matrix(playerTestLabel,prediction3)
+
+fig, axes &#x3D; plt.subplots(2, 2, figsize&#x3D;(15, 15))
+
+labels &#x3D; [&#39;Good&#39;,&#39;Normal&#39;]
+sns.heatmap(linear_cnf_matrix, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[0,0])
+axes[0,0].set_title(&quot;LinearSVC Confusion Matrix C&#x3D;0.01&quot;,fontsize&#x3D;20)
+axes[0,0].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[0,0].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+sns.heatmap(linear_cnf_matrix2, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[0,1])
+axes[0,1].set_title(&quot;LinearSVC Confusion Matrix C&#x3D;1.0&quot;,fontsize&#x3D;20)
+axes[0,1].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[0,1].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+sns.heatmap(linear_cnf_matrix3, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[1,0])
+axes[1,0].set_title(&quot;LinearSVC Confusion Matrix C&#x3D;50&quot;,fontsize&#x3D;20)
+axes[1,0].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[1,0].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+
+############################ Kernel: RBF #########################################
+
+from sklearn.svm import SVC
+svm_rbf_model &#x3D; SVC(C&#x3D;0.01, kernel&#x3D;&#39;rbf&#39;,verbose&#x3D;False)
+svm_rbf_model.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+rbf_prediction &#x3D; svm_rbf_model.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel,rbf_prediction))
+
+svm_rbf_model2 &#x3D; SVC(C&#x3D;0.015, kernel&#x3D;&#39;rbf&#39;,verbose&#x3D;False)
+svm_rbf_model2.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+rbf_prediction2 &#x3D; svm_rbf_model2.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel,rbf_prediction2))
+
+svm_rbf_model3 &#x3D; SVC(C&#x3D;30, kernel&#x3D;&#39;rbf&#39;,verbose&#x3D;False)
+svm_rbf_model3.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+rbf_prediction3 &#x3D; svm_rbf_model3.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel,rbf_prediction3))
+
+rbf_cnf_matrix &#x3D; confusion_matrix(playerTestLabel,rbf_prediction)
+rbf_cnf_matrix2 &#x3D; confusion_matrix(playerTestLabel,rbf_prediction2)
+rbf_cnf_matrix3 &#x3D; confusion_matrix(playerTestLabel,rbf_prediction3)
+
+
+fig, axes &#x3D; plt.subplots(2, 2, figsize&#x3D;(15, 15))
+
+labels &#x3D; [&#39;Good&#39;,&#39;Normal&#39;]
+sns.heatmap(rbf_cnf_matrix, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[0,0])
+axes[0,0].set_title(&quot;rbfSVC Confusion Matrix C&#x3D;0.01&quot;,fontsize&#x3D;20)
+axes[0,0].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[0,0].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+sns.heatmap(rbf_cnf_matrix2, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[0,1])
+axes[0,1].set_title(&quot;rbfSVC Confusion Matrix C&#x3D;0.015&quot;,fontsize&#x3D;20)
+axes[0,1].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[0,1].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+sns.heatmap(rbf_cnf_matrix3, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[1,0])
+axes[1,0].set_title(&quot;rbfSVC Confusion Matrix C&#x3D;30&quot;,fontsize&#x3D;20)
+axes[1,0].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[1,0].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+######################################## Kernel: Polynomial ############################################
+
+svm_poly_model &#x3D; SVC(C&#x3D;0.01,kernel&#x3D;&#39;poly&#39;,gamma&#x3D;&quot;scale&quot;,verbose&#x3D;False)
+svm_poly_model.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+poly_prediction &#x3D; svm_poly_model.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel,poly_prediction))
+
+svm_poly_model2 &#x3D; SVC(C&#x3D;0.05, kernel&#x3D;&#39;poly&#39;,gamma&#x3D;&quot;scale&quot;, verbose&#x3D;False)
+svm_poly_model2.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+poly_prediction2 &#x3D; svm_poly_model2.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel,poly_prediction2))
+
+svm_poly_model3 &#x3D; SVC(C&#x3D;30,kernel&#x3D;&#39;poly&#39;,gamma&#x3D;&quot;scale&quot;, verbose&#x3D;False)
+svm_poly_model3.fit(playerTrainDF_nolabel_quant,playerTrainLabel)
+poly_prediction3 &#x3D; svm_poly_model3.predict(playerTestDF_quant)
+print(accuracy_score(playerTestLabel,poly_prediction3))
+
+poly_cnf_matrix &#x3D; confusion_matrix(playerTestLabel,poly_prediction)
+poly_cnf_matrix2 &#x3D; confusion_matrix(playerTestLabel,poly_prediction2)
+poly_cnf_matrix3 &#x3D; confusion_matrix(playerTestLabel,poly_prediction3)
+
+
+fig, axes &#x3D; plt.subplots(2, 2, figsize&#x3D;(15, 15))
+
+labels &#x3D; [&#39;Good&#39;,&#39;Normal&#39;]
+sns.heatmap(poly_cnf_matrix, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[0,0])
+axes[0,0].set_title(&quot;PolySVC Confusion Matrix C&#x3D;0.01&quot;,fontsize&#x3D;20)
+axes[0,0].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[0,0].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+sns.heatmap(poly_cnf_matrix2, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[0,1])
+axes[0,1].set_title(&quot;PolySVC Confusion Matrix C&#x3D;0.05&quot;,fontsize&#x3D;20)
+axes[0,1].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[0,1].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+sns.heatmap(poly_cnf_matrix3, annot&#x3D;True,cmap&#x3D;&#39;Blues&#39;,xticklabels&#x3D;labels, yticklabels&#x3D;labels, cbar&#x3D;False,ax&#x3D;axes[1,0])
+axes[1,0].set_title(&quot;PolySVC Confusion Matrix C&#x3D;30&quot;,fontsize&#x3D;20)
+axes[1,0].set_xlabel(&quot;Actual&quot;, fontsize&#x3D;15)
+axes[1,0].set_ylabel(&quot;Predicted&quot;, fontsize&#x3D;15)
+
+######################################### SVM Visualization ##########################################
+
+pca &#x3D; PCA(n_components&#x3D;2)
+X &#x3D; pca.fit_transform(playerTrainDF_nolabel_quant)
+Y &#x3D; pca.fit_transform(playerTestDF_quant)
+
+linear_model &#x3D; LinearSVC(C&#x3D;20)
+linear_model.fit(X, playerTrainLabel)
+linear_prediction &#x3D; linear_model.predict(Y)
+print(accuracy_score(playerTestLabel, linear_prediction))
+
+
+def plot_svm(model, X, y):
+    plt.figure(figsize&#x3D;(10, 6))
+
+    plt.scatter(X[:, 0], X[:, 1], c&#x3D;playerTrainLabel.map(&#123;&#39;Good&#39;: &#39;blue&#39;, &#39;Normal&#39;: &#39;red&#39;&#125;), s&#x3D;30, edgecolors&#x3D;&#39;k&#39;)
+    ax &#x3D; plt.gca()
+    xlim &#x3D; ax.get_xlim()
+    ylim &#x3D; ax.get_ylim()
+    xx &#x3D; np.linspace(xlim[0], xlim[1], 100)
+    yy &#x3D; np.linspace(ylim[0], ylim[1], 100)
+    YY, XX &#x3D; np.meshgrid(yy, xx)
+    xy &#x3D; np.vstack([XX.ravel(), YY.ravel()]).T
+    Z &#x3D; model.decision_function(xy).reshape(XX.shape)
+
+    # Decision boundary
+    ax.contour(XX, YY, Z, colors&#x3D;&#39;green&#39;, levels&#x3D;[-1, 0, 1], alpha&#x3D;0.5, linestyles&#x3D;[&#39;-&#39;, &#39;--&#39;, &#39;-&#39;])
+
+    plt.title(&quot;SVM Viusalization Example (Linear)&quot;)
+    plt.xlabel(&quot;Rating&quot;)
+    plt.ylabel(&quot;Key Pass&quot;)
+    plt.show()
+
+
+plot_svm(linear_model, X, playerTrainLabel.values)
+
+########################### Midfielder predictions result show in dataset ############################
+temp &#x3D; pd.DataFrame(poly_prediction3)
+temp &#x3D; temp.rename(columns&#x3D;&#123;0:&#39;label&#39;&#125;)
+temp3 &#x3D; playerTestDF.reset_index()
+temp3 &#x3D; temp3.drop([&#39;index&#39;],axis&#x3D;1)
+merged_df &#x3D; pd.merge(temp3, temp, left_index&#x3D;True, right_index&#x3D;True)
+merged_df
+
+club &#x3D; pd.read_csv(&quot;Clubs_DF.csv&quot;)
+club &#x3D; club[[&#39;season&#39;,&#39;teamName&#39;,&#39;PTS&#39;]]
+club &#x3D; club.drop_duplicates()
+merged_df &#x3D; pd.merge(merged_df, club, on&#x3D;[&#39;season&#39;,&#39;teamName&#39;],how&#x3D;&#39;left&#39;)
+temp4 &#x3D; merged_df.sort_values(by&#x3D;[&#39;season&#39;, &#39;PTS&#39;], ascending&#x3D;[True, False])
+temp4 &#x3D; temp4[[&#39;season&#39;,&#39;teamName&#39;,&#39;playerName&#39;,&#39;label&#39;,&#39;PTS&#39;]]</code></pre>
                 
             </div>
             <hr/>
