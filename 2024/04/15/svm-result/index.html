@@ -1109,6 +1109,8 @@ print(accuracy_score(playerTestLabel, prediction3))
 &gt;&gt;&gt; 0.5064935064935064
 &gt;&gt;&gt; 0.8051948051948052</code></pre>
 
+<p>From the accuracy of the prediction and confusion matrixes, the Linear SVM has a lower prediction accuracy of about <code>51%</code> when C &#x3D; 1.0. The accuracy of the model boosts to about <code>79%</code> when C &#x3D; 0.01. When C &#x3D; 50, the model’s prediction accuracy is about <code>80%</code>. Thus, the C value equal to 0.01 or 50 may be better than C &#x3D; 1.0 when using the linear kernel. The following plot shows the visualization of the linear SVM model which the C value is 50.</p>
+<p><img src="/SVM/result/5.png" alt="SVM Visualization  (Linear Kernel, C=50)"></p>
 <h2 id="Rbf-Kernel"><a href="#Rbf-Kernel" class="headerlink" title="Rbf Kernel"></a>Rbf Kernel</h2><p>Using the rbf kernel SVM to predict midfielders’performance. Here using three diffierent value of <code>C</code>(they are <code>0.01</code>, <code>0.015</code>, and <code>30</code>). This following confusion matrixes can evaluated the prediction performance of the rbf kernel SVM model under different C value. According to the formula of accuracy.</p>
 <p><img src="/SVM/result/2.png" alt="The RBF Kernel Confusion Matrixes"></p>
 <p>$$C_{0.01} &#x3D; \frac{\text{Number of correlty classified Samples}}{\text{Total Number of Samples}} &#x3D; \frac{39}{39+38} &#x3D; 0.5064$$</p>
@@ -1127,6 +1129,7 @@ print(accuracy_score(playerTestLabel,rbf_prediction3))
 &gt;&gt;&gt; 0.8961038961038961
 &gt;&gt;&gt; 0.987012987012987</code></pre>
 
+<p>From the prediction accuracy and confusion matrixes of the rbf SVM model. It has a lower prediction accuracy of about <code>0.51%</code> when C &#x3D; 0.01. The accuracy of the model boosts to about <code>89.6%</code> when C &#x3D; 1.0. When C &#x3D; 30, the model’s prediction accuracy is about <code>98.7%</code>. Thus, the C value equal to 30 has better prediction affection than C equal to 1.0 and 0.01 when using the RBF kernel. </p>
 <h2 id="Polynomial-Kernel"><a href="#Polynomial-Kernel" class="headerlink" title="Polynomial Kernel"></a>Polynomial Kernel</h2><p>Using the polynomial kernel SVM to predict midfielders’ performance. Here using three different value of <code>C</code>(they are <code>0.01</code>, <code>0.05</code>, and <code>30</code>). This following confusion matrixes can evaluated the prediction performance of the polynomial kernel SVM model under different C value. According to the formula of accuracy.</p>
 <p><img src="/SVM/result/3.png" alt="The polynomial Kernel Confusion Matrixes"></p>
 <p>$$C_{0.01} &#x3D; \frac{\text{Number of correlty classified Samples}}{\text{Total Number of Samples}} &#x3D; \frac{27+39}{27+11+39} &#x3D; 0.8571$$</p>
@@ -1145,8 +1148,8 @@ print(accuracy_score(playerTestLabel,poly_prediction3))
 &gt;&gt;&gt; 0.948051948051948
 &gt;&gt;&gt; 0.987012987012987</code></pre>
 
-
-<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><table>
+<p>From the prediction accuracy and confusion matrix of the polynomial SVM model. It has a lower prediction accuracy of about <code>85.7%</code> when C &#x3D; 0.01. The accuracy of the model improves to about <code>94.8%</code> when C &#x3D; 0.05. When C &#x3D; 30, the model’s prediction accuracy is about <code>98.7%</code>, Thus, the C value equal to 30 or 0.05 has better prediction affection than C equal to 0.01 when using the polynomial kernel.</p>
+<h1 id="Comparing-Different-Kernel"><a href="#Comparing-Different-Kernel" class="headerlink" title="Comparing Different Kernel"></a>Comparing Different Kernel</h1><table>
 <thead>
 <tr>
 <th><img src="/SVM/result/6.jpg" alt="Linear Kernel"></th>
@@ -1155,7 +1158,7 @@ print(accuracy_score(playerTestLabel,poly_prediction3))
 </tr>
 </thead>
 </table>
-<p><img src="/SVM/result/4.jpg" alt="Midfielders Prediction Result"></p>
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><p><img src="/SVM/result/4.jpg" alt="Midfielders Prediction Result"></p>
 
                 
             </div>
