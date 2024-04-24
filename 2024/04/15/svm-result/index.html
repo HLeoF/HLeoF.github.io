@@ -1149,7 +1149,8 @@ print(accuracy_score(playerTestLabel,poly_prediction3))
 &gt;&gt;&gt; 0.987012987012987</code></pre>
 
 <p>From the prediction accuracy and confusion matrix of the polynomial SVM model. It has a lower prediction accuracy of about <code>85.7%</code> when C &#x3D; 0.01. The accuracy of the model improves to about <code>94.8%</code> when C &#x3D; 0.05. When C &#x3D; 30, the model’s prediction accuracy is about <code>98.7%</code>, Thus, the C value equal to 30 or 0.05 has better prediction affection than C equal to 0.01 when using the polynomial kernel.</p>
-<h1 id="Comparing-Different-Kernel"><a href="#Comparing-Different-Kernel" class="headerlink" title="Comparing Different Kernel"></a>Comparing Different Kernel</h1><table>
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><h2 id="Comparing-Different-Kernels"><a href="#Comparing-Different-Kernels" class="headerlink" title="Comparing Different Kernels"></a>Comparing Different Kernels</h2><p>The following bar plot shows the prediction accuracies using three different kernels(<code>linear</code>,<code>rbf</code>, and <code>polynomial</code>) at three different C values. It can be seen that linear kernel is slightly less effective than RBF and polynomial kernel during prediction processing. The prediction of the polynomial kernel function is the best among the three kernel functions. The prediction accuracy can reach more than 90% at different values of C. Therefore, selecting the polynomial kernel function using a C value of 50 is the final result of SVM prediction. </p>
+<table>
 <thead>
 <tr>
 <th><img src="/SVM/result/6.jpg" alt="Linear Kernel"></th>
@@ -1158,7 +1159,8 @@ print(accuracy_score(playerTestLabel,poly_prediction3))
 </tr>
 </thead>
 </table>
-<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><p><img src="/SVM/result/4.jpg" alt="Midfielders Prediction Result"></p>
+<h2 id="Prediction-Result"><a href="#Prediction-Result" class="headerlink" title="Prediction Result"></a>Prediction Result</h2><p><img src="/SVM/result/4.jpg" alt="Midfielders Prediction Result"></p>
+<p>As a result, a club’s performance may depend on several midfielders performing well and working well together. For example, Atletico Madrid won the title in the 2020 season after stellar performances from midfielders such as Marcos Llorente and Carrasco managed to underpin the attacking and defensive transition throughout the entire season. On the contrary, if a team’s midfields lack good individual ability and good coordination, then the whole season may suffer such as Getafe. The midfielders such as Aranbarri and Gonzalo Vilar have normal performances, which caused Getafe to have a low ranking. Therefore, the performance of midfielders depends not only on their individual abilities but also on how well they correspond. These two key factors can have a significant impact on the trends of the clubs’ season.</p>
 
                 
             </div>
