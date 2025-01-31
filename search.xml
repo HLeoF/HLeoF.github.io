@@ -4,71 +4,6 @@
   
     
     <entry>
-      <title>Support Vector Machine Catalog</title>
-      <link href="/2024/05/14/svm-page/"/>
-      <url>/2024/05/14/svm-page/</url>
-      
-        <content type="html"><![CDATA[<h1 id="OVERVIEW"><a href="#OVERVIEW" class="headerlink" title="OVERVIEW"></a><a href="https://hleof.github.io/2024/04/15/svm-intro/">OVERVIEW</a></h1><h1 id="DATA-PREPARATION"><a href="#DATA-PREPARATION" class="headerlink" title="DATA PREPARATION"></a><a href="https://hleof.github.io/2024/04/15/svm-data/">DATA PREPARATION</a></h1><h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a><a href="https://hleof.github.io/2024/04/15/svm-code/">CODE</a></h1><h1 id="RESULTS"><a href="#RESULTS" class="headerlink" title="RESULTS"></a><a href="https://hleof.github.io/2024/04/15/svm-result/">RESULTS</a></h1><h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a><a href="https://hleof.github.io/2024/04/15/svm-conclu/">CONCLUSION</a></h1>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Decision Trees Catalog</title>
-      <link href="/2024/05/14/dt-page/"/>
-      <url>/2024/05/14/dt-page/</url>
-      
-        <content type="html"><![CDATA[<h1 id="OVERVIEW"><a href="#OVERVIEW" class="headerlink" title="OVERVIEW"></a><a href="https://hleof.github.io/2024/03/22/dt-intro/">OVERVIEW</a></h1><h1 id="DATA-PREPARATION"><a href="#DATA-PREPARATION" class="headerlink" title="DATA PREPARATION"></a><a href="https://hleof.github.io/2024/03/22/dt-data/">DATA PREPARATION</a></h1><h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a><a href="https://hleof.github.io/2024/03/22/dt-code/">CODE</a></h1><h1 id="RESULTS"><a href="#RESULTS" class="headerlink" title="RESULTS"></a><a href="https://hleof.github.io/2024/03/22/dt-result/">RESULTS</a></h1><h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a><a href="https://hleof.github.io/2024/03/22/dt-conclu/">CONCLUSION</a></h1>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Naive Bayes Catalog</title>
-      <link href="/2024/05/14/nb-page/"/>
-      <url>/2024/05/14/nb-page/</url>
-      
-        <content type="html"><![CDATA[<h1 id="OVERVIEW"><a href="#OVERVIEW" class="headerlink" title="OVERVIEW"></a><a href="https://hleof.github.io/2024/03/14/nb-intro/">OVERVIEW</a></h1><h1 id="DATA-PREPARATION"><a href="#DATA-PREPARATION" class="headerlink" title="DATA PREPARATION"></a><a href="https://hleof.github.io/2024/03/14/nb-data/">DATA PREPARATION</a></h1><h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a><a href="https://hleof.github.io/2024/03/22/dt-code/">CODE</a></h1><h1 id="RESULTS"><a href="#RESULTS" class="headerlink" title="RESULTS"></a><a href="https://hleof.github.io/2024/03/22/dt-result/">RESULTS</a></h1><h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a><a href="https://hleof.github.io/2024/03/14/nb-conclu/">CONCLUSION</a></h1>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Clustering Catalog</title>
-      <link href="/2024/05/14/cluster-page/"/>
-      <url>/2024/05/14/cluster-page/</url>
-      
-        <content type="html"><![CDATA[<h1 id="OVERVIEW"><a href="#OVERVIEW" class="headerlink" title="OVERVIEW"></a><a href="https://hleof.github.io/2024/02/20/clust-intro/">OVERVIEW</a></h1><h1 id="DATA-PREPARATION"><a href="#DATA-PREPARATION" class="headerlink" title="DATA PREPARATION"></a><a href="https://hleof.github.io/2024/02/20/clust-data/">DATA PREPARATION</a></h1><h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a><a href="https://hleof.github.io/2024/02/20/clust-code/">CODE</a></h1><h1 id="RESULTS"><a href="#RESULTS" class="headerlink" title="RESULTS"></a><a href="https://hleof.github.io/2024/02/20/clust-result/">RESULTS</a></h1><h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a><a href="https://hleof.github.io/2024/02/20/clust-conclu/">CONCLUSION</a></h1>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Association Rule Mining Catalog</title>
-      <link href="/2024/05/14/arm-page/"/>
-      <url>/2024/05/14/arm-page/</url>
-      
-        <content type="html"><![CDATA[<h1 id="OVERVIEW"><a href="#OVERVIEW" class="headerlink" title="OVERVIEW"></a><a href="https://hleof.github.io/2024/02/20/arm-intro/">OVERVIEW</a></h1><h1 id="DATA-PREPARATION"><a href="#DATA-PREPARATION" class="headerlink" title="DATA PREPARATION"></a><a href="https://hleof.github.io/2024/02/20/arm-data/">DATA PREPARATION</a></h1><h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a><a href="https://hleof.github.io/2024/02/20/arm-code/">CODE</a></h1><h1 id="RESULTS"><a href="#RESULTS" class="headerlink" title="RESULTS"></a><a href="https://hleof.github.io/2024/02/20/arm-result/">RESULTS</a></h1><h1 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a><a href="https://hleof.github.io/2024/02/20/arm-conclu/">CONCLUSION</a></h1>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Conclusion</title>
       <link href="/2024/04/24/conclusion/"/>
       <url>/2024/04/24/conclusion/</url>
@@ -696,9 +631,9 @@
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Conclusion </tag>
-            
             <tag> Clustring </tag>
+            
+            <tag> Conclusion </tag>
             
         </tags>
       
@@ -725,9 +660,9 @@
             
             <tag> Unsupervised Machine Learning </tag>
             
-            <tag> Results </tag>
-            
             <tag> Clustring </tag>
+            
+            <tag> Results </tag>
             
         </tags>
       
